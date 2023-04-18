@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game_id: MyString
+  status: MyString
+  start_date: 2023-04-04
+  who_moves: MyString
+  fen: MyString
+  player_black: one
+  player_white: one
+  end_date: 2023-04-04
+
+two:
+  game_id: MyString
+  status: MyString
+  start_date: 2023-04-04
+  who_moves: MyString
+  fen: MyString
+  player_black: two
+  player_white: two
+  end_date: 2023-04-04
