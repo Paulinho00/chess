@@ -1,0 +1,161 @@
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20230404153628)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" varchar, "email" varchar, "username" varchar, "password" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230404153628"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-04-04 15:36:59.803198"], ["updated_at", "2023-04-04 15:36:59.803198"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20230404160645)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" varchar, "status" varchar, "start_date" date, "who_moves" varchar, "fen" varchar, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "player_blacks" ("id")
+, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "player_whites" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_black_id" ON "games" ("player_black_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_white_id" ON "games" ("player_white_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230404160645"]]
+  [1m[36mTRANSACTION (21.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-05-13 13:41:15 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 13:41:15 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 13:41:15 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 13:41:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.3ms | Allocations: 876)
+  Rendered vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.4ms | Allocations: 812)
+Completed 200 OK in 132ms (Views: 39.2ms | ActiveRecord: 0.0ms | Allocations: 8557)
+
+
+Completed 200 OK in 137ms (Views: 34.5ms | ActiveRecord: 0.0ms | Allocations: 8943)
+
+
+  Rendered vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.5ms | Allocations: 829)
+Completed 200 OK in 139ms (Views: 41.4ms | ActiveRecord: 0.0ms | Allocations: 9018)
+
+
+  Rendered vendor/bundle/ruby/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.4ms | Allocations: 816)
+Completed 200 OK in 141ms (Views: 47.3ms | ActiveRecord: 0.0ms | Allocations: 9311)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:24:10 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:24:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 26.1ms | Allocations: 952)
+  Rendered players/index.html.erb within layouts/application (Duration: 70.5ms | Allocations: 2734)
+  Rendered layout layouts/application.html.erb (Duration: 1091.5ms | Allocations: 127414)
+Completed 200 OK in 1171ms (Views: 1111.4ms | ActiveRecord: 0.5ms | Allocations: 135339)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 1102.5ms | Allocations: 132547)
+Completed 200 OK in 1185ms (Views: 1128.4ms | ActiveRecord: 0.9ms | Allocations: 139912)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:46:23 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:46:23 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:46:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+Processing by PlayersController#index as HTML
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  Rendering players/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 1777)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 23.3ms | Allocations: 4019)
+  Rendered players/index.html.erb within layouts/application (Duration: 24.8ms | Allocations: 4192)
+  Rendered layout layouts/application.html.erb (Duration: 8433.7ms | Allocations: 280288)
+Completed 200 OK in 8490ms (Views: 8450.8ms | ActiveRecord: 0.4ms | Allocations: 288706)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 8562.7ms | Allocations: 284264)
+Completed 200 OK in 8614ms (Views: 8577.8ms | ActiveRecord: 1.0ms | Allocations: 292193)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 8621.4ms | Allocations: 286780)
+Completed 200 OK in 8677ms (Views: 8638.5ms | ActiveRecord: 0.8ms | Allocations: 294921)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:48:49 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:48:49 +0200
+Started GET "/" for 127.0.0.1 at 2023-05-13 14:48:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+Processing by PlayersController#index as HTML
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 928)
+  Rendered players/index.html.erb within layouts/application (Duration: 30.9ms | Allocations: 3376)
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 762)
+  Rendered layout layouts/application.html.erb (Duration: 385.2ms | Allocations: 97366)
+Completed 200 OK in 447ms (Views: 405.5ms | ActiveRecord: 1.5ms | Allocations: 105935)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 417.0ms | Allocations: 111783)
+Completed 200 OK in 492ms (Views: 451.3ms | ActiveRecord: 0.3ms | Allocations: 121387)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 412.5ms | Allocations: 111980)
+Completed 200 OK in 495ms (Views: 453.6ms | ActiveRecord: 0.8ms | Allocations: 122010)
+
+
