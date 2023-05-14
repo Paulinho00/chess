@@ -1255,3 +1255,183 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 125ms (Views: 109.8ms | ActiveRecord: 1.5ms | Allocations: 11448)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixPlayerPrimaryKey (20230514112619)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "player_id" varchar DEFAULT NULL, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","player_id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at")
+                     SELECT "id","player_id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at" FROM "players"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at" FROM "players"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer PRIMARY KEY AUTOINCREMENT NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixPlayerPrimaryKey (20230514112619)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "player_id" varchar DEFAULT NULL, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","player_id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at")
+                     SELECT "id","player_id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at" FROM "players"[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230514112619"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-05-14 13:36:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 92ms (ActiveRecord: 0.0ms | Allocations: 6304)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-14 13:36:04 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 37.3ms | Allocations: 1016)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 195.8ms | Allocations: 5815)
+  Rendered layout layouts/application.html.erb (Duration: 3155.2ms | Allocations: 73347)
+Completed 200 OK in 3361ms (Views: 3311.1ms | ActiveRecord: 1.9ms | Allocations: 96985)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-14 13:36:16 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 321ms (ActiveRecord: 1.0ms | Allocations: 8433)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-14 13:36:16 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 5.4ms | Allocations: 4278)
+  Rendered players/index.html.erb within layouts/application (Duration: 25.5ms | Allocations: 5788)
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 5866)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 1.3ms | Allocations: 8265)
+
+
+  
+ActionView::Template::Error (undefined method `player_id' for #<Player id: 1, username: "magnusCarlsen", created_at: "2023-05-14 11:08:51.503338000 +0000", updated_at: "2023-05-14 11:10:17.875482000 +0000", email: "magnus.carlsen@gmail.com">):
+    1: <div id="<%= dom_id player %>">
+    2:   <p>
+    3:     <strong>Player:</strong>
+    4:     <%= player.player_id %>
+    5:   </p>
+    6: 
+    7:   <p>
+  
+app/views/players/_player.html.erb:4
+app/views/players/index.html.erb:7
+app/views/players/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2023-05-14 13:36:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 23.9ms | Allocations: 5135)
+  Rendered players/index.html.erb within layouts/application (Duration: 58.4ms | Allocations: 25174)
+  Rendered layout layouts/application.html.erb (Duration: 59.1ms | Allocations: 25262)
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 1.7ms | Allocations: 31590)
+
+
+  
+ActionView::Template::Error (undefined method `player_id' for #<Player id: 1, username: "magnusCarlsen", created_at: "2023-05-14 11:08:51.503338000 +0000", updated_at: "2023-05-14 11:10:17.875482000 +0000", email: "magnus.carlsen@gmail.com">):
+    1: <div id="<%= dom_id player %>">
+    2:   <p>
+    3:     <strong>Player:</strong>
+    4:     <%= player.player_id %>
+    5:   </p>
+    6: 
+    7:   <p>
+  
+app/views/players/_player.html.erb:4
+app/views/players/index.html.erb:7
+app/views/players/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2023-05-14 13:38:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 4.7ms | Allocations: 324)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 62.0ms | Allocations: 20940)
+  Rendered layout layouts/application.html.erb (Duration: 1326.4ms | Allocations: 66571)
+Completed 200 OK in 1455ms (Views: 1336.4ms | ActiveRecord: 2.0ms | Allocations: 72955)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2023-05-14 13:38:35 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (8.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:64:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 26)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 71.7ms | Allocations: 7183)
+Completed 200 OK in 96ms (Views: 76.3ms | ActiveRecord: 8.6ms | Allocations: 10361)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-14 13:38:42 +0200
+Processing by PlayersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1255)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 7355)
+Completed 200 OK in 59ms (Views: 55.4ms | ActiveRecord: 0.7ms | Allocations: 7696)
+
+
