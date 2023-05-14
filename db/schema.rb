@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_160645) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_104939) do
   create_table "games", force: :cascade do |t|
     t.string "game_id"
     t.string "status"
@@ -28,11 +28,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_160645) do
 
   create_table "players", force: :cascade do |t|
     t.string "player_id"
-    t.string "email"
     t.string "username"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_players_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
   add_foreign_key "games", "player_blacks"
