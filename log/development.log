@@ -1913,3 +1913,1135 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 54ms (Views: 46.9ms | ActiveRecord: 0.0ms | Allocations: 8278)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-14 14:13:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 55ms (ActiveRecord: 0.0ms | Allocations: 5705)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-14 14:13:55 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 36.2ms | Allocations: 5095)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 1126.9ms | Allocations: 51124)
+Completed 200 OK in 1225ms (Views: 1188.2ms | ActiveRecord: 16.9ms | Allocations: 73776)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-14 14:13:59 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 585)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1328)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 7773)
+Completed 200 OK in 66ms (Views: 63.7ms | ActiveRecord: 0.0ms | Allocations: 8412)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-14 14:14:06 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 330ms (ActiveRecord: 0.8ms | Allocations: 7226)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-14 14:14:06 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.9ms | Allocations: 298)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2124)
+  Rendered layouts/_navbar.html.erb (Duration: 8.4ms | Allocations: 270)
+  Rendered layout layouts/application.html.erb (Duration: 211.3ms | Allocations: 8770)
+Completed 200 OK in 231ms (Views: 219.3ms | ActiveRecord: 1.9ms | Allocations: 11184)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-14 14:14:08 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 52ms (ActiveRecord: 0.6ms | Allocations: 3076)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-14 14:14:09 +0200
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-14 14:14:09 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1327)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 62.4ms | Allocations: 7798)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.0ms | Allocations: 8550)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:22:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 406 Not Acceptable in 64ms (ActiveRecord: 0.0ms | Allocations: 4687)
+
+
+  
+ActionController::MissingExactTemplate (PlayersController#mainPage is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (7.0.4.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.2) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.2) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.4.2) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4.2) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.2) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.2) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.2) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.2) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.6.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.6.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.6.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.2) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.2) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.2) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.2) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.2) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:25:28 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 406 Not Acceptable in 39ms (ActiveRecord: 0.0ms | Allocations: 4511)
+
+
+  
+ActionController::MissingExactTemplate (PlayersController#mainPage is missing a template for request formats: text/html):
+  
+actionpack (7.0.4.2) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (7.0.4.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (7.0.4.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.4.2) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.4.2) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.4.2) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4.2) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.2) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.2) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.2) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.2) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.2) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.2) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.6.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.6.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.6.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.2) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.2) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.2) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.2) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.2) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.2) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.2) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:26:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 3.3ms | Allocations: 437)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 560)
+  Rendered layout layouts/application.html.erb (Duration: 851.5ms | Allocations: 46782)
+Completed 200 OK in 938ms (Views: 878.4ms | ActiveRecord: 0.0ms | Allocations: 53309)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:26:57 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 726)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 999)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 34.5ms | Allocations: 5353)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 91.6ms | Allocations: 12096)
+Completed 200 OK in 125ms (Views: 98.3ms | ActiveRecord: 1.2ms | Allocations: 32102)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:35:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 14.0ms | Allocations: 471)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 560)
+  Rendered layout layouts/application.html.erb (Duration: 792.2ms | Allocations: 46227)
+Completed 200 OK in 1015ms (Views: 858.1ms | ActiveRecord: 0.0ms | Allocations: 52754)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:36:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 40ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:36:36 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 7.4ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 55.9ms | Allocations: 5105)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 976.3ms | Allocations: 50975)
+Completed 200 OK in 1137ms (Views: 1090.6ms | ActiveRecord: 1.2ms | Allocations: 73639)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:36:43 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 279ms (ActiveRecord: 1.1ms | Allocations: 7387)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:36:44 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.2ms | Allocations: 153)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 305)
+  Rendered layout layouts/application.html.erb (Duration: 41.5ms | Allocations: 6861)
+Completed 200 OK in 55ms (Views: 50.0ms | ActiveRecord: 0.5ms | Allocations: 9253)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-15 16:36:49 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 14ms (ActiveRecord: 0.6ms | Allocations: 3083)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:36:49 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:36:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1327)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 119.9ms | Allocations: 7792)
+Completed 200 OK in 125ms (Views: 120.8ms | ActiveRecord: 0.0ms | Allocations: 8536)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:37:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 47ms (ActiveRecord: 0.0ms | Allocations: 5703)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:37:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 2.7ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 63.7ms | Allocations: 5095)
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 774.7ms | Allocations: 51077)
+Completed 200 OK in 912ms (Views: 895.5ms | ActiveRecord: 1.2ms | Allocations: 73739)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:37:19 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 259ms (ActiveRecord: 1.1ms | Allocations: 7394)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:37:20 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.1ms | Allocations: 153)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 305)
+  Rendered layout layouts/application.html.erb (Duration: 55.0ms | Allocations: 6864)
+Completed 200 OK in 66ms (Views: 59.8ms | ActiveRecord: 0.6ms | Allocations: 9264)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:37:25 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layouts/_navbar.html.erb (Duration: 6.8ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 55.5ms | Allocations: 6411)
+Completed 200 OK in 66ms (Views: 56.6ms | ActiveRecord: 1.0ms | Allocations: 8096)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-15 16:37:27 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 33ms (ActiveRecord: 0.8ms | Allocations: 2910)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:37:27 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 357)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:37:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1327)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 40.2ms | Allocations: 7885)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.0ms | Allocations: 8629)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:37:32 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:37:32 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 138)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1256)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 43.5ms | Allocations: 7603)
+Completed 200 OK in 47ms (Views: 44.5ms | ActiveRecord: 0.0ms | Allocations: 8308)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:42:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 56ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:42:06 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 15.5ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 57.5ms | Allocations: 5112)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 722.6ms | Allocations: 51069)
+Completed 200 OK in 836ms (Views: 776.9ms | ActiveRecord: 18.9ms | Allocations: 73732)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:42:12 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (9.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 264ms (ActiveRecord: 9.1ms | Allocations: 7387)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:42:12 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 7.2ms | Allocations: 316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 71.9ms | Allocations: 6960)
+Completed 200 OK in 88ms (Views: 79.2ms | ActiveRecord: 0.8ms | Allocations: 9344)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:42:13 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 295)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1362)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 7857)
+Completed 200 OK in 65ms (Views: 50.4ms | ActiveRecord: 0.9ms | Allocations: 10767)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:42:22 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (8.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 418)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 238)
+  Rendered layout layouts/application.html.erb (Duration: 57.3ms | Allocations: 6977)
+Completed 200 OK in 83ms (Views: 60.8ms | ActiveRecord: 9.3ms | Allocations: 9098)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:43:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 77ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:43:16 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 20.5ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 68.0ms | Allocations: 5112)
+  Rendered layouts/_navbar.html.erb (Duration: 7.4ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 988.3ms | Allocations: 51096)
+Completed 200 OK in 1105ms (Views: 1057.5ms | ActiveRecord: 1.8ms | Allocations: 73745)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:43:22 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 296ms (ActiveRecord: 0.9ms | Allocations: 7381)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:43:23 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (2.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.5ms | Allocations: 316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 78.7ms | Allocations: 6960)
+Completed 200 OK in 96ms (Views: 83.4ms | ActiveRecord: 2.0ms | Allocations: 9360)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:43:24 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (6.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.0ms | Allocations: 295)
+  Rendered players/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1073)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 7602)
+Completed 200 OK in 69ms (Views: 41.2ms | ActiveRecord: 6.8ms | Allocations: 10522)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:43:27 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 68)
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 65.0ms | Allocations: 6550)
+Completed 200 OK in 84ms (Views: 68.3ms | ActiveRecord: 0.6ms | Allocations: 8237)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:43:28 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 180)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 6569)
+Completed 200 OK in 36ms (Views: 30.2ms | ActiveRecord: 0.9ms | Allocations: 8480)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:43:30 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 61)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 6441)
+Completed 200 OK in 63ms (Views: 47.7ms | ActiveRecord: 0.8ms | Allocations: 7910)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:46:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 3.7ms | Allocations: 721)
+  Rendered layouts/_navbar.html.erb (Duration: 20.1ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 674.0ms | Allocations: 46998)
+Completed 200 OK in 878ms (Views: 687.5ms | ActiveRecord: 2.4ms | Allocations: 77126)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-15 16:46:39 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 30ms (ActiveRecord: 0.6ms | Allocations: 5029)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:46:39 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 414)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:46:39 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 18.1ms | Allocations: 997)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 122.4ms | Allocations: 4680)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 165.3ms | Allocations: 11255)
+Completed 200 OK in 185ms (Views: 178.7ms | ActiveRecord: 0.0ms | Allocations: 13380)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:47:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 46ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:47:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 2.7ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 78.6ms | Allocations: 5105)
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | Allocations: 483)
+  Rendered layout layouts/application.html.erb (Duration: 820.0ms | Allocations: 51108)
+Completed 200 OK in 924ms (Views: 905.4ms | ActiveRecord: 1.0ms | Allocations: 73762)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:47:56 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 301ms (ActiveRecord: 1.1ms | Allocations: 7377)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:47:56 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.2ms | Allocations: 316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 6959)
+Completed 200 OK in 53ms (Views: 43.4ms | ActiveRecord: 0.7ms | Allocations: 9351)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-15 16:47:58 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 14ms (ActiveRecord: 1.0ms | Allocations: 3055)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:47:58 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:47:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1327)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 70.4ms | Allocations: 7787)
+Completed 200 OK in 103ms (Views: 71.5ms | ActiveRecord: 0.0ms | Allocations: 8541)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-15 16:48:00 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 258)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 255)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2544)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 9125)
+Completed 200 OK in 44ms (Views: 41.4ms | ActiveRecord: 0.0ms | Allocations: 10696)
+
+
+Started GET "/players/password/new" for 127.0.0.1 at 2023-05-15 16:48:05 +0200
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 156)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 1481)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 53.3ms | Allocations: 8065)
+Completed 200 OK in 60ms (Views: 56.4ms | ActiveRecord: 0.0ms | Allocations: 9574)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:48:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 79ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:48:53 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 96.1ms | Allocations: 5106)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 898.3ms | Allocations: 51001)
+Completed 200 OK in 1027ms (Views: 966.0ms | ActiveRecord: 1.9ms | Allocations: 73667)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-15 16:48:57 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 258)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 255)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 14.9ms | Allocations: 2544)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 9126)
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.0ms | Allocations: 10690)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-15 16:49:00 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 82)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1231)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | Allocations: 7586)
+Completed 200 OK in 38ms (Views: 33.7ms | ActiveRecord: 0.0ms | Allocations: 8307)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:51:02 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 67ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 25.9ms | Allocations: 5105)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 638.5ms | Allocations: 51069)
+Completed 200 OK in 696ms (Views: 672.8ms | ActiveRecord: 1.6ms | Allocations: 73736)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:05 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 583)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1328)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 7773)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.0ms | Allocations: 8412)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:10 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 227ms (ActiveRecord: 0.9ms | Allocations: 7227)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:51:11 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.0ms | Allocations: 317)
+  Rendered layouts/_navbar.html.erb (Duration: 11.2ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 57.3ms | Allocations: 6965)
+Completed 200 OK in 66ms (Views: 60.7ms | ActiveRecord: 0.7ms | Allocations: 9371)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-15 16:51:12 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 27ms (ActiveRecord: 0.7ms | Allocations: 3076)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:51:13 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 343)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1327)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 73.5ms | Allocations: 7798)
+Completed 200 OK in 77ms (Views: 74.5ms | ActiveRecord: 0.0ms | Allocations: 8546)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:51:53 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 57ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:54 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 26.8ms | Allocations: 5105)
+  Rendered layouts/_navbar.html.erb (Duration: 14.3ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 651.5ms | Allocations: 51089)
+Completed 200 OK in 705ms (Views: 684.0ms | ActiveRecord: 1.8ms | Allocations: 73754)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:58 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 581)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 140)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1328)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 51.0ms | Allocations: 7773)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 0.0ms | Allocations: 8412)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:51:59 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 412)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 138)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1249)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 42.4ms | Allocations: 7578)
+Completed 200 OK in 46ms (Views: 43.6ms | ActiveRecord: 0.0ms | Allocations: 8125)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:52:00 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 410)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 138)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1249)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 7583)
+Completed 200 OK in 40ms (Views: 30.9ms | ActiveRecord: 0.0ms | Allocations: 8130)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:54:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 47ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:54:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 66.4ms | Allocations: 5105)
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 646.4ms | Allocations: 50862)
+Completed 200 OK in 746ms (Views: 692.6ms | ActiveRecord: 1.5ms | Allocations: 73513)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:55:00 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (9.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 260ms (ActiveRecord: 9.7ms | Allocations: 7370)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:55:00 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.0ms | Allocations: 316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 6960)
+Completed 200 OK in 49ms (Views: 44.6ms | ActiveRecord: 0.6ms | Allocations: 9344)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:55:08 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 5.8ms | Allocations: 295)
+  Rendered players/show.html.erb within layouts/application (Duration: 27.4ms | Allocations: 1073)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 121.6ms | Allocations: 7602)
+Completed 200 OK in 135ms (Views: 125.5ms | ActiveRecord: 1.3ms | Allocations: 10516)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:55:13 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 68)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 6465)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.6ms | Allocations: 8141)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:55:14 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 180)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 6572)
+Completed 200 OK in 38ms (Views: 32.1ms | ActiveRecord: 1.1ms | Allocations: 8500)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:55:16 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 61)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 61.5ms | Allocations: 6442)
+Completed 200 OK in 66ms (Views: 62.1ms | ActiveRecord: 0.5ms | Allocations: 7927)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-15 16:55:17 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 176)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 6559)
+Completed 200 OK in 38ms (Views: 32.0ms | ActiveRecord: 0.7ms | Allocations: 8456)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-15 16:55:19 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 61)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 6441)
+Completed 200 OK in 45ms (Views: 40.0ms | ActiveRecord: 0.6ms | Allocations: 7899)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 16:57:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 77ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 16:57:13 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 96.9ms | Allocations: 5106)
+  Rendered layouts/_navbar.html.erb (Duration: 8.2ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 1248.8ms | Allocations: 50499)
+Completed 200 OK in 1331ms (Views: 1283.0ms | ActiveRecord: 9.6ms | Allocations: 73156)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 17:01:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 89ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 17:01:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 1008)
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 77.0ms | Allocations: 5112)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 886.2ms | Allocations: 50724)
+Completed 200 OK in 959ms (Views: 915.2ms | ActiveRecord: 1.1ms | Allocations: 73395)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 17:02:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 75ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 17:02:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 31.0ms | Allocations: 1002)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 93.3ms | Allocations: 4598)
+  Rendered layouts/_navbar.html.erb (Duration: 5.9ms | Allocations: 485)
+  Rendered layout layouts/application.html.erb (Duration: 729.0ms | Allocations: 50291)
+Completed 200 OK in 865ms (Views: 832.2ms | ActiveRecord: 1.9ms | Allocations: 72871)
+
+
+Started GET "/players/password/new" for 127.0.0.1 at 2023-05-15 17:02:14 +0200
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/passwords/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 259)
+  Rendered players/shared/_links.html.erb (Duration: 0.4ms | Allocations: 300)
+  Rendered players/passwords/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1943)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 45.1ms | Allocations: 8529)
+Completed 200 OK in 52ms (Views: 48.0ms | ActiveRecord: 0.0ms | Allocations: 10050)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 17:13:54 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (Allocations: 223)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 17:13:54 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 138)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 954)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 7305)
+Completed 200 OK in 35ms (Views: 33.0ms | Allocations: 8041)
+
+
+Started GET "/players/password/new" for 127.0.0.1 at 2023-05-15 17:13:56 +0200
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/passwords/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 135)
+  Rendered players/passwords/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 817)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | Allocations: 7174)
+Completed 200 OK in 40ms (Views: 37.3ms | Allocations: 7783)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-15 17:14:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 98ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-15 17:14:18 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 24.1ms | Allocations: 728)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 58.0ms | Allocations: 4325)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 485)
+  Rendered layout layouts/application.html.erb (Duration: 854.1ms | Allocations: 50064)
+Completed 200 OK in 1019ms (Views: 921.3ms | ActiveRecord: 7.7ms | Allocations: 72633)
+
+
