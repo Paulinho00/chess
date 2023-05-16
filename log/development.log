@@ -4079,3 +4079,1678 @@ Processing by GamesController#show as HTML
 Completed 200 OK in 143ms (Views: 134.2ms | ActiveRecord: 3.5ms | Allocations: 9717)
 
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Started GET "/" for 127.0.0.1 at 2023-05-16 17:09:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 67ms (ActiveRecord: 0.0ms | Allocations: 5894)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-16 17:09:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 10.2ms | Allocations: 732)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 55.2ms | Allocations: 4328)
+  Rendered layouts/_navbar.html.erb (Duration: 4.8ms | Allocations: 485)
+  Rendered layout layouts/application.html.erb (Duration: 450.4ms | Allocations: 49601)
+Completed 200 OK in 575ms (Views: 481.2ms | ActiveRecord: 2.4ms | Allocations: 72482)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-16 17:10:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Zaloguj"}
+  [1m[36mPlayer Load (52.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 607ms (ActiveRecord: 52.7ms | Allocations: 8036)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-16 17:10:03 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 4.0ms | Allocations: 319)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 7153)
+Completed 200 OK in 56ms (Views: 45.1ms | ActiveRecord: 0.5ms | Allocations: 9545)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:10:25 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.3ms | Allocations: 319)
+  Rendered players/show.html.erb within layouts/application (Duration: 40.1ms | Allocations: 9606)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 16177)
+Completed 200 OK in 67ms (Views: 54.9ms | ActiveRecord: 1.0ms | Allocations: 19066)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 17:10:29 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.5ms | Allocations: 68)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 6453)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.2ms | Allocations: 8145)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:20:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.8ms | Allocations: 344)
+  Rendered players/show.html.erb within layouts/application (Duration: 33.1ms | Allocations: 6745)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 6845)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 1.8ms | Allocations: 38116)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mainpage_path' for #<ActionView::Base:0x0000000000dcc8>
+Did you mean?  main_app):
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+    7:   <%= link_to "Wroc", mainpage_path %>
+    8: </div>
+  
+app/views/players/show.html.erb:7
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:20:36 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.5ms | Allocations: 22)
+  Rendered players/show.html.erb within layouts/application (Duration: 26.1ms | Allocations: 4584)
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 4656)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.6ms | Allocations: 6772)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mainpage_path' for #<ActionView::Base:0x0000000000e010>
+Did you mean?  main_app):
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+    7:   <%= link_to "Wroc", mainpage_path %>
+    8: </div>
+  
+app/views/players/show.html.erb:7
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:21:34 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.4ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 31.5ms | Allocations: 4524)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | Allocations: 4596)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.8ms | Allocations: 6481)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mainpage_path' for #<ActionView::Base:0x0000000000e330>
+Did you mean?  main_app):
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+    7:   <%= link_to "Wroc", mainpage_path %>
+    8: </div>
+  
+app/views/players/show.html.erb:7
+Started GET "/" for 127.0.0.1 at 2023-05-16 17:22:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 3.7ms | Allocations: 721)
+  Rendered layouts/_navbar.html.erb (Duration: 4.7ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 354.0ms | Allocations: 46863)
+Completed 200 OK in 488ms (Views: 402.9ms | ActiveRecord: 3.0ms | Allocations: 77080)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:22:41 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 2.7ms | Allocations: 323)
+  Rendered players/show.html.erb within layouts/application (Duration: 31.3ms | Allocations: 6329)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 6415)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.8ms | Allocations: 9361)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mainpage_path' for #<ActionView::Base:0x0000000000dfe8>
+Did you mean?  mainpagepath_path):
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+    7:   <%= link_to "Wroc", mainpage_path %>
+    8: </div>
+  
+app/views/players/show.html.erb:7
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:23:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:23:05 +0200
+Processing by PlayersController#show as HTML
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.8ms | Allocations: 380)
+  Rendered players/_player.html.erb (Duration: 1.7ms | Allocations: 361)
+  Rendered players/show.html.erb within layouts/application (Duration: 31.1ms | Allocations: 7344)
+  Rendered layout layouts/application.html.erb (Duration: 50.3ms | Allocations: 11404)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 3.9ms | Allocations: 45050)
+
+
+  Rendered players/show.html.erb within layouts/application (Duration: 50.4ms | Allocations: 11461)
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 12183)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 0.8ms | Allocations: 46093)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mainpage_path' for #<ActionView::Base:0x0000000000dd68>
+Did you mean?  mainpage_path_url):
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+    7:   <%= link_to "Wroc", mainpage_path %>
+    8: </div>
+  
+app/views/players/show.html.erb:7
+  
+ActionView::Template::Error (undefined local variable or method `mainpage_path' for #<ActionView::Base:0x0000000000dd90>
+Did you mean?  mainpage_path_url):
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+    7:   <%= link_to "Wroc", mainpage_path %>
+    8: </div>
+  
+app/views/players/show.html.erb:7
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:24:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.6ms | Allocations: 344)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1700)
+  Rendered layouts/_navbar.html.erb (Duration: 4.3ms | Allocations: 511)
+  Rendered layout layouts/application.html.erb (Duration: 209.6ms | Allocations: 47147)
+Completed 200 OK in 296ms (Views: 219.2ms | ActiveRecord: 2.2ms | Allocations: 78486)
+
+
+Started GET "/mainpage/2" for 127.0.0.1 at 2023-05-16 17:24:52 +0200
+Processing by PlayersController#mainPage as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 4.4ms | Allocations: 286)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 6807)
+Completed 200 OK in 40ms (Views: 33.5ms | ActiveRecord: 0.2ms | Allocations: 8586)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 17:25:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.7ms | Allocations: 344)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1602)
+  Rendered layouts/_navbar.html.erb (Duration: 5.9ms | Allocations: 511)
+  Rendered layout layouts/application.html.erb (Duration: 238.5ms | Allocations: 47135)
+Completed 200 OK in 313ms (Views: 245.3ms | ActiveRecord: 2.2ms | Allocations: 78452)
+
+
+Started GET "/playergames/2" for 127.0.0.1 at 2023-05-16 17:26:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/playergames/2"):
+  
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:26:44 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.3ms | Allocations: 27)
+  Rendered games/playerGames.erb within layouts/application (Duration: 16.3ms | Allocations: 1994)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.5ms | Allocations: 1064)
+  Rendered layout layouts/application.html.erb (Duration: 48.7ms | Allocations: 9848)
+Completed 200 OK in 114ms (Views: 64.9ms | ActiveRecord: 1.8ms | Allocations: 15067)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 17:28:45 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 25.1ms | Allocations: 4793)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 4873)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.4ms | Allocations: 7184)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `playerGames' for #<ActionView::Base:0x0000000000e420>
+Did you mean?  players_url):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 17:32:26 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 18.8ms | Allocations: 4461)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 4541)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.4ms | Allocations: 6970)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames' for #<ActionView::Base:0x0000000000e740>
+Did you mean?  players_url):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames(:id => current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 17:38:33 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 20.6ms | Allocations: 4436)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 4517)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 3.0ms | Allocations: 7170)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames' for #<ActionView::Base:0x0000000000ead8>
+Did you mean?  players_url):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames(current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:38:54 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 17)
+  Rendered games/playerGames.erb within layouts/application (Duration: 13.5ms | Allocations: 1988)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 10.3ms | Allocations: 1272)
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 10362)
+Completed 200 OK in 64ms (Views: 60.7ms | ActiveRecord: 1.0ms | Allocations: 11385)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-16 17:38:56 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.5ms | Allocations: 1672)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.4ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 8936)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.7ms | Allocations: 9311)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:39:00 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.0ms | Allocations: 1672)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.9ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 54.8ms | Allocations: 8943)
+Completed 200 OK in 59ms (Views: 56.5ms | ActiveRecord: 0.6ms | Allocations: 9299)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:39:43 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 17)
+  Rendered games/playerGames.erb within layouts/application (Duration: 17.2ms | Allocations: 4796)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 4873)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.2ms | Allocations: 6010)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+     6:   <%= link_to "Edit this game", edit_game_path(@game) %> |
+     7:   <%= link_to "Back to games", games_path %>
+     8: 
+     9:   <%= button_to "Destroy this game", @game, method: :delete %>
+    10: </div>
+  
+app/views/games/playerGames.erb:9
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-16 17:39:45 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered games/playerGames.erb within layouts/application (Duration: 12.3ms | Allocations: 4350)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 4421)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 4784)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+     6:   <%= link_to "Edit this game", edit_game_path(@game) %> |
+     7:   <%= link_to "Back to games", games_path %>
+     8: 
+     9:   <%= button_to "Destroy this game", @game, method: :delete %>
+    10: </div>
+  
+app/views/games/playerGames.erb:9
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:39:48 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered games/playerGames.erb within layouts/application (Duration: 45.6ms | Allocations: 4358)
+  Rendered layout layouts/application.html.erb (Duration: 48.5ms | Allocations: 4430)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.9ms | Allocations: 4763)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+     6:   <%= link_to "Edit this game", edit_game_path(@game) %> |
+     7:   <%= link_to "Back to games", games_path %>
+     8: 
+     9:   <%= button_to "Destroy this game", @game, method: :delete %>
+    10: </div>
+  
+app/views/games/playerGames.erb:9
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:41:28 +0200
+  
+SyntaxError (/home/user/RubymineProjects/chess/config/routes.rb:8: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+..., to: 'games#playerGames', as :playerGames_path
+...                              ^
+):
+  
+config/routes.rb:8: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+config/routes.rb:8: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+config/routes.rb:8: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:41:38 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ?[0m  [["id", nil]]
+  ↳ app/views/games/playerGames.erb:3
+  Rendered collection of templates [0 times] (Duration: 0.3ms | Allocations: 19)
+  Rendered games/playerGames.erb within layouts/application (Duration: 13.5ms | Allocations: 4845)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 4922)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 2.4ms | Allocations: 9718)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActiveRecord::Relation []>
+Did you mean?  to_xml):
+     6:   <%= link_to "Edit this game", edit_game_path(@game) %> |
+     7:   <%= link_to "Back to games", games_path %>
+     8: 
+     9:   <%= button_to "Destroy this game", @game, method: :delete %>
+    10: </div>
+  
+app/views/games/playerGames.erb:9
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:43:33 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", nil], ["LIMIT", 11]]
+  Rendered games/playerGames.erb within layouts/application (Duration: 16.7ms | Allocations: 4937)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 5019)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.4ms | Allocations: 6185)
+
+
+  
+ActionView::Template::Error (undefined method `game_id' for #<ActiveRecord::Relation []>):
+    1: 
+    2: <p><%= @game.game_id %>></p>
+  
+app/views/games/playerGames.erb:2
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:43:58 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? /* loading for inspect */ LIMIT ?[0m  [["id", nil], ["LIMIT", 11]]
+  Rendered games/playerGames.erb within layouts/application (Duration: 30.0ms | Allocations: 4852)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 4929)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.8ms | Allocations: 6094)
+
+
+  
+ActionView::Template::Error (undefined method `game_id_change' for #<ActiveRecord::Relation []>):
+    1: 
+    2: <p><%= @game.game_id_change %>></p>
+  
+app/views/games/playerGames.erb:2
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:52:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.5ms | Allocations: 2222)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2325)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.0ms | Allocations: 12035)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<p><%= @game. %>></p>
+):
+1:    
+2:    <p><%= @game. %>></p>
+  
+app/views/games/playerGames.erb:2: syntax error, unexpected ')'
+app/views/games/playerGames.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/games/playerGames.erb:2: syntax error, unexpected ')'
+app/views/games/playerGames.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/games/playerGames.erb:2: syntax error, unexpected ')'
+app/views/games/playerGames.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/games/playerGames.erb:2: syntax error, unexpected ')'
+app/views/games/playerGames.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/games/playerGames.erb:2: syntax error, unexpected ')'
+app/views/games/playerGames.erb:4: syntax error, unexpected `end', expecting ')'
+app/views/games/playerGames.erb:2: syntax error, unexpected ')'
+app/views/games/playerGames.erb:4: syntax error, unexpected `end', expecting ')'
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:53:41 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (2.4ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.4ms | Allocations: 30)
+  Rendered games/playerGames.erb within layouts/application (Duration: 12.9ms | Allocations: 1599)
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 76.3ms | Allocations: 32816)
+  Rendered layout layouts/application.html.erb (Duration: 268.6ms | Allocations: 79505)
+Completed 200 OK in 276ms (Views: 267.6ms | ActiveRecord: 5.8ms | Allocations: 80767)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:53:45 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 17)
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.3ms | Allocations: 713)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.0ms | Allocations: 1015)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 8210)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.9ms | Allocations: 8632)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-16 17:53:49 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.3ms | Allocations: 637)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 7916)
+Completed 200 OK in 49ms (Views: 45.9ms | ActiveRecord: 0.6ms | Allocations: 8273)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-16 17:55:14 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 17ms (Allocations: 6539)
+
+
+  
+NoMethodError (undefined method `All' for Game:Class):
+  
+app/controllers/games_controller.rb:61:in `playerGames'
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-16 17:55:36 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 19)
+  Rendered games/playerGames.erb within layouts/application (Duration: 8.0ms | Allocations: 1238)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 40.6ms | Allocations: 4433)
+  Rendered layout layouts/application.html.erb (Duration: 139.6ms | Allocations: 23007)
+Completed 200 OK in 163ms (Views: 138.2ms | ActiveRecord: 6.2ms | Allocations: 27078)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:55:39 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 13)
+  Rendered games/playerGames.erb within layouts/application (Duration: 5.1ms | Allocations: 637)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 15.5ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 52.2ms | Allocations: 8091)
+Completed 200 OK in 59ms (Views: 54.0ms | ActiveRecord: 1.2ms | Allocations: 8469)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 17:55:50 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 38.3ms | Allocations: 6642)
+  Rendered games/show.html.erb within layouts/application (Duration: 65.6ms | Allocations: 16735)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.7ms | Allocations: 962)
+  Rendered layout layouts/application.html.erb (Duration: 90.0ms | Allocations: 23962)
+Completed 200 OK in 150ms (Views: 91.0ms | ActiveRecord: 1.7ms | Allocations: 42202)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:56:47 +0200
+Processing by GamesController#playerGames as */*
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered games/playerGames.erb within layouts/application (Duration: 9.4ms | Allocations: 2013)
+  Rendered layouts/_navbar.html.erb (Duration: 6.6ms | Allocations: 712)
+  Rendered layout layouts/application.html.erb (Duration: 307.1ms | Allocations: 47596)
+Completed 200 OK in 356ms (Views: 314.6ms | ActiveRecord: 1.1ms | Allocations: 57876)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:57:12 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 9)[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 19)
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.1ms | Allocations: 785)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 61.2ms | Allocations: 32892)
+  Rendered layout layouts/application.html.erb (Duration: 88.8ms | Allocations: 40213)
+Completed 200 OK in 90771ms (Views: 88.2ms | ActiveRecord: 2.6ms | Allocations: 60100)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:58:46 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 34943ms (Allocations: 18311)
+
+
+  
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (1 for 2) in: player_white_id = ? or player_black_id = ?):
+  
+app/controllers/games_controller.rb:61:in `playerGames'
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 17:59:51 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 'id')[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 19)
+  Rendered games/playerGames.erb within layouts/application (Duration: 5.8ms | Allocations: 1238)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 30.1ms | Allocations: 4474)
+  Rendered layout layouts/application.html.erb (Duration: 73.3ms | Allocations: 23039)
+Completed 200 OK in 25427ms (Views: 77.6ms | ActiveRecord: 3.7ms | Allocations: 55073)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 18:01:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT * FROM "games" WHERE (player_white_id = 'id' or player_black_id = 'id')[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 33)
+  Rendered games/playerGames.erb within layouts/application (Duration: 15.7ms | Allocations: 1967)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 47.9ms | Allocations: 22170)
+  Rendered layout layouts/application.html.erb (Duration: 376.4ms | Allocations: 69523)
+Completed 200 OK in 331950ms (Views: 404.5ms | ActiveRecord: 3.7ms | Allocations: 104302)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 18:07:38 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  Rendered games/playerGames.erb within layouts/application (Duration: 19.9ms | Allocations: 2769)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 2871)
+Completed 500 Internal Server Error in 220626ms (ActiveRecord: 0.0ms | Allocations: 53395)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: 
+    2: <% @games.each do |game| %>
+    3: 
+    4:   <tr>
+    5:     <td><%= game.id %></td>
+  
+app/views/games/playerGames.erb:2
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 18:11:19 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered games/playerGames.erb within layouts/application (Duration: 59201.4ms | Allocations: 76419)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 70.8ms | Allocations: 31829)
+  Rendered layout layouts/application.html.erb (Duration: 59588.6ms | Allocations: 153755)
+Completed 200 OK in 83501ms (Views: 59592.1ms | ActiveRecord: 5.0ms | Allocations: 163925)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-16 18:13:41 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:13:49 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 35.3ms | Allocations: 4394)
+  Rendered layout layouts/application.html.erb (Duration: 41.0ms | Allocations: 4475)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.3ms | Allocations: 9307)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames_path' for #<ActionView::Base:0x000000000166e8>
+Did you mean?  players_path):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames_path(current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 18:13:49 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 15.5ms | Allocations: 1182)
+  Rendered players/show.html.erb within layouts/application (Duration: 38.0ms | Allocations: 5655)
+  Rendered layouts/_navbar.html.erb (Duration: 2.8ms | Allocations: 262)
+  Rendered layout layouts/application.html.erb (Duration: 106.6ms | Allocations: 18622)
+Completed 200 OK in 152ms (Views: 108.2ms | ActiveRecord: 4.7ms | Allocations: 26682)
+
+
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered games/playerGames.erb within layouts/application (Duration: 46799.8ms | Allocations: 222594)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 8.7ms | Allocations: 1024)
+  Rendered layout layouts/application.html.erb (Duration: 46834.4ms | Allocations: 229983)
+Completed 200 OK in 50032ms (Views: 46836.8ms | ActiveRecord: 0.8ms | Allocations: 238082)
+
+
+Started GET "/mainpage/2" for 127.0.0.1 at 2023-05-16 18:14:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/mainpage/2"):
+  
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:15:05 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 19.8ms | Allocations: 4448)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 4528)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.3ms | Allocations: 6887)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames' for #<ActionView::Base:0x00000000016eb8>
+Did you mean?  players_url):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames(current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:19:23 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 19.3ms | Allocations: 4421)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 4503)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 2.4ms | Allocations: 12871)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames' for #<ActionView::Base:0x0000000001c6d8>
+Did you mean?  players_url):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames(:id => current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 18:21:58 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 11.5ms | Allocations: 274)
+  Rendered players/show.html.erb within layouts/application (Duration: 15.2ms | Allocations: 815)
+  Rendered layouts/_navbar.html.erb (Duration: 3.3ms | Allocations: 476)
+  Rendered layout layouts/application.html.erb (Duration: 93.7ms | Allocations: 18468)
+Completed 200 OK in 110ms (Views: 95.7ms | ActiveRecord: 1.0ms | Allocations: 21270)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:22:04 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 29.5ms | Allocations: 4253)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 4324)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.3ms | Allocations: 5762)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames' for #<ActionView::Base:0x0000000001cae8>
+Did you mean?  players_url):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames(:id => current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:25:01 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 59.1ms | Allocations: 4438)
+  Rendered layout layouts/application.html.erb (Duration: 61.6ms | Allocations: 4518)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 3.8ms | Allocations: 12901)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames_path' for #<ActionView::Base:0x00000000022308>
+Did you mean?  playerGames_path_url
+               players_path):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames_path(:id => current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:25:03 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 27.9ms | Allocations: 4260)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 4331)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.2ms | Allocations: 5954)
+
+
+  
+ActionView::Template::Error (undefined method `playerGames_path' for #<ActionView::Base:0x00000000022740>
+Did you mean?  playerGames_path_url
+               players_path):
+    2: 
+    3: <p><b>Dostepne akcje:</b></p>
+    4: <ul>
+    5:   <li><%= link_to "Lista gier", playerGames_path(:id => current_player.id) %>></li>
+    6:   <li><%= link_to "Szczegoly konta", current_player %></li>
+    7:   <li>Rozpocznij nowa gre</li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:5
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 18:25:18 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 4.3ms | Allocations: 458)
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 475)
+  Rendered layout layouts/application.html.erb (Duration: 54.2ms | Allocations: 18249)
+Completed 200 OK in 76ms (Views: 65.1ms | ActiveRecord: 0.3ms | Allocations: 20550)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 18:25:32 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered games/playerGames.erb within layouts/application (Duration: 1145.5ms | Allocations: 9507)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.8ms | Allocations: 1082)
+  Rendered layout layouts/application.html.erb (Duration: 1170.7ms | Allocations: 17201)
+Completed 200 OK in 3654ms (Views: 1175.3ms | ActiveRecord: 1.9ms | Allocations: 26401)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 18:26:41 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  Rendered games/playerGames.erb within layouts/application (Duration: 3266.4ms | Allocations: 5984)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.7ms | Allocations: 1053)
+  Rendered layout layouts/application.html.erb (Duration: 3293.1ms | Allocations: 13556)
+Completed 200 OK in 3298ms (Views: 3295.3ms | ActiveRecord: 0.7ms | Allocations: 13983)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:24:28 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (1.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:20
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:25
+  Rendered games/playerGames.erb within layouts/application (Duration: 58.8ms | Allocations: 16006)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 9.1ms | Allocations: 1241)
+  Rendered layout layouts/application.html.erb (Duration: 87.9ms | Allocations: 24203)
+Completed 200 OK in 111ms (Views: 105.4ms | ActiveRecord: 2.4ms | Allocations: 25448)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:25:01 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:8
+  Rendered games/playerGames.erb within layouts/application (Duration: 16.8ms | Allocations: 2268)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.1ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 46.4ms | Allocations: 10412)
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 1.1ms | Allocations: 11638)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:25:39 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 14.6ms | Allocations: 2247)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 9.1ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 60.0ms | Allocations: 10405)
+Completed 200 OK in 68ms (Views: 63.8ms | ActiveRecord: 1.3ms | Allocations: 11628)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:25:47 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 17.0ms | Allocations: 2249)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.7ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 49.7ms | Allocations: 10502)
+Completed 200 OK in 88ms (Views: 80.5ms | ActiveRecord: 1.0ms | Allocations: 11727)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:27:07 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (4.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 16.9ms | Allocations: 2251)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.4ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 50.3ms | Allocations: 10413)
+Completed 200 OK in 61ms (Views: 52.4ms | ActiveRecord: 5.3ms | Allocations: 11636)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:28:04 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 25.5ms | Allocations: 2252)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.1ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 68.9ms | Allocations: 10408)
+Completed 200 OK in 75ms (Views: 71.5ms | ActiveRecord: 1.4ms | Allocations: 11631)
+
+
+Started GET "/games/" for 127.0.0.1 at 2023-05-16 22:29:05 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 17.1ms | Allocations: 1695)
+  Rendered games/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 2969)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.6ms | Allocations: 940)
+  Rendered layout layouts/application.html.erb (Duration: 63.0ms | Allocations: 10059)
+Completed 200 OK in 68ms (Views: 63.6ms | ActiveRecord: 2.2ms | Allocations: 10487)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 22:29:10 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 8.1ms | Allocations: 1301)
+  Rendered games/show.html.erb within layouts/application (Duration: 12.9ms | Allocations: 2090)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 33.4ms | Allocations: 9157)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 1.5ms | Allocations: 10647)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2023-05-16 22:29:11 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (3.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 85.3ms | Allocations: 16105)
+  Rendered games/edit.html.erb within layouts/application (Duration: 91.3ms | Allocations: 16496)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.9ms | Allocations: 1091)
+  Rendered layout layouts/application.html.erb (Duration: 121.6ms | Allocations: 23846)
+Completed 200 OK in 134ms (Views: 123.7ms | ActiveRecord: 3.5ms | Allocations: 24685)
+
+
+Started PATCH "/games/1" for 127.0.0.1 at 2023-05-16 22:29:29 +0200
+Processing by GamesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Zakonczona", "start_date"=>"2023-05-26", "who_moves"=>"Czarne", "fen"=>"123124", "player_black_id"=>"1", "player_white_id"=>"2", "end_date"=>""}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (2.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (0.6ms)[0m  [1m[33mUPDATE "games" SET "status" = ?, "who_moves" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["status", "Zakonczona"], ["who_moves", "Czarne"], ["updated_at", "2023-05-16 20:29:29.379522"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://0.0.0.0:3000/games/1
+Completed 302 Found in 48ms (ActiveRecord: 9.7ms | Allocations: 6137)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 22:29:29 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 5.3ms | Allocations: 1305)
+  Rendered games/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1909)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.5ms | Allocations: 980)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 9224)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 0.8ms | Allocations: 10027)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 22:29:42 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 10.0ms | Allocations: 1307)
+  Rendered games/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 2142)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.1ms | Allocations: 940)
+  Rendered layout layouts/application.html.erb (Duration: 43.9ms | Allocations: 9240)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 1.7ms | Allocations: 9571)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 22:30:43 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 13.3ms | Allocations: 1301)
+  Rendered games/show.html.erb within layouts/application (Duration: 16.9ms | Allocations: 1860)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.9ms | Allocations: 939)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 8927)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 1.4ms | Allocations: 9693)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2023-05-16 22:30:44 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 17.0ms | Allocations: 2599)
+  Rendered games/edit.html.erb within layouts/application (Duration: 18.2ms | Allocations: 2720)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.5ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 41.9ms | Allocations: 9786)
+Completed 200 OK in 52ms (Views: 44.0ms | ActiveRecord: 0.6ms | Allocations: 10552)
+
+
+Started PATCH "/games/1" for 127.0.0.1 at 2023-05-16 22:30:51 +0200
+Processing by GamesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Zakonczona", "start_date"=>"2023-05-26", "who_moves"=>"Czarne", "fen"=>"123124", "player_black_id"=>"1", "player_white_id"=>"2", "end_date"=>"2023-05-27"}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (0.7ms)[0m  [1m[33mUPDATE "games" SET "end_date" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["end_date", "2023-05-27"], ["updated_at", "2023-05-16 20:30:51.185716"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://0.0.0.0:3000/games/1
+Completed 302 Found in 47ms (ActiveRecord: 18.6ms | Allocations: 4479)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 22:30:51 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 8.7ms | Allocations: 1310)
+  Rendered games/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 1893)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.7ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 8960)
+Completed 200 OK in 40ms (Views: 34.8ms | ActiveRecord: 1.2ms | Allocations: 9728)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 22:31:38 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 16.0ms | Allocations: 1310)
+  Rendered games/show.html.erb within layouts/application (Duration: 20.8ms | Allocations: 1873)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.5ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 53.7ms | Allocations: 8939)
+Completed 200 OK in 63ms (Views: 56.5ms | ActiveRecord: 1.4ms | Allocations: 9706)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 22:31:43 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.2ms | Allocations: 382)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 7009)
+Completed 200 OK in 45ms (Views: 33.4ms | ActiveRecord: 0.5ms | Allocations: 9133)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:31:45 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 10.3ms | Allocations: 1886)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.7ms | Allocations: 988)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 9226)
+Completed 200 OK in 45ms (Views: 39.5ms | ActiveRecord: 1.2ms | Allocations: 9626)
+
+
+Started GET "/games/" for 127.0.0.1 at 2023-05-16 22:33:00 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 9.3ms | Allocations: 1318)
+  Rendered games/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 2162)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.2ms | Allocations: 940)
+  Rendered layout layouts/application.html.erb (Duration: 41.5ms | Allocations: 9251)
+Completed 200 OK in 53ms (Views: 41.4ms | ActiveRecord: 1.7ms | Allocations: 9582)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2023-05-16 22:33:01 +0200
+Processing by GamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 22.0ms | Allocations: 2492)
+  Rendered games/new.html.erb within layouts/application (Duration: 52.1ms | Allocations: 2744)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.7ms | Allocations: 939)
+  Rendered layout layouts/application.html.erb (Duration: 83.4ms | Allocations: 9820)
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.3ms | Allocations: 10256)
+
+
+Started POST "/games" for 127.0.0.1 at 2023-05-16 22:33:20 +0200
+Processing by GamesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"", "status"=>"Trwa", "start_date"=>"2023-05-16", "who_moves"=>"Biale", "fen"=>"123", "player_black_id"=>"2", "player_white_id"=>"1", "end_date"=>""}, "commit"=>"Create Game"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mGame Create (3.4ms)[0m  [1m[32mINSERT INTO "games" ("game_id", "status", "start_date", "who_moves", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["game_id", nil], ["status", "Trwa"], ["start_date", "2023-05-16"], ["who_moves", "Biale"], ["fen", "123"], ["end_date", nil], ["created_at", "2023-05-16 20:33:20.678511"], ["updated_at", "2023-05-16 20:33:20.678511"], ["player_white_id", 1], ["player_black_id", 2]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 4.7ms | Allocations: 5068)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: games.game_id):
+  
+app/controllers/games_controller.rb:27:in `block in create'
+app/controllers/games_controller.rb:26:in `create'
+Started POST "/games" for 127.0.0.1 at 2023-05-16 22:33:28 +0200
+Processing by GamesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Trwa", "start_date"=>"2023-05-16", "who_moves"=>"Biale", "fen"=>"123", "player_black_id"=>"2", "player_white_id"=>"1", "end_date"=>""}, "commit"=>"Create Game"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mGame Create (1.2ms)[0m  [1m[32mINSERT INTO "games" ("game_id", "status", "start_date", "who_moves", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["game_id", 123], ["status", "Trwa"], ["start_date", "2023-05-16"], ["who_moves", "Biale"], ["fen", "123"], ["end_date", nil], ["created_at", "2023-05-16 20:33:29.025019"], ["updated_at", "2023-05-16 20:33:29.025019"], ["player_white_id", 1], ["player_black_id", 2]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+Redirected to http://0.0.0.0:3000/games/2
+Completed 302 Found in 44ms (ActiveRecord: 16.6ms | Allocations: 3970)
+
+
+Started GET "/games/2" for 127.0.0.1 at 2023-05-16 22:33:29 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:68:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 8.6ms | Allocations: 1301)
+  Rendered games/show.html.erb within layouts/application (Duration: 13.4ms | Allocations: 1863)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.6ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 9033)
+Completed 200 OK in 43ms (Views: 36.4ms | ActiveRecord: 1.3ms | Allocations: 9809)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 22:33:34 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.0ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 6502)
+Completed 200 OK in 33ms (Views: 21.7ms | ActiveRecord: 0.5ms | Allocations: 7960)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 22:33:36 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 2.3ms | Allocations: 267)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.3ms | Allocations: 748)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 7129)
+Completed 200 OK in 36ms (Views: 27.0ms | ActiveRecord: 0.4ms | Allocations: 9664)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 22:33:37 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.7ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 6515)
+Completed 200 OK in 40ms (Views: 34.3ms | ActiveRecord: 0.2ms | Allocations: 7971)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 22:33:38 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 176)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 6648)
+Completed 200 OK in 39ms (Views: 31.4ms | ActiveRecord: 0.4ms | Allocations: 8550)
+
+
+Started GET "/players/2/edit" for 127.0.0.1 at 2023-05-16 22:33:39 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 34.3ms | Allocations: 2282)
+  Rendered players/edit.html.erb within layouts/application (Duration: 56.3ms | Allocations: 2652)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.7ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 91.7ms | Allocations: 9718)
+Completed 200 OK in 99ms (Views: 93.3ms | ActiveRecord: 0.7ms | Allocations: 10536)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-16 22:33:43 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.4ms | Allocations: 20)
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 49.6ms | Allocations: 1246)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 71.3ms | Allocations: 7635)
+Completed 200 OK in 87ms (Views: 73.4ms | ActiveRecord: 0.6ms | Allocations: 9182)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-16 22:33:50 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 17)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 173)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 6554)
+Completed 200 OK in 36ms (Views: 22.1ms | ActiveRecord: 0.8ms | Allocations: 8454)
+
+
+Started GET "/players/3/edit" for 127.0.0.1 at 2023-05-16 22:33:52 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 5.7ms | Allocations: 1557)
+  Rendered players/edit.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1678)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.9ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 8745)
+Completed 200 OK in 43ms (Views: 37.9ms | ActiveRecord: 0.6ms | Allocations: 9508)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-16 22:33:54 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.4ms | Allocations: 20)
+  Rendered players/_player.html.erb (Duration: 0.3ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.3ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 945)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 7335)
+Completed 200 OK in 58ms (Views: 33.7ms | ActiveRecord: 0.8ms | Allocations: 8799)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-16 22:33:57 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.3ms | Allocations: 17)
+  Rendered players/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 173)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 6554)
+Completed 200 OK in 49ms (Views: 24.8ms | ActiveRecord: 0.5ms | Allocations: 8441)
+
+
+Started GET "/players/3/edit" for 127.0.0.1 at 2023-05-16 22:34:01 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 5.6ms | Allocations: 1549)
+  Rendered players/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1670)
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.8ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 8736)
+Completed 200 OK in 53ms (Views: 44.5ms | ActiveRecord: 0.5ms | Allocations: 9499)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-16 22:34:06 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.3ms | Allocations: 20)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.2ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 945)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 7334)
+Completed 200 OK in 33ms (Views: 26.1ms | ActiveRecord: 0.7ms | Allocations: 8796)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2023-05-16 22:34:19 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 176)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 6557)
+Completed 200 OK in 31ms (Views: 21.9ms | ActiveRecord: 0.5ms | Allocations: 8447)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 22:34:23 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.0ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 24.4ms | Allocations: 6503)
+Completed 200 OK in 37ms (Views: 25.6ms | ActiveRecord: 0.5ms | Allocations: 7966)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-16 22:34:24 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 19.6ms | Allocations: 2975)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.7ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 41.5ms | Allocations: 10232)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 1.4ms | Allocations: 10602)
+
+

@@ -57,6 +57,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def playerGames
+    @id = params[:id]
+    @games = Game.where(:player_white_id == @id).or(Game.where(:player_black_id == @id))
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

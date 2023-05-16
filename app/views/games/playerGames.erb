@@ -1,0 +1,27 @@
+
+<% @games.each do |game| %>
+
+  <p>
+    <strong>Czarne:</strong>
+    <%= game.player_black.username %>
+    <span></span>
+    <strong>Biale:</strong>
+    <%= game.player_white.username %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= game.status %>
+    <strong>Czyj ruch:</strong>
+    <%= game.who_moves %>
+  </p>
+
+  <p>
+    <strong>Poczatek:</strong>
+    <%= game.start_date %>
+    <strong>Koniec:</strong>
+    <%= game.end_date %>
+  </p>
+
+  <p>Szczegoly</p>
+<% end %>
