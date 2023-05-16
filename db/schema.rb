@@ -10,20 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_14_112619) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_105205) do
   create_table "games", force: :cascade do |t|
-    t.string "game_id"
-    t.string "status"
-    t.date "start_date"
-    t.string "who_moves"
-    t.string "fen"
-    t.integer "player_black_id", null: false
-    t.integer "player_white_id", null: false
+    t.integer "game_id", null: false
+    t.string "status", null: false
+    t.date "start_date", null: false
+    t.string "who_moves", null: false
+    t.string "fen", null: false
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["player_black_id"], name: "index_games_on_player_black_id"
-    t.index ["player_white_id"], name: "index_games_on_player_white_id"
+    t.integer "player_white_id", null: false
+    t.integer "player_black_id", null: false
+    t.index ["game_id"], name: "index_games_on_game_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -35,10 +34,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_112619) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "player_id"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "games", "player_blacks"
-  add_foreign_key "games", "player_whites"
+  add_foreign_key "games", "players", column: "player_black_id"
+  add_foreign_key "games", "players", column: "player_white_id"
 end

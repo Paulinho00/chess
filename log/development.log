@@ -3045,3 +3045,1037 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 1019ms (Views: 921.3ms | ActiveRecord: 7.7ms | Allocations: 72633)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixPlayerPrimaryKey (20230514112619)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "players" ADD "player_id" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (1.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230514112619"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_white_id" ON "agames" ("player_white_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_black_id" ON "agames" ("player_black_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "games"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "player_whites" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "player_blacks" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_black_id" ON "games" ("player_black_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_white_id" ON "games" ("player_white_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (8.3ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_white_id" ON "agames" ("player_white_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_black_id" ON "agames" ("player_black_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "games"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "player_whites" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "player_blacks" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_black_id" ON "games" ("player_black_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_white_id" ON "games" ("player_white_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_white_id" ON "agames" ("player_white_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_black_id" ON "agames" ("player_black_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "games"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "player_whites" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "player_blacks" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_black_id" ON "games" ("player_black_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_white_id" ON "games" ("player_white_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "agames"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (6.0ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_black_id" integer NOT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_white_id" ON "agames" ("player_white_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_player_black_id" ON "agames" ("player_black_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_black_id","player_white_id","end_date","created_at","updated_at" FROM "games"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar DEFAULT NULL, "status" varchar DEFAULT NULL, "start_date" date DEFAULT NULL, "who_moves" varchar DEFAULT NULL, "fen" varchar DEFAULT NULL, "player_white_id" integer NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "player_whites" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_player_white_id" ON "games" ("player_white_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","player_white_id","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","player_white_id","end_date","created_at","updated_at" FROM "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.3ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixRelantionship (20230516105205)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.3ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aplayers" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_reset_password_token" ON "aplayers" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aplayers_on_email" ON "aplayers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aplayers" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "players"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "players"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer NOT NULL PRIMARY KEY, "username" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "player_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_email" ON "players" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_reset_password_token" ON "players" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "players" ("id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id")
+                     SELECT "id","username","created_at","updated_at","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","player_id" FROM "aplayers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aplayers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" varchar NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_games_on_game_id" ON "games" ("game_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230516105205"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:04:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 33.7ms | Allocations: 826)
+  Rendered layouts/_navbar.html.erb (Duration: 11.2ms | Allocations: 511)
+  Rendered layout layouts/application.html.erb (Duration: 4258.5ms | Allocations: 77762)
+Completed 200 OK in 4683ms (Views: 4419.6ms | ActiveRecord: 4.9ms | Allocations: 109502)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 13:05:03 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (4.0ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 1341)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 1045)
+  Rendered layout layouts/application.html.erb (Duration: 64.3ms | Allocations: 8848)
+Completed 200 OK in 135ms (Views: 70.5ms | ActiveRecord: 4.6ms | Allocations: 13810)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2023-05-16 13:05:05 +0200
+Processing by GamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 246.9ms | Allocations: 9768)
+  Rendered games/new.html.erb within layouts/application (Duration: 259.4ms | Allocations: 10096)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.7ms | Allocations: 1095)
+  Rendered layout layouts/application.html.erb (Duration: 332.1ms | Allocations: 17473)
+Completed 200 OK in 348ms (Views: 332.2ms | ActiveRecord: 1.7ms | Allocations: 35145)
+
+
+Started POST "/games" for 127.0.0.1 at 2023-05-16 13:05:13 +0200
+Processing by GamesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Ended", "start_date"=>"", "who_moves"=>"Black", "fen"=>"123124", "player_black_id"=>"1", "player_white_id"=>"2", "end_date"=>""}, "commit"=>"Create Game"}
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("game_id", "status", "start_date", "who_moves", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["game_id", 123], ["status", "Ended"], ["start_date", nil], ["who_moves", "Black"], ["fen", "123124"], ["end_date", nil], ["created_at", "2023-05-16 11:05:13.964799"], ["updated_at", "2023-05-16 11:05:13.964799"], ["player_white_id", 2], ["player_black_id", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 161ms (ActiveRecord: 3.9ms | Allocations: 12094)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: games.start_date):
+  
+app/controllers/games_controller.rb:27:in `block in create'
+app/controllers/games_controller.rb:26:in `create'
+Started POST "/games" for 127.0.0.1 at 2023-05-16 13:05:22 +0200
+Processing by GamesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Ended", "start_date"=>"2023-05-26", "who_moves"=>"Black", "fen"=>"123124", "player_black_id"=>"1", "player_white_id"=>"2", "end_date"=>""}, "commit"=>"Create Game"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mGame Create (4.1ms)[0m  [1m[32mINSERT INTO "games" ("game_id", "status", "start_date", "who_moves", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["game_id", 123], ["status", "Ended"], ["start_date", "2023-05-26"], ["who_moves", "Black"], ["fen", "123124"], ["end_date", nil], ["created_at", "2023-05-16 11:05:22.199583"], ["updated_at", "2023-05-16 11:05:22.199583"], ["player_white_id", 2], ["player_black_id", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:27:in `block in create'
+Redirected to http://0.0.0.0:3000/games/1
+Completed 302 Found in 37ms (ActiveRecord: 7.0ms | Allocations: 4404)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:05:22 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 5.7ms | Allocations: 475)
+  Rendered games/show.html.erb within layouts/application (Duration: 39.2ms | Allocations: 1791)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 1086)
+  Rendered layout layouts/application.html.erb (Duration: 93.0ms | Allocations: 9316)
+Completed 200 OK in 98ms (Views: 93.2ms | ActiveRecord: 1.3ms | Allocations: 10893)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 13:05:29 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered games/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 929)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 8024)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.9ms | Allocations: 8396)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:05:33 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 593)
+  [1m[36mPlayer Load (2.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.0ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 45.6ms | Allocations: 7659)
+Completed 200 OK in 50ms (Views: 44.2ms | ActiveRecord: 2.7ms | Allocations: 8438)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 13:05:36 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered games/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 865)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 40.9ms | Allocations: 7966)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.9ms | Allocations: 8297)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:21:32 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 33.0ms | Allocations: 721)
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 1660.2ms | Allocations: 46556)
+Completed 200 OK in 1928ms (Views: 1730.6ms | ActiveRecord: 20.2ms | Allocations: 76763)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:21:38 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:69:in `set_player'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ?[0m  [["id", nil]]
+  ↳ app/controllers/players_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/show.html.erb within layouts/application (Duration: 49.5ms | Allocations: 3869)
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 3955)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 1.7ms | Allocations: 8115)
+
+
+  
+ActionView::Template::Error (Missing partial players/, application/ with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/user/Desktop/chess/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/actiontext-7.0.4.2/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/actionmailbox-7.0.4.2/app/views"
+
+Did you mean?  players/form
+               players/player
+               players/shared/error_messages
+               players/shared/links
+               layouts/navbar
+               games/form):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @player %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edytuj dane", edit_player_path(@player) %> |
+  
+app/views/players/show.html.erb:3
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:22:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 4.2ms | Allocations: 721)
+  Rendered layouts/_navbar.html.erb (Duration: 4.7ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 781.4ms | Allocations: 46438)
+Completed 200 OK in 980ms (Views: 818.3ms | ActiveRecord: 7.2ms | Allocations: 76650)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:22:58 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 76.4ms | Allocations: 8230)
+  Rendered players/show.html.erb within layouts/application (Duration: 84.6ms | Allocations: 9053)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 127.1ms | Allocations: 15593)
+Completed 200 OK in 134ms (Views: 128.0ms | ActiveRecord: 0.9ms | Allocations: 18551)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:24:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 57.3ms | Allocations: 721)
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:24:57 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (7.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.5ms | Allocations: 61)
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | Allocations: 820)
+  Rendered layout layouts/application.html.erb (Duration: 1684.8ms | Allocations: 60628)
+Completed 200 OK in 2126ms (Views: 1802.0ms | ActiveRecord: 17.6ms | Allocations: 90881)
+
+
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 329.0ms | Allocations: 27421)
+Completed 200 OK in 391ms (Views: 333.8ms | ActiveRecord: 8.8ms | Allocations: 29389)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:24:59 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 50.7ms | Allocations: 7102)
+  Rendered players/show.html.erb within layouts/application (Duration: 57.6ms | Allocations: 7921)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 102.5ms | Allocations: 14465)
+Completed 200 OK in 117ms (Views: 103.5ms | ActiveRecord: 0.9ms | Allocations: 17399)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 13:25:37 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.5ms | Allocations: 294)
+  Rendered layouts/_navbar.html.erb (Duration: 5.8ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 84.1ms | Allocations: 7430)
+Completed 200 OK in 117ms (Views: 111.2ms | ActiveRecord: 0.7ms | Allocations: 9912)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:25:39 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 6.7ms | Allocations: 320)
+  Rendered players/show.html.erb within layouts/application (Duration: 10.0ms | Allocations: 758)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 7152)
+Completed 200 OK in 57ms (Views: 45.3ms | ActiveRecord: 0.9ms | Allocations: 9340)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 13:25:40 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 61)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 6444)
+Completed 200 OK in 41ms (Views: 36.3ms | ActiveRecord: 0.9ms | Allocations: 7913)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:26:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 38ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-16 13:26:16 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 26.2ms | Allocations: 728)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 181.6ms | Allocations: 4591)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 488)
+  Rendered layout layouts/application.html.erb (Duration: 903.8ms | Allocations: 50325)
+Completed 200 OK in 1006ms (Views: 948.8ms | ActiveRecord: 1.5ms | Allocations: 73200)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-16 13:26:25 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Zaloguj"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 366ms (ActiveRecord: 1.0ms | Allocations: 8038)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-16 13:26:25 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.3ms | Allocations: 316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | Allocations: 6960)
+Completed 200 OK in 62ms (Views: 49.3ms | ActiveRecord: 0.8ms | Allocations: 9374)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:26:26 +0200
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:26:27 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 79.6ms | Allocations: 7219)
+  Rendered players/show.html.erb within layouts/application (Duration: 88.6ms | Allocations: 8731)
+  Rendered players/_player.html.erb (Duration: 79.8ms | Allocations: 7834)
+  Rendered players/show.html.erb within layouts/application (Duration: 89.7ms | Allocations: 9062)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 170.1ms | Allocations: 21320)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 173.1ms | Allocations: 21979)
+Completed 200 OK in 195ms (Views: 174.5ms | ActiveRecord: 1.1ms | Allocations: 26981)
+
+
+Completed 200 OK in 194ms (Views: 173.9ms | ActiveRecord: 0.9ms | Allocations: 26911)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-16 13:26:44 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.2ms | Allocations: 296)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 7433)
+Completed 200 OK in 42ms (Views: 36.8ms | ActiveRecord: 0.5ms | Allocations: 9930)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:26:46 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 4.5ms | Allocations: 320)
+  Rendered players/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 757)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | Allocations: 7141)
+Completed 200 OK in 44ms (Views: 38.2ms | ActiveRecord: 0.8ms | Allocations: 9314)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-16 13:26:56 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 4.4ms | Allocations: 331)
+  Rendered players/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 858)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 472)
+  Rendered layout layouts/application.html.erb (Duration: 52.9ms | Allocations: 7979)
+Completed 200 OK in 64ms (Views: 57.1ms | ActiveRecord: 1.1ms | Allocations: 10750)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 13:31:06 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  Rendered games/_game.html.erb (Duration: 40.2ms | Allocations: 4288)
+  Rendered games/index.html.erb within layouts/application (Duration: 131.2ms | Allocations: 23103)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.4ms | Allocations: 1199)
+  Rendered layout layouts/application.html.erb (Duration: 194.0ms | Allocations: 31215)
+Completed 200 OK in 208ms (Views: 198.8ms | ActiveRecord: 4.5ms | Allocations: 32540)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:31:14 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (10.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (7.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  Rendered games/_game.html.erb (Duration: 12.0ms | Allocations: 677)
+  Rendered games/show.html.erb within layouts/application (Duration: 16.2ms | Allocations: 1512)
+  [1m[36mPlayer Load (8.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 17.8ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 83.5ms | Allocations: 8579)
+Completed 200 OK in 121ms (Views: 75.3ms | ActiveRecord: 26.9ms | Allocations: 10106)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2023-05-16 13:31:15 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 21.2ms | Allocations: 4091)
+  Rendered games/edit.html.erb within layouts/application (Duration: 30.3ms | Allocations: 4480)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 1091)
+  Rendered layout layouts/application.html.erb (Duration: 69.5ms | Allocations: 11833)
+Completed 200 OK in 78ms (Views: 69.6ms | ActiveRecord: 1.2ms | Allocations: 12672)
+
+
+Started PATCH "/games/1" for 127.0.0.1 at 2023-05-16 13:31:21 +0200
+Processing by GamesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Ended", "start_date"=>"2023-05-26", "who_moves"=>"Black", "fen"=>"123124", "player_black_id"=>"1", "player_white_id"=>"3", "end_date"=>""}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (3.1ms)[0m  [1m[33mUPDATE "games" SET "updated_at" = ?, "player_white_id" = ? WHERE "games"."id" = ?[0m  [["updated_at", "2023-05-16 11:31:21.969036"], ["player_white_id", 3], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://0.0.0.0:3000/games/1
+Completed 302 Found in 55ms (ActiveRecord: 9.7ms | Allocations: 6569)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:31:22 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  Rendered games/_game.html.erb (Duration: 1.7ms | Allocations: 669)
+  Rendered games/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1266)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 58.8ms | Allocations: 8333)
+Completed 200 OK in 63ms (Views: 58.7ms | ActiveRecord: 1.4ms | Allocations: 9125)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 13:31:48 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  Rendered games/_game.html.erb (Duration: 1.5ms | Allocations: 670)
+  Rendered games/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1523)
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 8.0ms | Allocations: 940)
+  Rendered layout layouts/application.html.erb (Duration: 51.2ms | Allocations: 8612)
+Completed 200 OK in 55ms (Views: 50.2ms | ActiveRecord: 1.9ms | Allocations: 8943)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:36:48 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  Rendered games/_game.html.erb (Duration: 2.1ms | Allocations: 667)
+  Rendered games/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1228)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 8294)
+Completed 200 OK in 48ms (Views: 40.9ms | ActiveRecord: 1.8ms | Allocations: 9060)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-16 13:37:03 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 15.0ms | Allocations: 1744)
+  Rendered games/index.html.erb within layouts/application (Duration: 38.1ms | Allocations: 3151)
+  [1m[36mPlayer Load (15.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 20.8ms | Allocations: 1206)
+  Rendered layout layouts/application.html.erb (Duration: 213.2ms | Allocations: 11014)
+Completed 200 OK in 229ms (Views: 202.8ms | ActiveRecord: 17.7ms | Allocations: 12200)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:37:05 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 3.9ms | Allocations: 1299)
+  Rendered games/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2089)
+  [1m[36mPlayer Load (6.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 8.3ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 65.8ms | Allocations: 9155)
+Completed 200 OK in 72ms (Views: 59.6ms | ActiveRecord: 7.6ms | Allocations: 10024)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2023-05-16 13:37:10 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 3.1ms | Allocations: 3304)
+  Rendered games/edit.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3660)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.2ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 69.6ms | Allocations: 10726)
+Completed 200 OK in 77ms (Views: 70.4ms | ActiveRecord: 1.2ms | Allocations: 11545)
+
+
+Started PATCH "/games/1" for 127.0.0.1 at 2023-05-16 13:37:12 +0200
+Processing by GamesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"game_id"=>"123", "status"=>"Ended", "start_date"=>"2023-05-26", "who_moves"=>"Black", "fen"=>"123124", "player_black_id"=>"1", "player_white_id"=>"2", "end_date"=>""}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (2.1ms)[0m  [1m[33mUPDATE "games" SET "updated_at" = ?, "player_white_id" = ? WHERE "games"."id" = ?[0m  [["updated_at", "2023-05-16 11:37:12.600132"], ["player_white_id", 2], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://0.0.0.0:3000/games/1
+Completed 302 Found in 30ms (ActiveRecord: 14.3ms | Allocations: 4596)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2023-05-16 13:37:12 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:34
+  Rendered games/_game.html.erb (Duration: 4.7ms | Allocations: 1301)
+  Rendered games/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1885)
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.6ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 135.7ms | Allocations: 8951)
+Completed 200 OK in 143ms (Views: 134.2ms | ActiveRecord: 3.5ms | Allocations: 9717)
+
+
