@@ -5,4 +5,5 @@ class Player < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :games
+  validates :username, uniqueness: true
 end

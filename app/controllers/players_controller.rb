@@ -2,6 +2,8 @@ class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show edit update destroy ]
   before_action :authenticate_player!, only: [:index, :show, :mainPage]
 
+
+  rescue_from SQLite3::ConstraintException, :with => :handle_exception
   # GET /players or /players.json
   def index
     @players = Player.all
@@ -72,4 +74,8 @@ class PlayersController < ApplicationController
     def player_params
       params.require(:player).permit(:player_id, :email, :username, :password)
     end
+
+  def handle_exception(error)
+    @player.errors.add(:username, error.message)
+  end
 end

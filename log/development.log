@@ -6291,3 +6291,653 @@ Processing by PlayersController#mainPage as HTML
 Completed 200 OK in 97ms (Views: 72.8ms | ActiveRecord: 1.0ms | Allocations: 7973)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UniqueEmailUsername (20230517145650)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UniqueEmailUsername (20230517145650)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_username" ON "players" ("username")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230517145650"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveGameId (20230517145957)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "game_id" integer NOT NULL, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_agames_on_game_id" ON "agames" ("game_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "agames" ("id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","game_id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230517145957"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-05-17 17:00:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 4.7ms | Allocations: 865)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 506)
+  Rendered layout layouts/application.html.erb (Duration: 666.7ms | Allocations: 46741)
+Completed 200 OK in 855ms (Views: 689.2ms | ActiveRecord: 37.0ms | Allocations: 76954)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-17 17:00:48 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.2ms | Allocations: 323)
+  Rendered players/show.html.erb within layouts/application (Duration: 14.7ms | Allocations: 1145)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 65.4ms | Allocations: 7670)
+Completed 200 OK in 84ms (Views: 66.7ms | ActiveRecord: 0.7ms | Allocations: 10623)
+
+
+Started GET "/players/2/edit" for 127.0.0.1 at 2023-05-17 17:00:50 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 21.0ms | Allocations: 4489)
+  Rendered players/edit.html.erb within layouts/application (Duration: 24.1ms | Allocations: 4816)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.5ms | Allocations: 1093)
+  Rendered layout layouts/application.html.erb (Duration: 75.3ms | Allocations: 12169)
+Completed 200 OK in 80ms (Views: 75.3ms | ActiveRecord: 1.2ms | Allocations: 13110)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:00:58 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  [1m[36mPlayer Update (1.0ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:00:58.709387"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 1.7ms | Allocations: 6684)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: players.username):
+  
+app/controllers/players_controller.rb:41:in `block in update'
+app/controllers/players_controller.rb:40:in `update'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:01:34 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "username"=>"hikaruNakamura", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (2.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  [1m[36mPlayer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? AND "players"."id" != ? LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.7ms | Allocations: 2207)
+  Rendered players/edit.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2303)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 971)
+  Rendered layout layouts/application.html.erb (Duration: 46.9ms | Allocations: 9761)
+Completed 422 Unprocessable Entity in 272ms (Views: 47.2ms | ActiveRecord: 3.9ms | Allocations: 14242)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:02:15 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"hikaruNakamura", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  [1m[36mPlayer Update (12.5ms)[0m  [1m[33mUPDATE "players" SET "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["updated_at", "2023-05-17 15:02:15.448873"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:41:in `block in update'
+Redirected to http://0.0.0.0:3000/players/2
+Completed 302 Found in 209ms (ActiveRecord: 15.3ms | Allocations: 3050)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-17 17:02:15 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.8ms | Allocations: 1771)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-17 17:02:15 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.9ms | Allocations: 721)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 30.9ms | Allocations: 3088)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 9667)
+Completed 200 OK in 93ms (Views: 78.8ms | ActiveRecord: 0.0ms | Allocations: 11835)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-17 17:02:26 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/players/2
+Completed 303 See Other in 203ms (ActiveRecord: 0.6ms | Allocations: 3452)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-17 17:02:27 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 213)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 6728)
+Completed 200 OK in 36ms (Views: 31.0ms | ActiveRecord: 0.8ms | Allocations: 8704)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-17 17:02:29 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.2ms | Allocations: 137)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 6521)
+Completed 200 OK in 35ms (Views: 30.4ms | ActiveRecord: 0.5ms | Allocations: 7982)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-17 17:02:30 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 41.3ms | Allocations: 25005)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 1028)
+  Rendered layout layouts/application.html.erb (Duration: 73.3ms | Allocations: 32643)
+Completed 200 OK in 102ms (Views: 73.9ms | ActiveRecord: 2.9ms | Allocations: 37306)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-17 17:02:34 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:68:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 190)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 43.6ms | Allocations: 6572)
+Completed 200 OK in 50ms (Views: 44.2ms | ActiveRecord: 1.1ms | Allocations: 8508)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-17 17:04:50 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.7ms | Allocations: 137)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 6517)
+Completed 200 OK in 61ms (Views: 42.6ms | ActiveRecord: 0.9ms | Allocations: 7979)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-17 17:04:52 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 11.8ms | Allocations: 243)
+  Rendered players/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 827)
+  Rendered layouts/_navbar.html.erb (Duration: 13.7ms | Allocations: 483)
+  Rendered layout layouts/application.html.erb (Duration: 132.5ms | Allocations: 18531)
+Completed 200 OK in 203ms (Views: 161.0ms | ActiveRecord: 11.5ms | Allocations: 27945)
+
+
+Started GET "/players/2/edit" for 127.0.0.1 at 2023-05-17 17:04:54 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.0ms | Allocations: 1796)
+  Rendered players/edit.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2099)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 1017)
+  Rendered layout layouts/application.html.erb (Duration: 58.5ms | Allocations: 9332)
+Completed 200 OK in 69ms (Views: 62.8ms | ActiveRecord: 0.9ms | Allocations: 10221)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:04:59 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "username"=>"hikaruNakamura", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? AND "players"."id" != ? LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.4ms | Allocations: 3044)
+  Rendered players/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 3138)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 945)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 10269)
+Completed 422 Unprocessable Entity in 47ms (Views: 37.2ms | ActiveRecord: 1.4ms | Allocations: 14602)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:05:12 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.4ms | Allocations: 2012)
+  Rendered players/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2106)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 947)
+  Rendered layout layouts/application.html.erb (Duration: 50.9ms | Allocations: 9338)
+Completed 422 Unprocessable Entity in 57ms (Views: 51.0ms | ActiveRecord: 1.2ms | Allocations: 11335)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:05:17 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (3.4ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:05:17.587838"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Redirected to http://0.0.0.0:3000/players/2
+Completed 302 Found in 239ms (ActiveRecord: 4.0ms | Allocations: 4109)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-17 17:05:17 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 177)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 42.7ms | Allocations: 6563)
+Completed 200 OK in 50ms (Views: 43.7ms | ActiveRecord: 1.0ms | Allocations: 8484)
+
+
+Started GET "/players/2/edit" for 127.0.0.1 at 2023-05-17 17:05:21 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.2ms | Allocations: 1162)
+  Rendered players/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1247)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.3ms | Allocations: 938)
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 8313)
+Completed 200 OK in 62ms (Views: 56.5ms | ActiveRecord: 1.2ms | Allocations: 9077)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:05:38 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.6ms | Allocations: 2249)
+  Rendered players/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 2361)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 10.2ms | Allocations: 1412)
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 20615)
+Completed 422 Unprocessable Entity in 103ms (Views: 93.3ms | ActiveRecord: 2.6ms | Allocations: 27472)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:05:42 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (1.8ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:05:43.278191"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 2.4ms | Allocations: 4142)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: players.username):
+  
+app/controllers/players_controller.rb:43:in `block in update'
+app/controllers/players_controller.rb:42:in `update'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:08:31 +0200
+  
+NoMethodError (undefined method `ConstrainException' for PlayersController:Class):
+  
+app/controllers/players_controller.rb:6:in `<class:PlayersController>'
+app/controllers/players_controller.rb:1:in `<main>'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:08:47 +0200
+  
+NoMethodError (undefined method `ConstraintException' for PlayersController:Class):
+  
+app/controllers/players_controller.rb:6:in `<class:PlayersController>'
+app/controllers/players_controller.rb:1:in `<main>'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:09:14 +0200
+  
+NoMethodError (undefined method `ConstraintException' for SQLite3:Module):
+  
+app/controllers/players_controller.rb:6:in `<class:PlayersController>'
+app/controllers/players_controller.rb:1:in `<main>'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:09:26 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (1.4ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:09:27.143303"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 500 Internal Server Error in 227ms (ActiveRecord: 6.7ms | Allocations: 8418)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: players.username):
+  
+app/controllers/players_controller.rb:43:in `block in update'
+app/controllers/players_controller.rb:42:in `update'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:10:26 +0200
+  
+NoMethodError (undefined method `ConstraintException' for SQLite3:Module):
+  
+app/controllers/players_controller.rb:6:in `<class:PlayersController>'
+app/controllers/players_controller.rb:1:in `<main>'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:11:39 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (2.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (2.6ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:11:39.724142"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 500 Internal Server Error in 234ms (ActiveRecord: 6.9ms | Allocations: 11662)
+
+
+  
+NameError (undefined local variable or method `errors' for #<PlayersController:0x0000000003ade0>
+Did you mean?  error):
+  
+app/controllers/players_controller.rb:79:in `handle_exception'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:12:06 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (3.9ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:12:06.726199"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 200 OK in 262ms (ActiveRecord: 5.7ms | Allocations: 8423)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:12:10 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (3.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (1.1ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:12:10.932249"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 200 OK in 307ms (ActiveRecord: 5.1ms | Allocations: 3833)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:12:17 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (6.1ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:12:17.839316"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 200 OK in 196ms (ActiveRecord: 6.6ms | Allocations: 3829)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:26:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (1.2ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:26:17.211255"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 200 OK in 4705ms (ActiveRecord: 3.3ms | Allocations: 42099)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:26:24 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (2.3ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:26:27.140771"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 200 OK in 17617ms (ActiveRecord: 3.2ms | Allocations: 54340)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:27:09 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (7.6ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "magnusCarlsen"], ["updated_at", "2023-05-17 15:27:11.403990"], ["encrypted_password", "[FILTERED]"], ["id", 2]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Completed 200 OK in 1800ms (ActiveRecord: 8.1ms | Allocations: 8784)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:28:26 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:28:32 +0200
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "magnusCarlsen"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 42.3ms | Allocations: 5355)
+  Rendered players/edit.html.erb within layouts/application (Duration: 48.4ms | Allocations: 6124)
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.6ms | Allocations: 1672)
+  Rendered layout layouts/application.html.erb (Duration: 547.7ms | Allocations: 53463)
+Completed 422 Unprocessable Entity in 17636ms (Views: 602.1ms | ActiveRecord: 8.2ms | Allocations: 94079)
+
+
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:28:50 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:28:50 +0200
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "magnusCarlsen"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.4ms | Allocations: 1959)
+  Rendered players/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2071)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (13.0ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "magnusCarlsen"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  Rendering layout layouts/application.html.erb
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendering players/edit.html.erb within layouts/application
+  Rendered layouts/_navbar.html.erb (Duration: 5.6ms | Allocations: 2066)
+  Rendered players/_form.html.erb (Duration: 2.3ms | Allocations: 1722)
+  Rendered layout layouts/application.html.erb (Duration: 251.6ms | Allocations: 25096)
+Completed 422 Unprocessable Entity in 505ms (Views: 253.2ms | ActiveRecord: 3.1ms | Allocations: 32364)
+
+
+  Rendered players/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1851)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.3ms | Allocations: 991)
+  Rendered layout layouts/application.html.erb (Duration: 60.3ms | Allocations: 10619)
+Completed 422 Unprocessable Entity in 410ms (Views: 62.3ms | ActiveRecord: 14.8ms | Allocations: 38154)
+
+
+Started PATCH "/players/2" for 127.0.0.1 at 2023-05-17 17:28:52 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"2"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "magnusCarlsen"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.5ms | Allocations: 1722)
+  Rendered players/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1816)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 945)
+  Rendered layout layouts/application.html.erb (Duration: 64.6ms | Allocations: 8950)
+Completed 422 Unprocessable Entity in 306ms (Views: 68.6ms | ActiveRecord: 2.1ms | Allocations: 12871)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (8.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "magnusCarlsen"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.6ms | Allocations: 1722)
+  Rendered players/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1816)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.3ms | Allocations: 990)
+  Rendered layout layouts/application.html.erb (Duration: 104.6ms | Allocations: 8994)
+Completed 422 Unprocessable Entity in 13701ms (Views: 105.6ms | ActiveRecord: 11.2ms | Allocations: 79830)
+
+

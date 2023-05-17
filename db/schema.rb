@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_105205) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_145957) do
   create_table "games", force: :cascade do |t|
-    t.integer "game_id", null: false
     t.string "status", null: false
     t.date "start_date", null: false
     t.string "who_moves", null: false
@@ -22,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_105205) do
     t.datetime "updated_at", null: false
     t.integer "player_white_id", null: false
     t.integer "player_black_id", null: false
-    t.index ["game_id"], name: "index_games_on_game_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -37,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_105205) do
     t.integer "player_id"
     t.index ["email"], name: "index_players_on_email", unique: true
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_players_on_username", unique: true
   end
 
   add_foreign_key "games", "players", column: "player_black_id"
