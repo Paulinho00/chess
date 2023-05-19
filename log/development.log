@@ -6941,3 +6941,1663 @@ Completed 422 Unprocessable Entity in 306ms (Views: 68.6ms | ActiveRecord: 2.1ms
 Completed 422 Unprocessable Entity in 13701ms (Views: 105.6ms | ActiveRecord: 11.2ms | Allocations: 79830)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-19 09:27:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 27.8ms | Allocations: 865)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 506)
+  Rendered layout layouts/application.html.erb (Duration: 1302.4ms | Allocations: 46742)
+Completed 200 OK in 1592ms (Views: 1425.1ms | ActiveRecord: 4.3ms | Allocations: 76940)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 09:27:09 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 43ms (ActiveRecord: 0.5ms | Allocations: 5242)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 09:27:10 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms | Allocations: 423)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:27:10 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 11.0ms | Allocations: 717)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 81.6ms | Allocations: 3899)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 128.9ms | Allocations: 10479)
+Completed 200 OK in 142ms (Views: 133.6ms | ActiveRecord: 0.0ms | Allocations: 12509)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:27:11 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 258)
+  Rendered players/shared/_links.html.erb (Duration: 0.4ms | Allocations: 240)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2542)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 77.5ms | Allocations: 9127)
+Completed 200 OK in 87ms (Views: 83.8ms | ActiveRecord: 0.0ms | Allocations: 10656)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:27:58 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 630)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 77)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1936)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 8425)
+Completed 422 Unprocessable Entity in 306ms (Views: 31.1ms | ActiveRecord: 6.3ms | Allocations: 24581)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:30:32 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (25.0ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 2.1ms | Allocations: 745)
+  Rendered players/shared/_links.html.erb (Duration: 2.1ms | Allocations: 497)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 30.0ms | Allocations: 3993)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 462)
+  Rendered layout layouts/application.html.erb (Duration: 169.5ms | Allocations: 11074)
+Completed 422 Unprocessable Entity in 484ms (Views: 202.2ms | ActiveRecord: 25.5ms | Allocations: 18118)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:30:41 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f734c025410>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (9.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 466)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2534)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 8952)
+Completed 422 Unprocessable Entity in 540ms (Views: 33.8ms | ActiveRecord: 9.7ms | Allocations: 14848)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:30:48 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f7354b711e0>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 466)
+  Rendered players/shared/_links.html.erb (Duration: 0.3ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2534)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 63.6ms | Allocations: 8947)
+Completed 422 Unprocessable Entity in 373ms (Views: 64.4ms | ActiveRecord: 1.3ms | Allocations: 14562)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:30:52 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 448)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1442)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 56.7ms | Allocations: 7995)
+Completed 200 OK in 63ms (Views: 60.9ms | ActiveRecord: 0.0ms | Allocations: 9187)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:30:57 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 64ms (ActiveRecord: 0.7ms | Allocations: 9215)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 79)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 956)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 197)
+  Rendered layout layouts/application.html.erb (Duration: 44.5ms | Allocations: 7584)
+Completed 200 OK in 257ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 8306)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:30:59 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 85)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1479)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 7905)
+Completed 200 OK in 60ms (Views: 55.8ms | ActiveRecord: 0.0ms | Allocations: 8566)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:31:07 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x0000558b2c595468>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 475)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2544)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 47.6ms | Allocations: 8957)
+Completed 422 Unprocessable Entity in 283ms (Views: 48.2ms | ActiveRecord: 2.1ms | Allocations: 14594)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:43:34 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f7360da43c0>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 50.2ms | Allocations: 3293)
+  Rendered layout layouts/application.html.erb (Duration: 62.0ms | Allocations: 3373)
+Completed 500 Internal Server Error in 390ms (ActiveRecord: 6.0ms | Allocations: 10492)
+
+
+  
+ActionView::Template::Error (Missing partial players/registrations/_form, devise/registrations/_form, devise/_form, application/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/user/Desktop/chess/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/devise-4.9.2/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/actiontext-7.0.4.2/app/views"
+  * "/home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/actionmailbox-7.0.4.2/app/views"
+
+Did you mean?  players/form
+               games/form
+               devise/shared/error_messages
+               players/shared/error_messages
+               devise/shared/links
+               active_storage/blobs/blob):
+    1: <h2>Sign up</h2>
+    2: 
+    3: <%= render "form", player: @player %>
+    4: 
+    5: <%= render "players/shared/links" %>
+  
+app/views/players/registrations/new.html.erb:3
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:44:00 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f7360da4dc0>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.3ms | Allocations: 2307)
+  Rendered players/shared/_links.html.erb (Duration: 1.4ms | Allocations: 512)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 23.0ms | Allocations: 3232)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 460)
+  Rendered layout layouts/application.html.erb (Duration: 64.9ms | Allocations: 10500)
+Completed 422 Unprocessable Entity in 348ms (Views: 70.7ms | ActiveRecord: 1.1ms | Allocations: 17649)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:44:12 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f733405d260>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (9.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.8ms | Allocations: 1645)
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 94)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1854)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 8267)
+Completed 422 Unprocessable Entity in 280ms (Views: 59.1ms | ActiveRecord: 10.0ms | Allocations: 14090)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 09:44:22 +0200
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 278)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:44:22 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1456)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 8029)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.0ms | Allocations: 9365)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:44:30 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/players
+Completed 303 See Other in 210ms (ActiveRecord: 0.6ms | Allocations: 2857)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 09:44:31 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.1ms | Allocations: 283)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 44.5ms | Allocations: 11069)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 82.7ms | Allocations: 17700)
+Completed 200 OK in 97ms (Views: 91.6ms | ActiveRecord: 1.0ms | Allocations: 19867)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:44:39 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 1632)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 09:44:40 +0200
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:44:40 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms | Allocations: 1899)
+
+
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1873)
+Started GET "/" for 127.0.0.1 at 2023-05-19 09:44:40 +0200
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 123.6ms | Allocations: 9775)
+Completed 200 OK in 134ms (Views: 124.5ms | ActiveRecord: 0.7ms | Allocations: 11519)
+
+
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 6502)
+Completed 200 OK in 26ms (Views: 17.3ms | ActiveRecord: 0.6ms | Allocations: 7979)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 09:44:42 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 8ms (ActiveRecord: 1.3ms | Allocations: 1842)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 09:44:42 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 303)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:44:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 916)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 134.9ms | Allocations: 7266)
+Completed 200 OK in 138ms (Views: 135.7ms | ActiveRecord: 0.0ms | Allocations: 7971)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:44:43 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.1ms | Allocations: 960)
+  Rendered players/shared/_links.html.erb (Duration: 0.3ms | Allocations: 92)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1166)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 7585)
+Completed 200 OK in 42ms (Views: 32.9ms | ActiveRecord: 0.0ms | Allocations: 8218)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:44:52 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f734c142d98>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.7ms | Allocations: 1652)
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 94)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1861)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 50.3ms | Allocations: 8274)
+Completed 422 Unprocessable Entity in 267ms (Views: 51.1ms | ActiveRecord: 1.4ms | Allocations: 13934)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:50:34 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f7354ccf0c8>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 15.2ms | Allocations: 745)
+  Rendered players/shared/_links.html.erb (Duration: 1.5ms | Allocations: 497)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 26.4ms | Allocations: 3943)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 462)
+  Rendered layout layouts/application.html.erb (Duration: 93.4ms | Allocations: 11023)
+Completed 422 Unprocessable Entity in 631ms (Views: 128.2ms | ActiveRecord: 1.6ms | Allocations: 18023)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:50:40 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f73501da8d8>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 2.0ms | Allocations: 466)
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2534)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 112.2ms | Allocations: 8947)
+Completed 422 Unprocessable Entity in 332ms (Views: 113.2ms | ActiveRecord: 2.9ms | Allocations: 14790)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:50:46 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 436)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1445)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 8188)
+Completed 200 OK in 59ms (Views: 56.5ms | ActiveRecord: 0.0ms | Allocations: 9361)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:50:51 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.9ms | Allocations: 1597)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 875)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 7196)
+Completed 200 OK in 281ms (Views: 57.3ms | ActiveRecord: 0.0ms | Allocations: 7831)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:50:54 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 85)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1476)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 7897)
+Completed 200 OK in 48ms (Views: 36.6ms | ActiveRecord: 0.0ms | Allocations: 8506)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:53:50 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 249)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 24.3ms | Allocations: 6078)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 6155)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms | Allocations: 7650)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<ActionView::Base:0x0000000000f2f8>
+Did you mean?  for
+               fork):
+    10: 
+    11:   <div>
+    12:     <p>Username</p>
+    13:     <%= form.text_field :username %>
+    14:   </div>
+    15: 
+    16:   <div class="field">
+  
+app/views/players/registrations/new.html.erb:13
+app/views/players/registrations/new.html.erb:3
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:54:36 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 249)
+  Rendered players/shared/_links.html.erb (Duration: 9.8ms | Allocations: 491)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 40.5ms | Allocations: 2708)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 463)
+  Rendered layout layouts/application.html.erb (Duration: 174.4ms | Allocations: 9991)
+Completed 200 OK in 247ms (Views: 205.3ms | ActiveRecord: 0.0ms | Allocations: 11616)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 09:55:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 121ms (ActiveRecord: 0.0ms | Allocations: 5933)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 09:55:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 2.0ms | Allocations: 739)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 47.5ms | Allocations: 4494)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 672.3ms | Allocations: 50757)
+Completed 200 OK in 756ms (Views: 738.8ms | ActiveRecord: 1.5ms | Allocations: 73933)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 09:55:17 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 2.8ms | Allocations: 293)
+  Rendered players/shared/_links.html.erb (Duration: 0.7ms | Allocations: 243)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2777.2ms | Allocations: 10235)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 2895.5ms | Allocations: 16820)
+Completed 200 OK in 2903ms (Views: 2899.9ms | ActiveRecord: 0.0ms | Allocations: 18377)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:55:34 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f09300f4e08>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 636)
+  Rendered players/shared/_links.html.erb (Duration: 0.3ms | Allocations: 127)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 75855.0ms | Allocations: 335904)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 75944.4ms | Allocations: 342720)
+Completed 422 Unprocessable Entity in 76207ms (Views: 75945.3ms | ActiveRecord: 2.0ms | Allocations: 353760)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:57:06 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dupa", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00005569598f3078>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dupa", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 973)
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 91)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2290.6ms | Allocations: 8776)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 2438.7ms | Allocations: 15332)
+Completed 422 Unprocessable Entity in 2666ms (Views: 2440.7ms | ActiveRecord: 1.4ms | Allocations: 21386)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 09:59:58 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dupa", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000055695caf46f8>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dupa", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2981.5ms | Allocations: 12064)
+  Rendered layout layouts/application.html.erb (Duration: 2982.4ms | Allocations: 12153)
+Completed 500 Internal Server Error in 3347ms (ActiveRecord: 1.7ms | Allocations: 19387)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `player' for #<ActionView::Base:0x00000000010ce8>
+Did you mean?  @player):
+    1: <h2>Sign up</h2>
+    2: 
+    3: <%= form_with(model: player) do |form| %>
+    4:   <% if player.errors.any? %>
+    5:     <div style="color: red">
+    6:       <ul>
+  
+app/views/players/registrations/new.html.erb:3
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:00:58 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 253)
+  Rendered players/shared/_links.html.erb (Duration: 29.5ms | Allocations: 495)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 38.2ms | Allocations: 2720)
+  Rendered layouts/_navbar.html.erb (Duration: 9.5ms | Allocations: 468)
+  Rendered layout layouts/application.html.erb (Duration: 108.6ms | Allocations: 9836)
+Completed 200 OK in 130ms (Views: 126.9ms | ActiveRecord: 0.0ms | Allocations: 11476)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:01:54 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 2.8ms | Allocations: 253)
+  Rendered players/shared/_links.html.erb (Duration: 25.0ms | Allocations: 495)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 36.3ms | Allocations: 2720)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 465)
+  Rendered layout layouts/application.html.erb (Duration: 73.8ms | Allocations: 9908)
+Completed 200 OK in 81ms (Views: 78.8ms | ActiveRecord: 0.0ms | Allocations: 11537)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:02:02 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 11.1ms | Allocations: 253)
+  Rendered players/shared/_links.html.erb (Duration: 40.2ms | Allocations: 495)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 99.1ms | Allocations: 2722)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 465)
+  Rendered layout layouts/application.html.erb (Duration: 186.3ms | Allocations: 9820)
+Completed 200 OK in 287ms (Views: 265.5ms | ActiveRecord: 0.0ms | Allocations: 11461)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:02:04 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 521)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 71)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1430)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 7974)
+Completed 200 OK in 55ms (Views: 52.7ms | ActiveRecord: 0.0ms | Allocations: 9212)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:02:06 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"", "username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f0948d0b800>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"", "username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 1321)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4120)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 232)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 10535)
+Completed 422 Unprocessable Entity in 98ms (Views: 62.3ms | ActiveRecord: 0.8ms | Allocations: 15736)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:02:11 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f093889a768>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 852)
+  Rendered players/shared/_links.html.erb (Duration: 4.2ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 15.5ms | Allocations: 3058)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 60.6ms | Allocations: 9474)
+Completed 422 Unprocessable Entity in 70ms (Views: 61.8ms | ActiveRecord: 0.6ms | Allocations: 15080)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2023-05-19 10:06:49 +0200
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 12.1ms | Allocations: 1741)
+  Rendered players/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 2114)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 279)
+  Rendered layout layouts/application.html.erb (Duration: 44.2ms | Allocations: 8726)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 0.0ms | Allocations: 9718)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:07:01 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f0938ac8e40>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 475)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 90)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2104)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 54.5ms | Allocations: 8517)
+Completed 422 Unprocessable Entity in 277ms (Views: 55.3ms | ActiveRecord: 1.2ms | Allocations: 14318)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:13:00 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f0938903ec0>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (5.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Create (6.7ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["created_at", "2023-05-19 08:13:00.927372"], ["updated_at", "2023-05-19 08:13:00.927372"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 271ms (ActiveRecord: 16.5ms | Allocations: 8746)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:13:01 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.1ms | Allocations: 407)
+  Rendered layouts/_navbar.html.erb (Duration: 16.4ms | Allocations: 472)
+  Rendered layout layouts/application.html.erb (Duration: 106.1ms | Allocations: 7655)
+Completed 200 OK in 125ms (Views: 112.8ms | ActiveRecord: 0.7ms | Allocations: 10530)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:13:03 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 76ms (ActiveRecord: 0.6ms | Allocations: 10256)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:13:03 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 346)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:13:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.8ms | Allocations: 506)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1942)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 80.8ms | Allocations: 8512)
+Completed 200 OK in 93ms (Views: 90.3ms | ActiveRecord: 0.0ms | Allocations: 9971)
+
+
+Started GET "/players/new.player" for 127.0.0.1 at 2023-05-19 10:13:24 +0200
+Processing by PlayersController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 8.0ms | Allocations: 1598)
+  Rendered players/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 1905)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 119.3ms | Allocations: 8299)
+Completed 200 OK in 134ms (Views: 130.2ms | ActiveRecord: 0.0ms | Allocations: 8800)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:13:30 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f09306be938>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Create (27.9ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["created_at", "2023-05-19 08:13:31.353668"], ["updated_at", "2023-05-19 08:13:31.353668"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 283ms (ActiveRecord: 37.0ms | Allocations: 6506)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:13:31 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 133)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 45.6ms | Allocations: 6511)
+Completed 200 OK in 59ms (Views: 46.6ms | ActiveRecord: 0.7ms | Allocations: 8020)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:13:34 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.6ms | Allocations: 1793)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:13:34 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 281)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:13:34 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.2ms | Allocations: 74)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 883)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 7232)
+Completed 200 OK in 55ms (Views: 41.7ms | ActiveRecord: 0.0ms | Allocations: 7928)
+
+
+Started GET "/players/new.player" for 127.0.0.1 at 2023-05-19 10:13:42 +0200
+Processing by PlayersController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.2ms | Allocations: 1111)
+  Rendered players/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1196)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 139.5ms | Allocations: 7578)
+Completed 200 OK in 157ms (Views: 144.1ms | ActiveRecord: 0.0ms | Allocations: 7918)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:13:55 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f09302f9b18>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 4.3ms | Allocations: 712)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 91)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 3170)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 236)
+  Rendered layout layouts/application.html.erb (Duration: 74.7ms | Allocations: 9605)
+Completed 422 Unprocessable Entity in 100ms (Views: 88.6ms | ActiveRecord: 1.0ms | Allocations: 15323)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:14:08 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f0930130cf0>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Create (24.1ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["created_at", "2023-05-19 08:14:08.935847"], ["updated_at", "2023-05-19 08:14:08.935847"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 254ms (ActiveRecord: 28.0ms | Allocations: 6269)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:14:09 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 52.6ms | Allocations: 6510)
+Completed 200 OK in 58ms (Views: 53.6ms | ActiveRecord: 0.5ms | Allocations: 7983)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:15:54 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 303 See Other in 4ms (ActiveRecord: 0.5ms | Allocations: 1405)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:15:54 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:15:54 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 74)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 878)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 7322)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.0ms | Allocations: 8011)
+
+
+Started GET "/players/new.player" for 127.0.0.1 at 2023-05-19 10:15:55 +0200
+Processing by PlayersController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.1ms | Allocations: 1111)
+  Rendered players/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1196)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 51.4ms | Allocations: 7578)
+Completed 200 OK in 55ms (Views: 52.1ms | ActiveRecord: 0.0ms | Allocations: 7918)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 10:16:04 +0200
+Processing by PlayersController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 311)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:16:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 74)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 878)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 7227)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.0ms | Allocations: 7924)
+
+
+Started GET "/players/new.player" for 127.0.0.1 at 2023-05-19 10:17:44 +0200
+Processing by PlayersController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.8ms | Allocations: 1721)
+  Rendered players/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2077)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 9200)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.0ms | Allocations: 10456)
+
+
+Started GET "/players/new.player" for 127.0.0.1 at 2023-05-19 10:18:06 +0200
+Processing by PlayersController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.4ms | Allocations: 1101)
+  Rendered players/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1186)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 188.7ms | Allocations: 7568)
+Completed 200 OK in 192ms (Views: 189.8ms | ActiveRecord: 0.0ms | Allocations: 7931)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:18:18 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f09140256b0>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Create (3.0ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["created_at", "2023-05-19 08:18:18.809969"], ["updated_at", "2023-05-19 08:18:18.809969"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/players
+Completed 303 See Other in 274ms (ActiveRecord: 16.4ms | Allocations: 7355)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 10:18:18 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 1.8ms | Allocations: 288)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 16)
+  Rendered players/index.html.erb within layouts/application (Duration: 116.9ms | Allocations: 11044)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 188.6ms | Allocations: 17583)
+Completed 200 OK in 195ms (Views: 189.0ms | ActiveRecord: 0.9ms | Allocations: 19362)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-19 10:18:36 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered players/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 373)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 238)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 6753)
+Completed 200 OK in 37ms (Views: 30.4ms | ActiveRecord: 0.8ms | Allocations: 9596)
+
+
+Started GET "/players/3/edit" for 127.0.0.1 at 2023-05-19 10:18:38 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.2ms | Allocations: 1232)
+  Rendered players/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1487)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | Allocations: 8551)
+Completed 200 OK in 53ms (Views: 48.3ms | ActiveRecord: 1.0ms | Allocations: 9368)
+
+
+Started PATCH "/players/3" for 127.0.0.1 at 2023-05-19 10:18:44 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"3"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "dingLiren"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (1.9ms)[0m  [1m[33mUPDATE "players" SET "username" = ?, "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["username", "dingLiren"], ["updated_at", "2023-05-19 08:18:55.602365"], ["encrypted_password", "[FILTERED]"], ["id", 3]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (28.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Redirected to http://0.0.0.0:3000/players/3
+Completed 302 Found in 16682ms (ActiveRecord: 32.7ms | Allocations: 39485)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-19 10:19:00 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 401 Unauthorized in 22ms (ActiveRecord: 1.4ms | Allocations: 1883)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:19:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 44.2ms | Allocations: 462)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 54.3ms | Allocations: 1888)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 107.8ms | Allocations: 8461)
+Completed 200 OK in 136ms (Views: 133.2ms | ActiveRecord: 0.0ms | Allocations: 9909)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:19:14 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/players/3
+Completed 303 See Other in 275ms (ActiveRecord: 0.7ms | Allocations: 10523)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-19 10:19:15 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 212)
+  Rendered layouts/_navbar.html.erb (Duration: 4.3ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 53.6ms | Allocations: 6724)
+Completed 200 OK in 61ms (Views: 54.7ms | ActiveRecord: 0.7ms | Allocations: 8709)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-19 10:19:17 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 10.5ms | Allocations: 331)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 43.4ms | Allocations: 6712)
+Completed 200 OK in 52ms (Views: 44.9ms | ActiveRecord: 0.7ms | Allocations: 8254)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 10:22:00 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (1.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (2.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.3ms | Allocations: 20)
+  Rendered players/_player.html.erb (Duration: 1.1ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered players/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 950)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 70.2ms | Allocations: 7339)
+Completed 200 OK in 95ms (Views: 68.8ms | ActiveRecord: 4.0ms | Allocations: 8793)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2023-05-19 10:22:03 +0200
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.5ms | Allocations: 1121)
+  Rendered players/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1206)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 6.4ms | Allocations: 939)
+  Rendered layout layouts/application.html.erb (Duration: 50.5ms | Allocations: 8293)
+Completed 200 OK in 57ms (Views: 51.0ms | ActiveRecord: 0.7ms | Allocations: 8635)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:22:15 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 14ms (ActiveRecord: 0.6ms | Allocations: 1811)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:22:15 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 293)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:22:15 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 32.8ms | Allocations: 462)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 36.7ms | Allocations: 1896)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 468)
+  Rendered layout layouts/application.html.erb (Duration: 140.7ms | Allocations: 9090)
+Completed 200 OK in 157ms (Views: 151.9ms | ActiveRecord: 0.0ms | Allocations: 10702)
+
+
+Started GET "/players/players/new" for 127.0.0.1 at 2023-05-19 10:22:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/players/players/new"):
+  
+Started GET "/players/players/new" for 127.0.0.1 at 2023-05-19 10:22:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/players/players/new"):
+  
+Started GET "/players/players/new" for 127.0.0.1 at 2023-05-19 10:22:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/players/players/new"):
+  
+Started GET "/players/players/new" for 127.0.0.1 at 2023-05-19 10:22:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/players/players/new"):
+  
+Started GET "/players/players/new" for 127.0.0.1 at 2023-05-19 10:22:56 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/players/players/new"):
+  
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:23:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 22.4ms | Allocations: 479)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 53.2ms | Allocations: 1908)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 456)
+  Rendered layout layouts/application.html.erb (Duration: 319.2ms | Allocations: 9090)
+Completed 200 OK in 389ms (Views: 365.7ms | ActiveRecord: 0.0ms | Allocations: 10767)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2023-05-19 10:23:28 +0200
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 6.9ms | Allocations: 1741)
+  Rendered players/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 2151)
+Started GET "/players/new" for 127.0.0.1 at 2023-05-19 10:23:28 +0200
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 279)
+  Rendered layout layouts/application.html.erb (Duration: 141.7ms | Allocations: 9136)
+Completed 200 OK in 201ms (Views: 170.2ms | ActiveRecord: 0.0ms | Allocations: 10240)
+
+
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 1.7ms | Allocations: 1109)
+  Rendered players/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1194)
+  Rendered layouts/_navbar.html.erb (Duration: 5.6ms | Allocations: 245)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 7575)
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 7936)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:23:38 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f0948da7b38>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 773)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3343)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 42.5ms | Allocations: 9916)
+Completed 422 Unprocessable Entity in 272ms (Views: 45.3ms | ActiveRecord: 1.1ms | Allocations: 16724)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:23:55 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player"}
+[31mUnpermitted parameter: :username. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f09100ffcd8>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]"}, "commit"=>"Create Player", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlayer Exists? (14.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  [1m[36mPlayer Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPlayer Create (32.8ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["created_at", "2023-05-19 08:23:55.895779"], ["updated_at", "2023-05-19 08:23:55.895779"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 245ms (ActiveRecord: 51.1ms | Allocations: 6553)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:23:56 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.8ms | Allocations: 301)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 234)
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 6687)
+Completed 200 OK in 60ms (Views: 47.3ms | ActiveRecord: 0.8ms | Allocations: 8247)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:24:35 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 7ms (ActiveRecord: 0.6ms | Allocations: 1788)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:24:35 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms | Allocations: 281)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:24:35 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 866)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 219)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 7213)
+Completed 200 OK in 43ms (Views: 34.3ms | ActiveRecord: 0.0ms | Allocations: 7910)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:24:41 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms | Allocations: 442)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 850)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 201)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 7182)
+Completed 200 OK in 253ms (Views: 48.2ms | ActiveRecord: 0.0ms | Allocations: 7768)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:24:44 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 417)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 848)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 201)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 7177)
+Completed 200 OK in 55ms (Views: 44.0ms | ActiveRecord: 0.0ms | Allocations: 7710)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2023-05-19 10:25:31 +0200
+Processing by PlayersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/new.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.6ms | Allocations: 1703)
+  Rendered players/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2056)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 43.3ms | Allocations: 9181)
+Completed 200 OK in 51ms (Views: 47.8ms | ActiveRecord: 0.0ms | Allocations: 10357)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2023-05-19 10:29:11 +0200
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:29:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (23.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#new as HTML
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 401 Unauthorized in 311ms (ActiveRecord: 0.0ms | Allocations: 4556)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:29:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 85ms (ActiveRecord: 0.0ms | Allocations: 5782)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:29:58 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 8.5ms | Allocations: 739)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 153.4ms | Allocations: 5213)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 2590.2ms | Allocations: 88685)
+Completed 200 OK in 2797ms (Views: 2744.7ms | ActiveRecord: 1.9ms | Allocations: 112749)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:30:03 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 262)
+  Rendered players/shared/_links.html.erb (Duration: 0.6ms | Allocations: 243)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2556)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 49.7ms | Allocations: 9141)
+Completed 200 OK in 64ms (Views: 55.6ms | ActiveRecord: 0.0ms | Allocations: 10688)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:39:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 84ms (ActiveRecord: 0.0ms | Allocations: 5955)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:39:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.8ms | Allocations: 739)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 77.6ms | Allocations: 4494)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 1645.9ms | Allocations: 50279)
+Completed 200 OK in 1744ms (Views: 1691.0ms | ActiveRecord: 2.5ms | Allocations: 73449)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:39:43 +0200
+Processing by Players::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 5.1ms | Allocations: 262)
+  Rendered players/shared/_links.html.erb (Duration: 0.5ms | Allocations: 243)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 30.4ms | Allocations: 2855)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 80.3ms | Allocations: 9442)
+Completed 200 OK in 89ms (Views: 84.4ms | ActiveRecord: 0.0ms | Allocations: 11134)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:40:13 +0200
+Processing by Players::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 253)
+  Rendered players/shared/_links.html.erb (Duration: 1.2ms | Allocations: 495)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 23.1ms | Allocations: 2926)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 465)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 10025)
+Completed 200 OK in 81ms (Views: 63.1ms | ActiveRecord: 0.0ms | Allocations: 11781)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:40:21 +0200
+Processing by Players::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :username. Context: { controller: Players::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f909cc8ec48>, params: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "controller"=>"players/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Create (9.8ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", nil], ["created_at", "2023-05-19 08:40:21.892533"], ["updated_at", "2023-05-19 08:40:21.892533"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 328ms (ActiveRecord: 13.6ms | Allocations: 12813)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:40:21 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.6ms | Allocations: 412)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 7041)
+Completed 200 OK in 73ms (Views: 66.7ms | ActiveRecord: 0.7ms | Allocations: 9812)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-19 10:40:29 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.0ms | Allocations: 289)
+  Rendered players/show.html.erb within layouts/application (Duration: 10.4ms | Allocations: 1151)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 248)
+  Rendered layout layouts/application.html.erb (Duration: 61.7ms | Allocations: 7671)
+Completed 200 OK in 71ms (Views: 62.7ms | ActiveRecord: 1.0ms | Allocations: 10574)
+
+
+Started GET "/players/3/edit" for 127.0.0.1 at 2023-05-19 10:40:32 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 2.6ms | Allocations: 1819)
+  Rendered players/edit.html.erb within layouts/application (Duration: 11.8ms | Allocations: 2131)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 1016)
+  Rendered layout layouts/application.html.erb (Duration: 49.8ms | Allocations: 9278)
+Completed 200 OK in 57ms (Views: 50.5ms | ActiveRecord: 1.0ms | Allocations: 10200)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:40:36 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 30ms (ActiveRecord: 0.6ms | Allocations: 2921)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:40:36 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:40:37 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1470)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 52.3ms | Allocations: 8046)
+Completed 200 OK in 76ms (Views: 73.9ms | ActiveRecord: 0.0ms | Allocations: 9416)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:40:42 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 236ms (ActiveRecord: 0.8ms | Allocations: 3325)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:40:42 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 163)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 234)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 6679)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 0.6ms | Allocations: 8207)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:41:17 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 303 See Other in 13ms (ActiveRecord: 3.2ms | Allocations: 3150)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:41:17 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 496)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:41:17 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1108)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 116.7ms | Allocations: 18420)
+Completed 200 OK in 125ms (Views: 119.0ms | ActiveRecord: 0.0ms | Allocations: 21941)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:41:19 +0200
+Processing by Players::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered players/shared/_links.html.erb (Duration: 0.4ms | Allocations: 89)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1657)
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 82.3ms | Allocations: 8243)
+Completed 200 OK in 93ms (Views: 88.2ms | ActiveRecord: 0.0ms | Allocations: 9698)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:41:26 +0200
+Processing by Players::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"ding-liren@gmail.com", "username"=>"dingLiren", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "ding-liren@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? LIMIT ?[0m  [["username", "dingLiren"], ["LIMIT", 1]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Create (8.7ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "dingLiren"], ["created_at", "2023-05-19 08:41:26.582116"], ["updated_at", "2023-05-19 08:41:26.582116"], ["email", "ding-liren@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 266ms (ActiveRecord: 18.0ms | Allocations: 5570)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:41:26 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.6ms | Allocations: 208)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 259)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 6838)
+Completed 200 OK in 39ms (Views: 34.4ms | ActiveRecord: 0.5ms | Allocations: 8854)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 10:45:29 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (2.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered players/index.html.erb within layouts/application (Duration: 11.2ms | Allocations: 1361)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 7750)
+Completed 200 OK in 52ms (Views: 44.1ms | ActiveRecord: 3.3ms | Allocations: 9504)
+
+
+Started GET "/players/3" for 127.0.0.1 at 2023-05-19 10:45:33 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 181)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 35.4ms | Allocations: 6562)
+Completed 200 OK in 43ms (Views: 36.0ms | ActiveRecord: 1.3ms | Allocations: 9101)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-19 10:45:39 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 20ms (ActiveRecord: 0.6ms | Allocations: 1992)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:45:39 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 301)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-19 10:45:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 918)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 7268)
+Completed 200 OK in 56ms (Views: 52.3ms | ActiveRecord: 0.0ms | Allocations: 7956)
+
+
+Started GET "/players/sign_up" for 127.0.0.1 at 2023-05-19 10:45:41 +0200
+Processing by Players::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/registrations/new.html.erb within layouts/application
+  Rendered players/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 76)
+  Rendered players/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1446)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 56.4ms | Allocations: 7803)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 0.0ms | Allocations: 8455)
+
+
+Started POST "/players" for 127.0.0.1 at 2023-05-19 10:45:54 +0200
+Processing by Players::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"jan-duda@interia.pl", "username"=>"krzysiek-duda", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."email" = ? LIMIT ?[0m  [["email", "jan-duda@interia.pl"], ["LIMIT", 1]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? LIMIT ?[0m  [["username", "krzysiek-duda"], ["LIMIT", 1]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mPlayer Create (2.6ms)[0m  [1m[32mINSERT INTO "players" ("username", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "player_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "krzysiek-duda"], ["created_at", "2023-05-19 08:45:54.627329"], ["updated_at", "2023-05-19 08:45:54.627329"], ["email", "jan-duda@interia.pl"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["player_id", nil]]
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players/registrations_controller.rb:14:in `create'
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 232ms (ActiveRecord: 6.4ms | Allocations: 4749)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-19 10:45:54 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 122)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 67.3ms | Allocations: 6502)
+Completed 200 OK in 78ms (Views: 68.2ms | ActiveRecord: 1.6ms | Allocations: 7978)
+
+
+Started GET "/players" for 127.0.0.1 at 2023-05-19 10:45:58 +0200
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (8.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mPlayer Load (4.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:6
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered players/_player.html.erb (Duration: 2.5ms | Allocations: 18)
+  Rendered players/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 1080)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 88.7ms | Allocations: 7469)
+Completed 200 OK in 138ms (Views: 93.5ms | ActiveRecord: 12.4ms | Allocations: 8938)
+
+

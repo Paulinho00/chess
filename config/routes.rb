@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :players
+  devise_for :players, :controllers => { registrations: 'players/registrations' }
   resources :games
   resources :players
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
