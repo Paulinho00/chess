@@ -23,5 +23,5 @@
     <%= game.end_date %>
   </p>
 
-  <p>Details</p>
+  <%= link_to "Details", game_details_path(game.id) %>
 <% end %>

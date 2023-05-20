@@ -17,8 +17,8 @@
   </style>
 </head>
 <body>
-<h5><strong>White: <%= @white_player %></strong></h5>
-<h5><strong>Black: <%= @black_player %></strong></h5>
+<h5><strong>White: <%= @white_player.username %></strong></h5>
+<h5><strong>Black: <%= @black_player.username %></strong></h5>
 <table class="chess-board">
   <tbody>
   <tr>
@@ -356,5 +356,25 @@
   </tbody>
 </table>
 <p><strong>Who moves: </strong><%= @whoMoves %></p>
+<p><strong>Status: </strong><%= @game_status %></p>
+
+<% if (current_player.id == @white_player.id and @whoMoves == 'white') or (current_player.id == @black_player.id and @whoMoves = 'black')%>
+  <p>What's your next move?</p>
+  <%= form_tag({controller: "games", action: "makeMove"}, method: "post") do %>
+    <%= hidden_field_tag :game_id, @game_id %>
+    <%= text_field_tag :movement %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+
+<%end %>
+
+<%= link_to "Back to list", playerGames_path_url(:id => current_player.id)%>
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 </body>
 </html>

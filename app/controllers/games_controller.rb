@@ -22,16 +22,20 @@ class GamesController < ApplicationController
 
   def gameDetails
     game = Game.find(params[:id])
+    chess_game = Chess::Game.load_fen(game.fen)
 
-    @white_player = Player.find(game.player_white_id).username
-    @black_player = Player.find(game.player_black_id).username
+    @game_id = game.id
+    @game_status = chess_game.status.to_s.tr('_', ' ')
+    @white_player = Player.find(game.player_white_id)
+    @black_player = Player.find(game.player_black_id)
 
 
     starting_fen = game.fen
-    split_fen = starting_fen.split(' ')[0].split('/')
+    split_fen = starting_fen.split(' ')
+    fen_positions = split_fen[0].split('/')
     positions = Array.new(8)
     current_row = 0
-    for row in split_fen
+    for row in fen_positions
       positions[current_row] = Array.new(8)
       current_field = 0
       char_index = 0
@@ -54,12 +58,34 @@ class GamesController < ApplicationController
     end
 
     if split_fen[1] == 'b'
-      @whoMoves = 'Black'
+      @whoMoves = 'black'
     else
-      @whoMoves = 'White'
+      @whoMoves = 'white'
 
     end
     @positions = positions
+  end
+
+  def makeMove
+    game = Game.find(params[:game_id])
+    chess_game = Chess::Game.load_fen(game.fen)
+    begin
+      chess_game.move(params[:movement])
+      flash[:error] = nil
+      game.fen = chess_game.current.to_fen
+      if chess_game.over?
+        game.end_date = Date.today.strftime("%e %b %Y")
+      end
+      game.save
+      redirect_to game_details_path(game.id)
+    rescue Chess::BadNotationError => e
+      flash[:error] = e.message
+      redirect_to game_details_path(game.id)
+    rescue Chess::IllegalMoveError => e
+      flash[:error] = e.message
+      redirect_to game_details_path(game.id)
+    end
+
   end
 
   # POST /games or /games.json
@@ -117,11 +143,4 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:game_id, :status, :start_date, :who_moves, :fen, :player_black_id, :player_white_id, :end_date)
     end
-
-      def is_digit?(s)
-        code = s.ord
-        # 48 is ASCII code of 0
-        # 57 is ASCII code of 9
-        48 <= code && code <= 57
-  end
 end
