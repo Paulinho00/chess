@@ -19,6 +19,49 @@ class GamesController < ApplicationController
   def edit
   end
 
+
+  def gameDetails
+    game = Game.find(params[:id])
+
+    @white_player = Player.find(game.player_white_id).username
+    @black_player = Player.find(game.player_black_id).username
+
+
+    starting_fen = game.fen
+    split_fen = starting_fen.split(' ')[0].split('/')
+    positions = Array.new(8)
+    current_row = 0
+    for row in split_fen
+      positions[current_row] = Array.new(8)
+      current_field = 0
+      char_index = 0
+      while current_field < 8
+        field = row[char_index]
+        if Integer(field, exception: false)
+          iterator = field.to_i
+          while iterator > 0
+            positions[current_row][current_field] = " "
+            current_field += 1
+            iterator -= 1
+          end
+        else
+          positions[current_row][current_field] = field
+          current_field += 1
+        end
+        char_index += 1
+      end
+      current_row += 1
+    end
+
+    if split_fen[1] == 'b'
+      @whoMoves = 'Black'
+    else
+      @whoMoves = 'White'
+
+    end
+    @positions = positions
+  end
+
   # POST /games or /games.json
   def create
     @game = Game.new(game_params)
@@ -57,6 +100,8 @@ class GamesController < ApplicationController
     end
   end
 
+
+
   def playerGames
     @id = params[:id]
     @games = Game.where(:player_white_id == @id).or(Game.where(:player_black_id == @id))
@@ -72,4 +117,11 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:game_id, :status, :start_date, :who_moves, :fen, :player_black_id, :player_white_id, :end_date)
     end
+
+      def is_digit?(s)
+        code = s.ord
+        # 48 is ASCII code of 0
+        # 57 is ASCII code of 9
+        48 <= code && code <= 57
+  end
 end

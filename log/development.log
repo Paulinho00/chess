@@ -8601,3 +8601,1850 @@ Processing by PlayersController#index as HTML
 Completed 200 OK in 138ms (Views: 93.5ms | ActiveRecord: 12.4ms | Allocations: 8938)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-20 10:22:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 65ms (ActiveRecord: 0.0ms | Allocations: 5539)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-20 10:22:24 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 3.8ms | Allocations: 728)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 81.1ms | Allocations: 4324)
+  Rendered layouts/_navbar.html.erb (Duration: 12.2ms | Allocations: 486)
+  Rendered layout layouts/application.html.erb (Duration: 1274.7ms | Allocations: 50365)
+Completed 200 OK in 1508ms (Views: 1462.5ms | ActiveRecord: 20.0ms | Allocations: 73019)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-20 10:22:32 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 360ms (ActiveRecord: 0.9ms | Allocations: 7482)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-20 10:22:33 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 12.6ms | Allocations: 409)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 7052)
+Completed 200 OK in 52ms (Views: 46.8ms | ActiveRecord: 0.8ms | Allocations: 9436)
+
+
+Started GET "/games" for 127.0.0.1 at 2023-05-20 10:22:38 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 7.5ms | Allocations: 4276)
+  Rendered games/index.html.erb within layouts/application (Duration: 31.3ms | Allocations: 22635)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 22713)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 1.8ms | Allocations: 27659)
+
+
+  
+ActionView::Template::Error (undefined method `game_id' for #<Game id: 1, status: "Zakonczona", start_date: "2023-05-26", who_moves: "Czarne", fen: "123124", end_date: "2023-05-27", created_at: "2023-05-16 11:05:22.199583000 +0000", updated_at: "2023-05-16 20:30:51.185716000 +0000", player_white_id: 2, player_black_id: 1>):
+    1: <div id="<%= dom_id game %>">
+    2:   <p>
+    3:     <strong>Game:</strong>
+    4:     <%= game.game_id %>
+    5:   </p>
+    6: 
+    7:   <p>
+  
+app/views/games/_game.html.erb:4
+app/views/games/index.html.erb:7
+app/views/games/index.html.erb:6
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 10:22:42 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 5.5ms | Allocations: 483)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.1ms | Allocations: 1141)
+  Rendered layout layouts/application.html.erb (Duration: 73.3ms | Allocations: 8412)
+Completed 200 OK in 90ms (Views: 73.7ms | ActiveRecord: 0.6ms | Allocations: 8829)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-20 10:23:41 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 141)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 99.8ms | Allocations: 6524)
+Completed 200 OK in 134ms (Views: 101.2ms | ActiveRecord: 0.7ms | Allocations: 8013)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 10:23:52 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 284)
+  Rendered layout layouts/application.html.erb (Duration: 125.2ms | Allocations: 6521)
+Completed 200 OK in 133ms (Views: 126.6ms | ActiveRecord: 0.0ms | Allocations: 6840)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-20 10:40:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 44.9ms | Allocations: 901)
+  Rendered layouts/_navbar.html.erb (Duration: 14.7ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 1924.6ms | Allocations: 47176)
+Completed 200 OK in 2180ms (Views: 1965.0ms | ActiveRecord: 17.8ms | Allocations: 78189)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 10:40:55 +0200
+Processing by GamesController#gameDetails as HTML
+Started GET "/" for 127.0.0.1 at 2023-05-20 10:41:25 +0200
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.8ms | Allocations: 508)
+  [1m[36mPlayer Load (23.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 37.2ms | Allocations: 1182)
+  Rendered layout layouts/application.html.erb (Duration: 186.4ms | Allocations: 8306)
+Completed 200 OK in 36954ms (Views: 218.4ms | ActiveRecord: 23.7ms | Allocations: 28498)
+
+
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 216)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 223.7ms | Allocations: 17305)
+Completed 200 OK in 304ms (Views: 233.9ms | ActiveRecord: 32.0ms | Allocations: 25331)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 10:41:37 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+  [1m[36mPlayer Load (9.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 12.2ms | Allocations: 1160)
+  Rendered layout layouts/application.html.erb (Duration: 104.7ms | Allocations: 7781)
+Completed 200 OK in 16579ms (Views: 114.8ms | ActiveRecord: 9.7ms | Allocations: 26045)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 11:28:01 +0200
+Processing by GamesController#gameDetails as HTML
+Completed 500 Internal Server Error in 6306ms (Allocations: 42694)
+
+
+  
+NameError (undefined local variable or method `position' for #<GamesController:0x0000000001b8a0>
+Did you mean?  positions):
+  
+app/controllers/games_controller.rb:29:in `block in gameDetails'
+app/controllers/games_controller.rb:28:in `each'
+app/controllers/games_controller.rb:28:in `gameDetails'
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 11:28:35 +0200
+Processing by GamesController#gameDetails as HTML
+Completed 500 Internal Server Error in 6060ms (Allocations: 54257)
+
+
+  
+NoMethodError (undefined method `each' for "r1bqk2r":String):
+  
+app/controllers/games_controller.rb:31:in `block in gameDetails'
+app/controllers/games_controller.rb:28:in `each'
+app/controllers/games_controller.rb:28:in `gameDetails'
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 11:32:21 +0200
+Processing by GamesController#gameDetails as HTML
+Completed 500 Internal Server Error in 10377ms (Allocations: 68446)
+
+
+  
+NoMethodError (undefined method `is_digit' for #<GamesController:0x00000000027d08>
+Did you mean?  is_digit?):
+  
+app/controllers/games_controller.rb:33:in `block in gameDetails'
+app/controllers/games_controller.rb:28:in `each'
+app/controllers/games_controller.rb:28:in `gameDetails'
+Started GET "/" for 127.0.0.1 at 2023-05-20 12:56:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (11.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 61.2ms | Allocations: 901)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 1522.7ms | Allocations: 46711)
+Completed 200 OK in 1960ms (Views: 1643.6ms | ActiveRecord: 18.8ms | Allocations: 77735)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-20 12:56:11 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (32.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.5ms | Allocations: 171)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 460.3ms | Allocations: 6705)
+Completed 200 OK in 530ms (Views: 473.1ms | ActiveRecord: 32.7ms | Allocations: 8431)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 12:56:20 +0200
+Processing by GamesController#gameDetails as HTML
+Completed 500 Internal Server Error in 24801ms (ActiveRecord: 0.0ms | Allocations: 68261)
+
+
+  
+NoMethodError (undefined method `numeric?' for "r":String):
+  
+app/controllers/games_controller.rb:33:in `block in gameDetails'
+app/controllers/games_controller.rb:28:in `each'
+app/controllers/games_controller.rb:28:in `gameDetails'
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 12:57:49 +0200
+Processing by GamesController#gameDetails as HTML
+Completed 500 Internal Server Error in 9160ms (ActiveRecord: 0.0ms | Allocations: 67285)
+
+
+  
+NoMethodError (undefined method `numeric?' for "r":String):
+  
+app/controllers/games_controller.rb:33:in `block in gameDetails'
+app/controllers/games_controller.rb:28:in `each'
+app/controllers/games_controller.rb:28:in `gameDetails'
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 12:58:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 34.7ms | Allocations: 2475)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 2578)
+Completed 500 Internal Server Error in 67695ms (ActiveRecord: 0.0ms | Allocations: 225302)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style>
+      .chess-board { border-spacing: 0; border-collapse: collapse; }
+      .chess-board th { padding: .5em; }
+      .chess-board th + th { border-bottom: 1px solid #000; }
+      .chess-board th:first-child,
+      .chess-board td:last-child { border-right: 1px solid #000; }
+      .chess-board tr:last-child td { border-bottom: 1px solid; }
+      .chess-board th:empty { border: none; }
+      .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+      .chess-board .light { background: #eee; }
+      .chess-board .dark { background: #aaa; }
+  </style>
+</head>
+<body>
+<table class="chess-board">
+  <tbody>
+  <tr>
+    <th></th>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+    <th>d</th>
+    <th>e</th>
+    <th>f</th>
+    <th>g</th>
+    <th>h</th>
+  </tr>
+  <tr>
+    <th>8</th>
+    <% @fen[7].each do |p| %>
+      <% if is_digit(p) %>
+          <% current_field = current_field + p.to_i %>
+          <% for %>
+
+        else
+
+      <% end %> %>
+    <% end%>
+    <td class="light">♜</td>
+    <td class="dark">♞</td>
+    <td class="light">♝</td>
+    <td class="dark">♛</td>
+    <td class="light">♚</td>
+    <td class="dark">♝</td>
+    <td class="light">♞</td>
+    <td class="dark">♜</td>
+  </tr>
+  <tr>
+    <th>7</th>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+  </tr>
+  <tr>
+    <th>6</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td class="dark">♖</td>
+    <td class="light">♘</td>
+    <td class="dark">♗</td>
+    <td class="light">♕</td>
+    <td class="dark">♔</td>
+    <td class="light">♗</td>
+    <td class="dark">♘</td>
+    <td class="light">♖</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:    <head>
+4:      <title></title>
+5:      <meta charset="UTF-8">
+6:      <style>
+7:          .chess-board { border-spacing: 0; border-collapse: collapse; }
+8:          .chess-board th { padding: .5em; }
+9:          .chess-board th + th { border-bottom: 1px solid #000; }
+10:          .chess-board th:first-child,
+11:          .chess-board td:last-child { border-right: 1px solid #000; }
+12:          .chess-board tr:last-child td { border-bottom: 1px solid; }
+13:          .chess-board th:empty { border: none; }
+14:          .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+15:          .chess-board .light { background: #eee; }
+16:          .chess-board .dark { background: #aaa; }
+17:      </style>
+18:    </head>
+19:    <body>
+20:    <table class="chess-board">
+21:      <tbody>
+22:      <tr>
+23:        <th></th>
+24:        <th>a</th>
+25:        <th>b</th>
+26:        <th>c</th>
+27:        <th>d</th>
+28:        <th>e</th>
+29:        <th>f</th>
+30:        <th>g</th>
+31:        <th>h</th>
+32:      </tr>
+33:      <tr>
+34:        <th>8</th>
+35:        <% @fen[7].each do |p| %>
+36:          <% if is_digit(p) %>
+37:              <% current_field = current_field + p.to_i %>
+38:              <% for %>
+39:    
+40:            else
+41:    
+42:          <% end %> %>
+43:        <% end%>
+44:        <td class="light">♜</td>
+45:        <td class="dark">♞</td>
+46:        <td class="light">♝</td>
+47:        <td class="dark">♛</td>
+48:        <td class="light">♚</td>
+49:        <td class="dark">♝</td>
+50:        <td class="light">♞</td>
+51:        <td class="dark">♜</td>
+52:      </tr>
+53:      <tr>
+54:        <th>7</th>
+55:        <td class="dark">♟</td>
+56:        <td class="light">♟</td>
+57:        <td class="dark">♟</td>
+58:        <td class="light">♟</td>
+59:        <td class="dark">♟</td>
+60:        <td class="light">♟</td>
+61:        <td class="dark">♟</td>
+62:        <td class="light">♟</td>
+63:      </tr>
+64:      <tr>
+65:        <th>6</th>
+66:        <td class="light"></td>
+67:        <td class="dark"></td>
+68:        <td class="light"></td>
+69:        <td class="dark"></td>
+70:        <td class="light"></td>
+71:        <td class="dark"></td>
+72:        <td class="light"></td>
+73:        <td class="dark"></td>
+74:      </tr>
+75:      <tr>
+76:        <th>5</th>
+77:        <td class="dark"></td>
+78:        <td class="light"></td>
+79:        <td class="dark"></td>
+80:        <td class="light"></td>
+81:        <td class="dark"></td>
+82:        <td class="light"></td>
+83:        <td class="dark"></td>
+84:        <td class="light"></td>
+85:      </tr>
+86:      <tr>
+87:        <th>4</th>
+88:        <td class="light"></td>
+89:        <td class="dark"></td>
+90:        <td class="light"></td>
+91:        <td class="dark"></td>
+92:        <td class="light"></td>
+93:        <td class="dark"></td>
+94:        <td class="light"></td>
+95:        <td class="dark"></td>
+96:      </tr>
+97:      <tr>
+98:        <th>3</th>
+99:        <td class="dark"></td>
+100:        <td class="light"></td>
+101:        <td class="dark"></td>
+102:        <td class="light"></td>
+103:        <td class="dark"></td>
+104:        <td class="light"></td>
+105:        <td class="dark"></td>
+106:        <td class="light"></td>
+107:      </tr>
+108:      <tr>
+109:        <th>2</th>
+110:        <td class="light">♙</td>
+111:        <td class="dark">♙</td>
+112:        <td class="light">♙</td>
+113:        <td class="dark">♙</td>
+114:        <td class="light">♙</td>
+115:        <td class="dark">♙</td>
+116:        <td class="light">♙</td>
+117:        <td class="dark">♙</td>
+118:      </tr>
+119:      <tr>
+120:        <th>1</th>
+121:        <td class="dark">♖</td>
+122:        <td class="light">♘</td>
+123:        <td class="dark">♗</td>
+124:        <td class="light">♕</td>
+125:        <td class="dark">♔</td>
+126:        <td class="light">♗</td>
+127:        <td class="dark">♘</td>
+128:        <td class="light">♖</td>
+129:      </tr>
+130:      </tbody>
+131:    </table>
+132:    </body>
+133:    </html>
+  
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:00:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 36.9ms | Allocations: 2475)
+  Rendered layout layouts/application.html.erb (Duration: 37.7ms | Allocations: 2578)
+Completed 500 Internal Server Error in 22888ms (ActiveRecord: 0.0ms | Allocations: 30308)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style>
+      .chess-board { border-spacing: 0; border-collapse: collapse; }
+      .chess-board th { padding: .5em; }
+      .chess-board th + th { border-bottom: 1px solid #000; }
+      .chess-board th:first-child,
+      .chess-board td:last-child { border-right: 1px solid #000; }
+      .chess-board tr:last-child td { border-bottom: 1px solid; }
+      .chess-board th:empty { border: none; }
+      .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+      .chess-board .light { background: #eee; }
+      .chess-board .dark { background: #aaa; }
+  </style>
+</head>
+<body>
+<table class="chess-board">
+  <tbody>
+  <tr>
+    <th></th>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+    <th>d</th>
+    <th>e</th>
+    <th>f</th>
+    <th>g</th>
+    <th>h</th>
+  </tr>
+  <tr>
+    <th>8</th>
+    <% @fen[7].each do |p| %>
+      <% if is_digit(p) %>
+          <% current_field = current_field + p.to_i %>
+          <% for %>
+
+        else
+
+      <% end %> %>
+    <% end%>
+    <td class="light">♜</td>
+    <td class="dark">♞</td>
+    <td class="light">♝</td>
+    <td class="dark">♛</td>
+    <td class="light">♚</td>
+    <td class="dark">♝</td>
+    <td class="light">♞</td>
+    <td class="dark">♜</td>
+  </tr>
+  <tr>
+    <th>7</th>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+  </tr>
+  <tr>
+    <th>6</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td class="dark">♖</td>
+    <td class="light">♘</td>
+    <td class="dark">♗</td>
+    <td class="light">♕</td>
+    <td class="dark">♔</td>
+    <td class="light">♗</td>
+    <td class="dark">♘</td>
+    <td class="light">♖</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:    <head>
+4:      <title></title>
+5:      <meta charset="UTF-8">
+6:      <style>
+7:          .chess-board { border-spacing: 0; border-collapse: collapse; }
+8:          .chess-board th { padding: .5em; }
+9:          .chess-board th + th { border-bottom: 1px solid #000; }
+10:          .chess-board th:first-child,
+11:          .chess-board td:last-child { border-right: 1px solid #000; }
+12:          .chess-board tr:last-child td { border-bottom: 1px solid; }
+13:          .chess-board th:empty { border: none; }
+14:          .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+15:          .chess-board .light { background: #eee; }
+16:          .chess-board .dark { background: #aaa; }
+17:      </style>
+18:    </head>
+19:    <body>
+20:    <table class="chess-board">
+21:      <tbody>
+22:      <tr>
+23:        <th></th>
+24:        <th>a</th>
+25:        <th>b</th>
+26:        <th>c</th>
+27:        <th>d</th>
+28:        <th>e</th>
+29:        <th>f</th>
+30:        <th>g</th>
+31:        <th>h</th>
+32:      </tr>
+33:      <tr>
+34:        <th>8</th>
+35:        <% @fen[7].each do |p| %>
+36:          <% if is_digit(p) %>
+37:              <% current_field = current_field + p.to_i %>
+38:              <% for %>
+39:    
+40:            else
+41:    
+42:          <% end %> %>
+43:        <% end%>
+44:        <td class="light">♜</td>
+45:        <td class="dark">♞</td>
+46:        <td class="light">♝</td>
+47:        <td class="dark">♛</td>
+48:        <td class="light">♚</td>
+49:        <td class="dark">♝</td>
+50:        <td class="light">♞</td>
+51:        <td class="dark">♜</td>
+52:      </tr>
+53:      <tr>
+54:        <th>7</th>
+55:        <td class="dark">♟</td>
+56:        <td class="light">♟</td>
+57:        <td class="dark">♟</td>
+58:        <td class="light">♟</td>
+59:        <td class="dark">♟</td>
+60:        <td class="light">♟</td>
+61:        <td class="dark">♟</td>
+62:        <td class="light">♟</td>
+63:      </tr>
+64:      <tr>
+65:        <th>6</th>
+66:        <td class="light"></td>
+67:        <td class="dark"></td>
+68:        <td class="light"></td>
+69:        <td class="dark"></td>
+70:        <td class="light"></td>
+71:        <td class="dark"></td>
+72:        <td class="light"></td>
+73:        <td class="dark"></td>
+74:      </tr>
+75:      <tr>
+76:        <th>5</th>
+77:        <td class="dark"></td>
+78:        <td class="light"></td>
+79:        <td class="dark"></td>
+80:        <td class="light"></td>
+81:        <td class="dark"></td>
+82:        <td class="light"></td>
+83:        <td class="dark"></td>
+84:        <td class="light"></td>
+85:      </tr>
+86:      <tr>
+87:        <th>4</th>
+88:        <td class="light"></td>
+89:        <td class="dark"></td>
+90:        <td class="light"></td>
+91:        <td class="dark"></td>
+92:        <td class="light"></td>
+93:        <td class="dark"></td>
+94:        <td class="light"></td>
+95:        <td class="dark"></td>
+96:      </tr>
+97:      <tr>
+98:        <th>3</th>
+99:        <td class="dark"></td>
+100:        <td class="light"></td>
+101:        <td class="dark"></td>
+102:        <td class="light"></td>
+103:        <td class="dark"></td>
+104:        <td class="light"></td>
+105:        <td class="dark"></td>
+106:        <td class="light"></td>
+107:      </tr>
+108:      <tr>
+109:        <th>2</th>
+110:        <td class="light">♙</td>
+111:        <td class="dark">♙</td>
+112:        <td class="light">♙</td>
+113:        <td class="dark">♙</td>
+114:        <td class="light">♙</td>
+115:        <td class="dark">♙</td>
+116:        <td class="light">♙</td>
+117:        <td class="dark">♙</td>
+118:      </tr>
+119:      <tr>
+120:        <th>1</th>
+121:        <td class="dark">♖</td>
+122:        <td class="light">♘</td>
+123:        <td class="dark">♗</td>
+124:        <td class="light">♕</td>
+125:        <td class="dark">♔</td>
+126:        <td class="light">♗</td>
+127:        <td class="dark">♘</td>
+128:        <td class="light">♖</td>
+129:      </tr>
+130:      </tbody>
+131:    </table>
+132:    </body>
+133:    </html>
+  
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+app/views/games/gameDetails.html.erb:39: syntax error, unexpected '=', expecting '.' or &. or :: or '['
+Started GET "/" for 127.0.0.1 at 2023-05-20 13:11:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 5.6ms | Allocations: 901)
+  Rendered layouts/_navbar.html.erb (Duration: 26.6ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 1429.5ms | Allocations: 47024)
+Completed 200 OK in 1600ms (Views: 1474.0ms | ActiveRecord: 11.7ms | Allocations: 78055)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:11:57 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 25.8ms | Allocations: 3137)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 3227)
+Completed 500 Internal Server Error in 2819ms (ActiveRecord: 0.0ms | Allocations: 15861)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    32:   </tr>
+    33:   <tr>
+    34:     <th>8</th>
+    35:     <% @fen[7].each do |p| %>
+    36:       <% case p
+    37:          when ' ' %><td class="light"></td>
+    38:         <% when 'R' %><td class="light">♜</td>
+  
+app/views/games/gameDetails.html.erb:35
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:12:22 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1331)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1411)
+Completed 500 Internal Server Error in 2511ms (ActiveRecord: 0.0ms | Allocations: 12466)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    32:   </tr>
+    33:   <tr>
+    34:     <th>8</th>
+    35:     <% @positions[7].each do |p| %>
+    36:       <% case p
+    37:          when ' ' %><td class="light"></td>
+    38:         <% when 'R' %><td class="light">♜</td>
+  
+app/views/games/gameDetails.html.erb:35
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:13:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 23.4ms | Allocations: 1248)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 26.7ms | Allocations: 22439)
+  Rendered layout layouts/application.html.erb (Duration: 498.3ms | Allocations: 69617)
+Completed 200 OK in 2863ms (Views: 563.9ms | ActiveRecord: 2.6ms | Allocations: 87503)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:13:45 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 15534.0ms | Allocations: 105824)
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.6ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 15610.7ms | Allocations: 113513)
+Completed 200 OK in 17957ms (Views: 15610.5ms | ActiveRecord: 1.3ms | Allocations: 124652)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:15:04 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 105298.9ms | Allocations: 24697)
+  [1m[36mPlayer Load (14.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 17.3ms | Allocations: 1137)
+  Rendered layout layouts/application.html.erb (Duration: 105399.9ms | Allocations: 32632)
+Completed 200 OK in 108526ms (Views: 105387.3ms | ActiveRecord: 14.1ms | Allocations: 43702)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:17:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 869.7ms | Allocations: 8185)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 22.3ms | Allocations: 22407)
+  Rendered layout layouts/application.html.erb (Duration: 1317.2ms | Allocations: 76764)
+Completed 200 OK in 9819ms (Views: 1329.3ms | ActiveRecord: 1.9ms | Allocations: 96394)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:17:34 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 879.3ms | Allocations: 5235)
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.0ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 957.9ms | Allocations: 12938)
+Completed 200 OK in 39523ms (Views: 966.8ms | ActiveRecord: 0.9ms | Allocations: 33552)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:20:04 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 21.7ms | Allocations: 1125)
+  Rendered layout layouts/application.html.erb (Duration: 122.6ms | Allocations: 7687)
+Completed 200 OK in 69104ms (Views: 126.0ms | ActiveRecord: 0.9ms | Allocations: 22954)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:21:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 32715.3ms | Allocations: 86568)
+  [1m[36mPlayer Load (8.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 302.8ms | Allocations: 33654)
+  Rendered layout layouts/application.html.erb (Duration: 33685.5ms | Allocations: 166384)
+Completed 200 OK in 39363ms (Views: 33726.2ms | ActiveRecord: 38.1ms | Allocations: 184418)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:23:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 627.1ms | Allocations: 8179)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 22.5ms | Allocations: 22407)
+  Rendered layout layouts/application.html.erb (Duration: 1128.0ms | Allocations: 76768)
+Completed 200 OK in 3876ms (Views: 1198.4ms | ActiveRecord: 1.9ms | Allocations: 94756)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:26:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 28.4ms | Allocations: 3041)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 3145)
+Completed 500 Internal Server Error in 2504ms (ActiveRecord: 0.0ms | Allocations: 21065)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style>
+      .chess-board { border-spacing: 0; border-collapse: collapse; }
+      .chess-board th { padding: .5em; }
+      .chess-board th + th { border-bottom: 1px solid #000; }
+      .chess-board th:first-child,
+      .chess-board td:last-child { border-right: 1px solid #000; }
+      .chess-board tr:last-child td { border-bottom: 1px solid; }
+      .chess-board th:empty { border: none; }
+      .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+      .chess-board .light { background: #eee; }
+      .chess-board .dark { background: #aaa; }
+  </style>
+</head>
+<body>
+<table class="chess-board">
+  <tbody>
+  <tr>
+    <th></th>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+    <th>d</th>
+    <th>e</th>
+    <th>f</th>
+    <th>g</th>
+    <th>h</th>
+  </tr>
+  <tr>
+    <th>8</th>
+    <% @positions[0].each_with_index do |p, index| %>
+      <% if index % 2 == 0 %>
+        <% case p
+           when ' ' %><td class="light"></td>
+          <% when 'r' %><td class="light">♜</td>
+          <% when 'n' %><td class="light">♞</td>
+          <% when 'b' %><td class="light">♝</td>
+          <% when 'q' %><td class="light">♛</td>
+          <% when 'k' %><td class="light">♚</td>
+          <% when 'p'%><td class="light">♟</td>
+          <% when 'R' %><td class="light">♖</td>
+          <% when 'N' %><td class="light">♘</td>
+          <% when 'B' %><td class="light">♗</td>
+          <% when 'Q' %><td class="light">♕</td>
+          <% when 'K' %><td class="light">♔</td>
+          <% when 'P'%><td class="light">♙</td>
+
+        <% end %>
+        <% else %>
+          <% case p
+             when ' ' %><td class="dark"></td>
+          <% when 'r' %><td class="dark">♜</td>
+          <% when 'n' %><td class="dark">♞</td>
+          <% when 'b' %><td class="dark">♝</td>
+          <% when 'q' %><td class="dark">♛</td>
+          <% when 'k' %><td class="dark">♚</td>
+          <% when 'p'%><td class="dark">♟</td>
+          <% when 'R' %><td class="dark">♖</td>
+          <% when 'N' %><td class="dark">♘</td>
+          <% when 'B' %><td class="dark">♗</td>
+          <% when 'Q' %><td class="dark">♕</td>
+          <% when 'K' %><td class="dark">♔</td>
+          <% when 'P'%><td class="dark">♙</td>
+
+          <% end %>
+
+    <% end%>
+  </tr>
+  <tr>
+    <th>7</th>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+  </tr>
+  <tr>
+    <th>6</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td class="dark">♖</td>
+    <td class="light">♘</td>
+    <td class="dark">♗</td>
+    <td class="light">♕</td>
+    <td class="dark">♔</td>
+    <td class="light">♗</td>
+    <td class="dark">♘</td>
+    <td class="light">♖</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:    <head>
+4:      <title></title>
+5:      <meta charset="UTF-8">
+6:      <style>
+7:          .chess-board { border-spacing: 0; border-collapse: collapse; }
+8:          .chess-board th { padding: .5em; }
+9:          .chess-board th + th { border-bottom: 1px solid #000; }
+10:          .chess-board th:first-child,
+11:          .chess-board td:last-child { border-right: 1px solid #000; }
+12:          .chess-board tr:last-child td { border-bottom: 1px solid; }
+13:          .chess-board th:empty { border: none; }
+14:          .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+15:          .chess-board .light { background: #eee; }
+16:          .chess-board .dark { background: #aaa; }
+17:      </style>
+18:    </head>
+19:    <body>
+20:    <table class="chess-board">
+21:      <tbody>
+22:      <tr>
+23:        <th></th>
+24:        <th>a</th>
+25:        <th>b</th>
+26:        <th>c</th>
+27:        <th>d</th>
+28:        <th>e</th>
+29:        <th>f</th>
+30:        <th>g</th>
+31:        <th>h</th>
+32:      </tr>
+33:      <tr>
+34:        <th>8</th>
+35:        <% @positions[0].each_with_index do |p, index| %>
+36:          <% if index % 2 == 0 %>
+37:            <% case p
+38:               when ' ' %><td class="light"></td>
+39:              <% when 'r' %><td class="light">♜</td>
+40:              <% when 'n' %><td class="light">♞</td>
+41:              <% when 'b' %><td class="light">♝</td>
+42:              <% when 'q' %><td class="light">♛</td>
+43:              <% when 'k' %><td class="light">♚</td>
+44:              <% when 'p'%><td class="light">♟</td>
+45:              <% when 'R' %><td class="light">♖</td>
+46:              <% when 'N' %><td class="light">♘</td>
+47:              <% when 'B' %><td class="light">♗</td>
+48:              <% when 'Q' %><td class="light">♕</td>
+49:              <% when 'K' %><td class="light">♔</td>
+50:              <% when 'P'%><td class="light">♙</td>
+51:    
+52:            <% end %>
+53:            <% else %>
+54:              <% case p
+55:                 when ' ' %><td class="dark"></td>
+56:              <% when 'r' %><td class="dark">♜</td>
+57:              <% when 'n' %><td class="dark">♞</td>
+58:              <% when 'b' %><td class="dark">♝</td>
+59:              <% when 'q' %><td class="dark">♛</td>
+60:              <% when 'k' %><td class="dark">♚</td>
+61:              <% when 'p'%><td class="dark">♟</td>
+62:              <% when 'R' %><td class="dark">♖</td>
+63:              <% when 'N' %><td class="dark">♘</td>
+64:              <% when 'B' %><td class="dark">♗</td>
+65:              <% when 'Q' %><td class="dark">♕</td>
+66:              <% when 'K' %><td class="dark">♔</td>
+67:              <% when 'P'%><td class="dark">♙</td>
+68:    
+69:              <% end %>
+70:    
+71:        <% end%>
+72:      </tr>
+73:      <tr>
+74:        <th>7</th>
+75:        <td class="dark">♟</td>
+76:        <td class="light">♟</td>
+77:        <td class="dark">♟</td>
+78:        <td class="light">♟</td>
+79:        <td class="dark">♟</td>
+80:        <td class="light">♟</td>
+81:        <td class="dark">♟</td>
+82:        <td class="light">♟</td>
+83:      </tr>
+84:      <tr>
+85:        <th>6</th>
+86:        <td class="light"></td>
+87:        <td class="dark"></td>
+88:        <td class="light"></td>
+89:        <td class="dark"></td>
+90:        <td class="light"></td>
+91:        <td class="dark"></td>
+92:        <td class="light"></td>
+93:        <td class="dark"></td>
+94:      </tr>
+95:      <tr>
+96:        <th>5</th>
+97:        <td class="dark"></td>
+98:        <td class="light"></td>
+99:        <td class="dark"></td>
+100:        <td class="light"></td>
+101:        <td class="dark"></td>
+102:        <td class="light"></td>
+103:        <td class="dark"></td>
+104:        <td class="light"></td>
+105:      </tr>
+106:      <tr>
+107:        <th>4</th>
+108:        <td class="light"></td>
+109:        <td class="dark"></td>
+110:        <td class="light"></td>
+111:        <td class="dark"></td>
+112:        <td class="light"></td>
+113:        <td class="dark"></td>
+114:        <td class="light"></td>
+115:        <td class="dark"></td>
+116:      </tr>
+117:      <tr>
+118:        <th>3</th>
+119:        <td class="dark"></td>
+120:        <td class="light"></td>
+121:        <td class="dark"></td>
+122:        <td class="light"></td>
+123:        <td class="dark"></td>
+124:        <td class="light"></td>
+125:        <td class="dark"></td>
+126:        <td class="light"></td>
+127:      </tr>
+128:      <tr>
+129:        <th>2</th>
+130:        <td class="light">♙</td>
+131:        <td class="dark">♙</td>
+132:        <td class="light">♙</td>
+133:        <td class="dark">♙</td>
+134:        <td class="light">♙</td>
+135:        <td class="dark">♙</td>
+136:        <td class="light">♙</td>
+137:        <td class="dark">♙</td>
+138:      </tr>
+139:      <tr>
+140:        <th>1</th>
+141:        <td class="dark">♖</td>
+142:        <td class="light">♘</td>
+143:        <td class="dark">♗</td>
+144:        <td class="light">♕</td>
+145:        <td class="dark">♔</td>
+146:        <td class="light">♗</td>
+147:        <td class="dark">♘</td>
+148:        <td class="light">♖</td>
+149:      </tr>
+150:      </tbody>
+151:    </table>
+152:    </body>
+153:    </html>
+  
+app/views/games/gameDetails.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:28:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 58.5ms | Allocations: 3038)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 3141)
+Completed 500 Internal Server Error in 1792ms (ActiveRecord: 0.0ms | Allocations: 21056)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style>
+      .chess-board { border-spacing: 0; border-collapse: collapse; }
+      .chess-board th { padding: .5em; }
+      .chess-board th + th { border-bottom: 1px solid #000; }
+      .chess-board th:first-child,
+      .chess-board td:last-child { border-right: 1px solid #000; }
+      .chess-board tr:last-child td { border-bottom: 1px solid; }
+      .chess-board th:empty { border: none; }
+      .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+      .chess-board .light { background: #eee; }
+      .chess-board .dark { background: #aaa; }
+  </style>
+</head>
+<body>
+<table class="chess-board">
+  <tbody>
+  <tr>
+    <th></th>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+    <th>d</th>
+    <th>e</th>
+    <th>f</th>
+    <th>g</th>
+    <th>h</th>
+  </tr>
+  <tr>
+    <th>8</th>
+    <% @positions[0].each_with_index do |p, index| %>
+      <% if index % 2 == 0 %>
+        <% case p
+           when ' ' %><td class="light"></td>
+          <% when 'r' %><td class="light">♜</td>
+          <% when 'n' %><td class="light">♞</td>
+          <% when 'b' %><td class="light">♝</td>
+          <% when 'q' %><td class="light">♛</td>
+          <% when 'k' %><td class="light">♚</td>
+          <% when 'p'%><td class="light">♟</td>
+          <% when 'R' %><td class="light">♖</td>
+          <% when 'N' %><td class="light">♘</td>
+          <% when 'B' %><td class="light">♗</td>
+          <% when 'Q' %><td class="light">♕</td>
+          <% when 'K' %><td class="light">♔</td>
+          <% when 'P'%><td class="light">♙</td>
+
+        <% end %>
+        <% end %>
+        <% if index % 2 != 0 %>
+          <% case p
+             when ' ' %><td class="dark"></td>
+          <% when 'r' %><td class="dark">♜</td>
+          <% when 'n' %><td class="dark">♞</td>
+          <% when 'b' %><td class="dark">♝</td>
+          <% when 'q' %><td class="dark">♛</td>
+          <% when 'k' %><td class="dark">♚</td>
+          <% when 'p'%><td class="dark">♟</td>
+          <% when 'R' %><td class="dark">♖</td>
+          <% when 'N' %><td class="dark">♘</td>
+          <% when 'B' %><td class="dark">♗</td>
+          <% when 'Q' %><td class="dark">♕</td>
+          <% when 'K' %><td class="dark">♔</td>
+          <% when 'P'%><td class="dark">♙</td>
+
+          <% end %>
+        <% end %>
+
+  </tr>
+  <tr>
+    <th>7</th>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+    <td class="dark">♟</td>
+    <td class="light">♟</td>
+  </tr>
+  <tr>
+    <th>6</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+    <td class="dark"></td>
+    <td class="light"></td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+    <td class="light">♙</td>
+    <td class="dark">♙</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td class="dark">♖</td>
+    <td class="light">♘</td>
+    <td class="dark">♗</td>
+    <td class="light">♕</td>
+    <td class="dark">♔</td>
+    <td class="light">♗</td>
+    <td class="dark">♘</td>
+    <td class="light">♖</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:    <head>
+4:      <title></title>
+5:      <meta charset="UTF-8">
+6:      <style>
+7:          .chess-board { border-spacing: 0; border-collapse: collapse; }
+8:          .chess-board th { padding: .5em; }
+9:          .chess-board th + th { border-bottom: 1px solid #000; }
+10:          .chess-board th:first-child,
+11:          .chess-board td:last-child { border-right: 1px solid #000; }
+12:          .chess-board tr:last-child td { border-bottom: 1px solid; }
+13:          .chess-board th:empty { border: none; }
+14:          .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+15:          .chess-board .light { background: #eee; }
+16:          .chess-board .dark { background: #aaa; }
+17:      </style>
+18:    </head>
+19:    <body>
+20:    <table class="chess-board">
+21:      <tbody>
+22:      <tr>
+23:        <th></th>
+24:        <th>a</th>
+25:        <th>b</th>
+26:        <th>c</th>
+27:        <th>d</th>
+28:        <th>e</th>
+29:        <th>f</th>
+30:        <th>g</th>
+31:        <th>h</th>
+32:      </tr>
+33:      <tr>
+34:        <th>8</th>
+35:        <% @positions[0].each_with_index do |p, index| %>
+36:          <% if index % 2 == 0 %>
+37:            <% case p
+38:               when ' ' %><td class="light"></td>
+39:              <% when 'r' %><td class="light">♜</td>
+40:              <% when 'n' %><td class="light">♞</td>
+41:              <% when 'b' %><td class="light">♝</td>
+42:              <% when 'q' %><td class="light">♛</td>
+43:              <% when 'k' %><td class="light">♚</td>
+44:              <% when 'p'%><td class="light">♟</td>
+45:              <% when 'R' %><td class="light">♖</td>
+46:              <% when 'N' %><td class="light">♘</td>
+47:              <% when 'B' %><td class="light">♗</td>
+48:              <% when 'Q' %><td class="light">♕</td>
+49:              <% when 'K' %><td class="light">♔</td>
+50:              <% when 'P'%><td class="light">♙</td>
+51:    
+52:            <% end %>
+53:            <% end %>
+54:            <% if index % 2 != 0 %>
+55:              <% case p
+56:                 when ' ' %><td class="dark"></td>
+57:              <% when 'r' %><td class="dark">♜</td>
+58:              <% when 'n' %><td class="dark">♞</td>
+59:              <% when 'b' %><td class="dark">♝</td>
+60:              <% when 'q' %><td class="dark">♛</td>
+61:              <% when 'k' %><td class="dark">♚</td>
+62:              <% when 'p'%><td class="dark">♟</td>
+63:              <% when 'R' %><td class="dark">♖</td>
+64:              <% when 'N' %><td class="dark">♘</td>
+65:              <% when 'B' %><td class="dark">♗</td>
+66:              <% when 'Q' %><td class="dark">♕</td>
+67:              <% when 'K' %><td class="dark">♔</td>
+68:              <% when 'P'%><td class="dark">♙</td>
+69:    
+70:              <% end %>
+71:            <% end %>
+72:    
+73:      </tr>
+74:      <tr>
+75:        <th>7</th>
+76:        <td class="dark">♟</td>
+77:        <td class="light">♟</td>
+78:        <td class="dark">♟</td>
+79:        <td class="light">♟</td>
+80:        <td class="dark">♟</td>
+81:        <td class="light">♟</td>
+82:        <td class="dark">♟</td>
+83:        <td class="light">♟</td>
+84:      </tr>
+85:      <tr>
+86:        <th>6</th>
+87:        <td class="light"></td>
+88:        <td class="dark"></td>
+89:        <td class="light"></td>
+90:        <td class="dark"></td>
+91:        <td class="light"></td>
+92:        <td class="dark"></td>
+93:        <td class="light"></td>
+94:        <td class="dark"></td>
+95:      </tr>
+96:      <tr>
+97:        <th>5</th>
+98:        <td class="dark"></td>
+99:        <td class="light"></td>
+100:        <td class="dark"></td>
+101:        <td class="light"></td>
+102:        <td class="dark"></td>
+103:        <td class="light"></td>
+104:        <td class="dark"></td>
+105:        <td class="light"></td>
+106:      </tr>
+107:      <tr>
+108:        <th>4</th>
+109:        <td class="light"></td>
+110:        <td class="dark"></td>
+111:        <td class="light"></td>
+112:        <td class="dark"></td>
+113:        <td class="light"></td>
+114:        <td class="dark"></td>
+115:        <td class="light"></td>
+116:        <td class="dark"></td>
+117:      </tr>
+118:      <tr>
+119:        <th>3</th>
+120:        <td class="dark"></td>
+121:        <td class="light"></td>
+122:        <td class="dark"></td>
+123:        <td class="light"></td>
+124:        <td class="dark"></td>
+125:        <td class="light"></td>
+126:        <td class="dark"></td>
+127:        <td class="light"></td>
+128:      </tr>
+129:      <tr>
+130:        <th>2</th>
+131:        <td class="light">♙</td>
+132:        <td class="dark">♙</td>
+133:        <td class="light">♙</td>
+134:        <td class="dark">♙</td>
+135:        <td class="light">♙</td>
+136:        <td class="dark">♙</td>
+137:        <td class="light">♙</td>
+138:        <td class="dark">♙</td>
+139:      </tr>
+140:      <tr>
+141:        <th>1</th>
+142:        <td class="dark">♖</td>
+143:        <td class="light">♘</td>
+144:        <td class="dark">♗</td>
+145:        <td class="light">♕</td>
+146:        <td class="dark">♔</td>
+147:        <td class="light">♗</td>
+148:        <td class="dark">♘</td>
+149:        <td class="light">♖</td>
+150:      </tr>
+151:      </tbody>
+152:    </table>
+153:    </body>
+154:    </html>
+  
+app/views/games/gameDetails.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/games/gameDetails.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:29:15 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 792.3ms | Allocations: 10132)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 23.8ms | Allocations: 22407)
+  Rendered layout layouts/application.html.erb (Duration: 1276.4ms | Allocations: 78743)
+Completed 200 OK in 4652ms (Views: 1332.3ms | ActiveRecord: 2.0ms | Allocations: 96736)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:31:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 1293.6ms | Allocations: 32787)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 22.1ms | Allocations: 22407)
+  Rendered layout layouts/application.html.erb (Duration: 1826.4ms | Allocations: 101032)
+Completed 200 OK in 5274ms (Views: 1869.6ms | ActiveRecord: 3.3ms | Allocations: 119021)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:33:59 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 881.8ms | Allocations: 32263)
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.2ms | Allocations: 1391)
+  Rendered layout layouts/application.html.erb (Duration: 990.1ms | Allocations: 40670)
+Completed 200 OK in 4473ms (Views: 999.3ms | ActiveRecord: 1.0ms | Allocations: 52682)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-20 13:39:36 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (8.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.6ms | Allocations: 484)
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:39:38 +0200
+  Rendered layouts/_navbar.html.erb (Duration: 21.6ms | Allocations: 476)
+  Rendered layout layouts/application.html.erb (Duration: 436.6ms | Allocations: 18891)
+Completed 200 OK in 624ms (Views: 489.7ms | ActiveRecord: 28.3ms | Allocations: 27864)
+
+
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3234.0ms | Allocations: 32528)
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 19.9ms | Allocations: 4703)
+  Rendered layout layouts/application.html.erb (Duration: 3426.3ms | Allocations: 54583)
+Completed 200 OK in 9301ms (Views: 3469.3ms | ActiveRecord: 1.7ms | Allocations: 67185)
+
+
+Started GET "/gameDetails" for 127.0.0.1 at 2023-05-20 13:40:29 +0200
+Processing by GamesController#gameDetails as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 55.3ms | Allocations: 6262)
+  [1m[36mPlayer Load (17.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 23.1ms | Allocations: 1369)
+  Rendered layout layouts/application.html.erb (Duration: 128.8ms | Allocations: 14546)
+Completed 200 OK in 196ms (Views: 148.2ms | ActiveRecord: 17.5ms | Allocations: 15956)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2023-05-20 13:41:06 +0200
+Processing by GamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 34.7ms | Allocations: 6900)
+  Rendered games/new.html.erb within layouts/application (Duration: 37.1ms | Allocations: 7262)
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 1095)
+  Rendered layout layouts/application.html.erb (Duration: 106.7ms | Allocations: 14629)
+Completed 200 OK in 169ms (Views: 107.4ms | ActiveRecord: 2.5ms | Allocations: 42234)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2023-05-20 13:41:22 +0200
+Processing by GamesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 27.3ms | Allocations: 3035)
+  Rendered games/new.html.erb within layouts/application (Duration: 41.4ms | Allocations: 3388)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.3ms | Allocations: 1324)
+  Rendered layout layouts/application.html.erb (Duration: 77.6ms | Allocations: 11350)
+Completed 200 OK in 125ms (Views: 85.6ms | ActiveRecord: 0.6ms | Allocations: 12575)
+
+
+Started POST "/games" for 127.0.0.1 at 2023-05-20 13:41:58 +0200
+Processing by GamesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"status"=>"White move", "start_date"=>"2023-05-18", "who_moves"=>"White", "fen"=>"r1bqk2r/ppp2p2/2np1n1p/2b1p1p1/2B1P3/2NP1NB1/PPP2PPP/R2QK2R b KQkq - 1 8", "player_black_id"=>"1", "player_white_id"=>"2", "end_date"=>""}, "commit"=>"Create Game"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:64:in `block in create'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:64:in `block in create'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:64:in `block in create'
+  [1m[36mGame Create (1.1ms)[0m  [1m[32mINSERT INTO "games" ("status", "start_date", "who_moves", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["status", "White move"], ["start_date", "2023-05-18"], ["who_moves", "White"], ["fen", "r1bqk2r/ppp2p2/2np1n1p/2b1p1p1/2B1P3/2NP1NB1/PPP2PPP/R2QK2R b KQkq - 1 8"], ["end_date", nil], ["created_at", "2023-05-20 11:41:58.369307"], ["updated_at", "2023-05-20 11:41:58.369307"], ["player_white_id", 2], ["player_black_id", 1]]
+  ↳ app/controllers/games_controller.rb:64:in `block in create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:64:in `block in create'
+Redirected to http://0.0.0.0:3000/games/3
+Completed 302 Found in 46ms (ActiveRecord: 3.4ms | Allocations: 11741)
+
+
+Started GET "/games/3" for 127.0.0.1 at 2023-05-20 13:41:58 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:107:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 7.2ms | Allocations: 4986)
+  Rendered games/show.html.erb within layouts/application (Duration: 20.4ms | Allocations: 5958)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 6031)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.6ms | Allocations: 7670)
+
+
+  
+ActionView::Template::Error (undefined method `game_id' for #<Game id: 3, status: "White move", start_date: "2023-05-18", who_moves: "White", fen: "r1bqk2r/ppp2p2/2np1n1p/2b1p1p1/2B1P3/2NP1NB1/PPP2P...", end_date: nil, created_at: "2023-05-20 11:41:58.369307000 +0000", updated_at: "2023-05-20 11:41:58.369307000 +0000", player_white_id: 2, player_black_id: 1>):
+    1: <div id="<%= dom_id game %>">
+    2:   <p>
+    3:     <strong>Game:</strong>
+    4:     <%= game.game_id %>
+    5:   </p>
+    6: 
+    7:   <p>
+  
+app/views/games/_game.html.erb:4
+app/views/games/show.html.erb:3
+Started GET "/games/3" for 127.0.0.1 at 2023-05-20 13:42:18 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:107:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:24
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/_game.html.erb:29
+  Rendered games/_game.html.erb (Duration: 16.6ms | Allocations: 1797)
+  Rendered games/show.html.erb within layouts/application (Duration: 20.1ms | Allocations: 2867)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.7ms | Allocations: 1211)
+  Rendered layout layouts/application.html.erb (Duration: 68.8ms | Allocations: 10889)
+Completed 200 OK in 81ms (Views: 73.3ms | ActiveRecord: 2.6ms | Allocations: 12579)
+
+
+Started GET "/gameDetails/3" for 127.0.0.1 at 2023-05-20 13:49:38 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3.8ms | Allocations: 6262)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 10.0ms | Allocations: 3981)
+  Rendered layout layouts/application.html.erb (Duration: 91.8ms | Allocations: 27567)
+Completed 200 OK in 115ms (Views: 92.5ms | ActiveRecord: 2.0ms | Allocations: 35427)
+
+
+Started GET "/gameDetails/3" for 127.0.0.1 at 2023-05-20 13:56:44 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:26:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 22.5ms | Allocations: 6295)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 7.5ms | Allocations: 1682)
+  Rendered layout layouts/application.html.erb (Duration: 229.6ms | Allocations: 25334)
+Completed 200 OK in 257ms (Views: 234.7ms | ActiveRecord: 6.2ms | Allocations: 37255)
+
+
+Started GET "/gameDetails/3" for 127.0.0.1 at 2023-05-20 13:56:56 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:26:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 29.1ms | Allocations: 6297)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.2ms | Allocations: 1367)
+  Rendered layout layouts/application.html.erb (Duration: 112.4ms | Allocations: 14568)
+Completed 200 OK in 153ms (Views: 118.0ms | ActiveRecord: 2.2ms | Allocations: 17284)
+
+
+Started GET "/gameDetails/3" for 127.0.0.1 at 2023-05-20 13:57:02 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (12.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (10.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:26:in `gameDetails'
+  [1m[36mPlayer Load (11.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 26.0ms | Allocations: 6295)
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 11.0ms | Allocations: 1368)
+  Rendered layout layouts/application.html.erb (Duration: 100.0ms | Allocations: 14587)
+Completed 200 OK in 280ms (Views: 149.6ms | ActiveRecord: 35.1ms | Allocations: 17306)
+
+
+Started GET "/gameDetails/3" for 127.0.0.1 at 2023-05-20 13:57:11 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:26:in `gameDetails'
+  [1m[36mPlayer Load (8.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:27:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 44.8ms | Allocations: 6295)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.1ms | Allocations: 1366)
+  Rendered layout layouts/application.html.erb (Duration: 119.7ms | Allocations: 14731)
+Completed 200 OK in 183ms (Views: 141.2ms | ActiveRecord: 10.5ms | Allocations: 17447)
+
+

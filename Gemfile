@@ -76,3 +76,5 @@ end
 gem "bootstrap", "~> 5.2"
 
 gem "devise", "~> 4.9"
+
+gem "chess", "~> 0.3.4"
