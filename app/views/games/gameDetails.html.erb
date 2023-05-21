@@ -368,11 +368,37 @@
 
 <%end %>
 
+<%= button_to analyze_path(@game_id), method: :post, class: 'btn btn-primary' do %>
+  Analyze
+<% end %>
 <%= link_to "Back to list", playerGames_path_url(:id => current_player.id)%>
+
+
+<% if flash[:variants] %>
+  <h5>Variants</h5>
+  <ul>
+  <% flash[:variants].each do |value| %>
+    <li><ul>
+      <li>Moves: <%= value[0] %></li>
+      <% if current_player.id == @black_player.id  %>
+        <li>CP: <%= -(value[1].to_i) %></li>
+      <% else %>
+        <li>CP: <%= value[1] %></li>
+      <% end %>
+    </ul></li>
+  <% end %>
+  </ul>
+<% end %>
 
 <% if flash[:error] %>
   <div class="alert alert-danger">
     <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if flash[:analysis_error] %>
+  <div class="alert alert-danger">
+    <%= flash[:analysis_error] %>
   </div>
 <% end %>
 

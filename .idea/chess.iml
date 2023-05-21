@@ -600,6 +600,40 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="httparty (vbundled(0.21.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/website" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/examples" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/website" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/examples" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/script" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/website" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/httparty-0.21.0/examples" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="i18n (vbundled(1.12.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

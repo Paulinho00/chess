@@ -120,6 +120,30 @@ class GamesController < ApplicationController
     redirect_to mainpage_path(current_player.id)
   end
 
+  def analyze
+      game = Game.find(params[:game_id])
+      fen = game.fen
+      engine_api = EngineApi.new('lip_xyQvHxD9Nd7M6MWyRWti')
+      analysis = engine_api.analyze_position(fen)
+
+      if analysis
+        flash[:analysis_error] = nil
+        json_object = JSON.parse(analysis)
+        variants_array = Array.new(json_object['pvs'].count)
+        json_object["pvs"].each_with_index do |key, index|
+          variants_array[index] = Array.new(2)
+
+          variants_array[index][0] = format_moves(game.who_moves, key['moves'])
+          variants_array[index][1] = key['cp']
+        end
+        flash[:variants] = variants_array
+        redirect_to game_details_path(params[:game_id])
+      else
+        flash[:analysis_error] = 'Unable to analyze the position'
+        flash[:variants] = nil
+        redirect_to game_details_path(params[:game_id])
+      end
+  end
   # POST /games or /games.json
   def create
     @game = Game.new(game_params)
@@ -174,5 +198,28 @@ class GamesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def game_params
       params.require(:game).permit(:game_id, :status, :start_date, :who_moves, :fen, :player_black_id, :player_white_id, :end_date)
+    end
+
+    def format_moves(who_moves, moves)
+      split_moves = moves.split(' ')
+      new_moves = ''
+      if who_moves == 'black'
+        split_moves.each_with_index do |value, index|
+          if index % 2 == 0
+            new_moves += "W:" + value + " "
+          else
+            new_moves += "B:" + value + " "
+          end
+        end
+      else
+        split_moves.each_with_index do |value, index|
+          if index % 2 == 0
+            new_moves += "B:" + value + " "
+          else
+            new_moves += "W:" + value + " "
+          end
+        end
+      end
+      return new_moves
     end
 end

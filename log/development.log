@@ -17599,3 +17599,2077 @@ Completed 200 OK in 66ms (Views: 52.2ms | ActiveRecord: 9.9ms | Allocations: 106
   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:11:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (7.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (9.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 64.9ms | Allocations: 10317)
+  Rendered layouts/_navbar.html.erb (Duration: 2.0ms | Allocations: 477)
+  Rendered layout layouts/application.html.erb (Duration: 675.1ms | Allocations: 56243)
+Completed 200 OK in 769ms (Views: 677.3ms | ActiveRecord: 22.2ms | Allocations: 106247)
+
+
+Started POST "/analyze.1" for 127.0.0.1 at 2023-05-21 12:11:29 +0200
+Processing by GamesController#analyze as */*
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Completed 404 Not Found in 1741ms (ActiveRecord: 0.0ms | Allocations: 7502)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Game without an ID):
+  
+app/controllers/games_controller.rb:124:in `analyze'
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:11:51 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2865)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 75.2ms | Allocations: 20168)
+Completed 200 OK in 110ms (Views: 76.6ms | ActiveRecord: 13.3ms | Allocations: 32814)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:11:53 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (2.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 6693ms (ActiveRecord: 2.9ms | Allocations: 21066)
+
+
+  
+NameError (uninitialized constant GamesController::EngineAPI
+Did you mean?  EngineApi):
+  
+app/controllers/games_controller.rb:126:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:12:56 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+Completed 500 Internal Server Error in 6ms (Allocations: 3015)
+
+
+  
+NameError (uninitialized constant GamesController::EngineAPI
+Did you mean?  EngineApi):
+  
+app/controllers/games_controller.rb:124:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:13:08 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+Completed 500 Internal Server Error in 14ms (Allocations: 1323)
+
+
+  
+Zeitwerk::NameError (expected file /home/user/Desktop/chess/app/controllers/engine_api.rb to define constant EngineApi, but didn't):
+  
+app/controllers/games_controller.rb:124:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:13:22 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 2203ms (Views: 0.3ms | ActiveRecord: 4.3ms | Allocations: 15280)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:13:34 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 27487ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 39284)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:14:06 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:19:57 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:20:05 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+Completed 422 Unprocessable Entity in 368919ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 61741)
+
+
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:22:15 +0200
+Completed 422 Unprocessable Entity in 141050ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 93000)
+
+
+Completed 422 Unprocessable Entity in 134052ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 96919)
+
+
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 2388ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 19064)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:22:27 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 20519ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 54405)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:22:51 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 2373ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 12347)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:26:15 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Started POST "/makeMove" for 127.0.0.1 at 2023-05-21 12:43:31 +0200
+Completed 422 Unprocessable Entity in 1039964ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 40051)
+
+
+Processing by GamesController#makeMove as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1", "movement"=>"e2e4", "commit"=>"Submit"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:70:in `makeMove'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mGame Update (1.2ms)[0m  [1m[33mUPDATE "games" SET "fen" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["fen", "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"], ["updated_at", "2023-05-21 10:43:36.365105"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 63ms (ActiveRecord: 5.2ms | Allocations: 20133)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:43:36 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1835)
+  Rendered layouts/_navbar.html.erb (Duration: 7.3ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 171.3ms | Allocations: 19147)
+Completed 200 OK in 183ms (Views: 175.9ms | ActiveRecord: 2.4ms | Allocations: 22093)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 12:43:38 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 43ms (ActiveRecord: 1.0ms | Allocations: 4791)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 12:43:39 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 19ms (ActiveRecord: 0.0ms | Allocations: 550)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 12:43:39 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.8ms | Allocations: 728)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 40.7ms | Allocations: 4014)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 103.5ms | Allocations: 10593)
+Completed 200 OK in 118ms (Views: 110.8ms | ActiveRecord: 0.0ms | Allocations: 12656)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 12:43:44 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 234ms (ActiveRecord: 0.7ms | Allocations: 4676)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 12:43:44 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 7.4ms | Allocations: 446)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 93.9ms | Allocations: 7082)
+Completed 200 OK in 109ms (Views: 103.9ms | ActiveRecord: 0.6ms | Allocations: 9378)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-21 12:43:47 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 18.5ms | Allocations: 3613)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.5ms | Allocations: 974)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 10956)
+Completed 200 OK in 73ms (Views: 64.7ms | ActiveRecord: 4.8ms | Allocations: 11446)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:43:48 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2277)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 62.1ms | Allocations: 8641)
+Completed 200 OK in 71ms (Views: 62.3ms | ActiveRecord: 1.8ms | Allocations: 10479)
+
+
+Started POST "/makeMove" for 127.0.0.1 at 2023-05-21 12:43:56 +0200
+Processing by GamesController#makeMove as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1", "movement"=>"g8f6", "commit"=>"Submit"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:70:in `makeMove'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (8.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mGame Update (1.8ms)[0m  [1m[33mUPDATE "games" SET "fen" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["fen", "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2"], ["updated_at", "2023-05-21 10:43:56.475494"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 32ms (ActiveRecord: 13.0ms | Allocations: 4273)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:43:56 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1565)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 7926)
+Completed 200 OK in 76ms (Views: 60.2ms | ActiveRecord: 2.5ms | Allocations: 9751)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 12:44:00 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 25ms (ActiveRecord: 0.8ms | Allocations: 1815)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 12:44:01 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 12:44:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 909)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 7259)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.0ms | Allocations: 7968)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 12:44:26 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (3.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 199ms (ActiveRecord: 3.9ms | Allocations: 2334)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 12:44:26 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (7.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.6ms | Allocations: 149)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 6534)
+Completed 200 OK in 80ms (Views: 50.9ms | ActiveRecord: 7.9ms | Allocations: 8002)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 12:44:28 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 14.7ms | Allocations: 3064)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 10324)
+Completed 200 OK in 49ms (Views: 41.7ms | ActiveRecord: 3.4ms | Allocations: 10693)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:44:29 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (7.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1553)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | Allocations: 7911)
+Completed 200 OK in 62ms (Views: 42.6ms | ActiveRecord: 9.0ms | Allocations: 9737)
+
+
+Started POST "/makeMove" for 127.0.0.1 at 2023-05-21 12:44:37 +0200
+Processing by GamesController#makeMove as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1", "movement"=>"b1c3", "commit"=>"Submit"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:70:in `makeMove'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mGame Update (1.2ms)[0m  [1m[33mUPDATE "games" SET "fen" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["fen", "rnbqkb1r/pppppppp/5n2/8/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 2 2"], ["updated_at", "2023-05-21 10:44:37.722302"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 13ms (ActiveRecord: 3.7ms | Allocations: 4181)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:44:37 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1206)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 7564)
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 1.3ms | Allocations: 9395)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:44:40 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 13992ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 55397)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:45:39 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 73321ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 33180)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:47:00 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 20378ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 100928)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:47:48 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 119824ms (Views: 0.6ms | ActiveRecord: 1.0ms | Allocations: 24208)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:49:50 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (14.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 66392ms (Views: 0.2ms | ActiveRecord: 44.7ms | Allocations: 48716)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:50:59 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 22257ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 31208)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:52:32 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 11033ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 44684)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:52:49 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 13758ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 37200)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:53:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (6.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (9.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 25.6ms | Allocations: 9206)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 590.4ms | Allocations: 55074)
+Completed 200 OK in 848ms (Views: 607.9ms | ActiveRecord: 29.4ms | Allocations: 105095)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:53:25 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 1826ms (ActiveRecord: 1.2ms | Allocations: 9072)
+
+
+  
+NameError (uninitialized constant GamesController::EngineAPI
+Did you mean?  EngineApi):
+  
+app/controllers/games_controller.rb:126:in `analyze'
+Started GET "/players/1" for 127.0.0.1 at 2023-05-21 12:54:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (3.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.8ms | Allocations: 316)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1626)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 511)
+  Rendered layout layouts/application.html.erb (Duration: 702.2ms | Allocations: 47777)
+Completed 200 OK in 775ms (Views: 721.7ms | ActiveRecord: 5.9ms | Allocations: 79896)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-21 12:54:20 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 4.8ms | Allocations: 477)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 58.1ms | Allocations: 6998)
+Completed 200 OK in 72ms (Views: 62.8ms | ActiveRecord: 0.8ms | Allocations: 8794)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 12:54:21 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 60.6ms | Allocations: 25604)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 137.1ms | Allocations: 33182)
+Completed 200 OK in 157ms (Views: 138.6ms | ActiveRecord: 3.3ms | Allocations: 37975)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:54:23 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 6.6ms | Allocations: 7846)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 61.9ms | Allocations: 14212)
+Completed 200 OK in 73ms (Views: 62.2ms | ActiveRecord: 1.9ms | Allocations: 16819)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:54:24 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (2.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 5368ms (ActiveRecord: 2.0ms | Allocations: 26208)
+
+
+  
+NameError (uninitialized constant GamesController::EngineAPI
+Did you mean?  EngineApi):
+  
+app/controllers/games_controller.rb:126:in `analyze'
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:55:22 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 13.7ms | Allocations: 9206)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 503.2ms | Allocations: 55240)
+Completed 200 OK in 628ms (Views: 537.6ms | ActiveRecord: 6.5ms | Allocations: 105261)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:55:24 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 3850ms (ActiveRecord: 0.9ms | Allocations: 20256)
+
+
+  
+Zeitwerk::NameError (expected file /home/user/Desktop/chess/app/controllers/engine_api.rb to define constant EngineApi, but didn't):
+  
+app/controllers/games_controller.rb:126:in `analyze'
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 12:56:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 11.9ms | Allocations: 9216)
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 622.9ms | Allocations: 55178)
+Completed 200 OK in 705ms (Views: 639.7ms | ActiveRecord: 12.5ms | Allocations: 105197)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 12:56:27 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 2528ms (ActiveRecord: 1.2ms | Allocations: 9074)
+
+
+  
+NameError (uninitialized constant GamesController::EngineAPI
+Did you mean?  EngineApi):
+  
+app/controllers/games_controller.rb:126:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:00:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (4.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 8275ms (ActiveRecord: 24.8ms | Allocations: 59008)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to :80 (Connection refused - connect(2) for nil port 80)):
+  
+app/controllers/engine_api.rb:12:in `analyze_position'
+app/controllers/games_controller.rb:127:in `analyze'
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:03:13 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 13.4ms | Allocations: 9207)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 580.5ms | Allocations: 55342)
+Completed 200 OK in 731ms (Views: 594.9ms | ActiveRecord: 6.5ms | Allocations: 105363)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:03:15 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 5928ms (ActiveRecord: 0.9ms | Allocations: 32945)
+
+
+  
+NameError (undefined local variable or method `base_uri' for #<EngineApi:0x00007f7210215c08 @token="lip_xyQvHxD9Nd7M6MWyRWti">):
+  
+app/controllers/engine_api.rb:13:in `analyze_position'
+app/controllers/games_controller.rb:127:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:04:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 6491ms (ActiveRecord: 8.6ms | Allocations: 59231)
+
+
+  
+Errno::ECONNREFUSED (Failed to open TCP connection to :80 (Connection refused - connect(2) for nil port 80)):
+  
+app/controllers/engine_api.rb:12:in `analyze_position'
+app/controllers/games_controller.rb:127:in `analyze'
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:05:45 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (9.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 12.0ms | Allocations: 9216)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 603.5ms | Allocations: 55348)
+Completed 200 OK in 760ms (Views: 619.3ms | ActiveRecord: 16.1ms | Allocations: 105370)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:05:48 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 19226ms (ActiveRecord: 1.2ms | Allocations: 86897)
+
+
+  
+NoMethodError (undefined method `success?' for #<Net::HTTPOK 200 OK readbody=true>):
+  
+app/controllers/engine_api.rb:27:in `analyze_position'
+app/controllers/games_controller.rb:127:in `analyze'
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:07:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 15.5ms | Allocations: 9220)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 612.1ms | Allocations: 54671)
+Completed 200 OK in 769ms (Views: 650.6ms | ActiveRecord: 4.9ms | Allocations: 104693)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:07:52 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 2109ms (ActiveRecord: 0.7ms | Allocations: 9741)
+
+
+  
+Net::HTTPError (200 "OK"):
+  
+app/controllers/engine_api.rb:27:in `analyze_position'
+app/controllers/games_controller.rb:127:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:10:09 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (14.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 7326ms (Views: 0.5ms | ActiveRecord: 30.7ms | Allocations: 38060)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 13:10:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 5.5ms | Allocations: 945)
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 833.2ms | Allocations: 47151)
+Completed 200 OK in 911ms (Views: 850.1ms | ActiveRecord: 2.9ms | Allocations: 78183)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:10:53 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (25.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (7.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 24.6ms | Allocations: 8158)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 204.5ms | Allocations: 14730)
+Completed 200 OK in 485ms (Views: 221.2ms | ActiveRecord: 96.7ms | Allocations: 39177)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:10:54 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (16.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 31514ms (Views: 0.2ms | ActiveRecord: 16.5ms | Allocations: 34255)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:11:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 290786ms (Views: 0.4ms | ActiveRecord: 9.4ms | Allocations: 59216)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:16:40 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 422 Unprocessable Entity in 283ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 10278)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:16:58 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (3.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 27.3ms | Allocations: 9214)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 577.9ms | Allocations: 55300)
+Completed 200 OK in 716ms (Views: 607.8ms | ActiveRecord: 9.2ms | Allocations: 105321)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:17:00 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:24:57 +0200
+Completed 422 Unprocessable Entity in 477631ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 22324)
+
+
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (6.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 200 OK in 1987ms (Views: 0.2ms | ActiveRecord: 9.4ms | Allocations: 15005)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:25:18 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (2.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 200 OK in 2130ms (Views: 0.8ms | ActiveRecord: 5.7ms | Allocations: 14859)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:31:06 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 93697ms (ActiveRecord: 1.1ms | Allocations: 35393)
+
+
+  
+NameError (undefined local variable or method `data' for #<GamesController:0x00000000020fa8>):
+  
+app/controllers/games_controller.rb:132:in `block in analyze'
+app/controllers/games_controller.rb:131:in `each'
+app/controllers/games_controller.rb:131:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:34:39 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Completed 500 Internal Server Error in 28382ms (ActiveRecord: 1.7ms | Allocations: 55705)
+
+
+  
+NameError (undefined local variable or method `data' for #<GamesController:0x0000000000eb28>):
+  
+app/controllers/games_controller.rb:134:in `block in analyze'
+app/controllers/games_controller.rb:133:in `each'
+app/controllers/games_controller.rb:133:in `analyze'
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:45:54 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 2013ms (ActiveRecord: 2.5ms | Allocations: 37175)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:45:57 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (6.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 37.9ms | Allocations: 9238)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 702.1ms | Allocations: 55121)
+Completed 200 OK in 782ms (Views: 716.2ms | ActiveRecord: 11.0ms | Allocations: 77913)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 13:46:07 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 25.9ms | Allocations: 8619)
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.6ms | Allocations: 974)
+  Rendered layout layouts/application.html.erb (Duration: 89.0ms | Allocations: 16095)
+Completed 200 OK in 115ms (Views: 87.6ms | ActiveRecord: 2.7ms | Allocations: 16615)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:46:09 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1208)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 52.4ms | Allocations: 7570)
+Completed 200 OK in 69ms (Views: 52.9ms | ActiveRecord: 1.7ms | Allocations: 9468)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:46:12 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 2624ms (ActiveRecord: 0.6ms | Allocations: 8216)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:46:15 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (7.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (4.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (1.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1390)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 92.2ms | Allocations: 7869)
+Completed 200 OK in 161ms (Views: 91.9ms | ActiveRecord: 14.1ms | Allocations: 9814)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:51:07 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 59222ms (ActiveRecord: 2.7ms | Allocations: 43458)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:52:06 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (12.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (5.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 30.6ms | Allocations: 1858)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 375.8ms | Allocations: 19170)
+Completed 200 OK in 439ms (Views: 373.9ms | ActiveRecord: 29.6ms | Allocations: 25258)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 13:59:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 1930ms (ActiveRecord: 2.9ms | Allocations: 37243)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 13:59:47 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (7.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 31.9ms | Allocations: 9224)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 467)
+  Rendered layout layouts/application.html.erb (Duration: 928.7ms | Allocations: 55281)
+Completed 200 OK in 1023ms (Views: 978.3ms | ActiveRecord: 9.3ms | Allocations: 78072)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:00:40 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 1520ms (ActiveRecord: 1.5ms | Allocations: 15294)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:00:42 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (4.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 21.9ms | Allocations: 1860)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 206.0ms | Allocations: 18889)
+Completed 200 OK in 241ms (Views: 211.1ms | ActiveRecord: 13.8ms | Allocations: 24974)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 14:00:52 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 27ms (ActiveRecord: 0.7ms | Allocations: 5045)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:00:52 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms | Allocations: 547)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:00:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.5ms | Allocations: 732)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 47.4ms | Allocations: 4042)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 104.1ms | Allocations: 10814)
+Completed 200 OK in 117ms (Views: 109.9ms | ActiveRecord: 0.0ms | Allocations: 12904)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:01:01 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 255ms (ActiveRecord: 1.0ms | Allocations: 5550)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:01:01 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (6.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.7ms | Allocations: 446)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 7080)
+Completed 200 OK in 95ms (Views: 46.5ms | ActiveRecord: 6.8ms | Allocations: 9397)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-21 14:01:02 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (4.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 28.9ms | Allocations: 8676)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 974)
+  Rendered layout layouts/application.html.erb (Duration: 68.5ms | Allocations: 16173)
+Completed 200 OK in 72ms (Views: 63.0ms | ActiveRecord: 6.1ms | Allocations: 16696)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:01:04 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2276)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 8638)
+Completed 200 OK in 46ms (Views: 35.1ms | ActiveRecord: 1.6ms | Allocations: 10541)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:01:06 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 2820ms (ActiveRecord: 0.5ms | Allocations: 8255)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:01:09 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 11.6ms | Allocations: 1770)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 94.5ms | Allocations: 8245)
+Completed 200 OK in 105ms (Views: 95.0ms | ActiveRecord: 2.4ms | Allocations: 10184)
+
+
+Started POST "/makeMove" for 127.0.0.1 at 2023-05-21 14:01:13 +0200
+Processing by GamesController#makeMove as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1", "movement"=>"d7d5", "commit"=>"Submit"}
+  [1m[36mGame Load (7.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:70:in `makeMove'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mGame Update (2.7ms)[0m  [1m[33mUPDATE "games" SET "fen" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["fen", "rnbqkb1r/ppp1pppp/5n2/3p4/4P3/2N5/PPPP1PPP/R1BQKBNR w KQkq d6 0 3"], ["updated_at", "2023-05-21 12:01:13.447011"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 27ms (ActiveRecord: 12.3ms | Allocations: 5134)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:01:13 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (1.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1564)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 160.6ms | Allocations: 8105)
+Completed 200 OK in 173ms (Views: 161.7ms | ActiveRecord: 3.4ms | Allocations: 9947)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:01:14 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 151ms (ActiveRecord: 1.0ms | Allocations: 2925)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:01:15 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (2.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (4.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1577)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 7945)
+Completed 200 OK in 69ms (Views: 47.3ms | ActiveRecord: 8.8ms | Allocations: 9782)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:01:42 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 133ms (ActiveRecord: 0.5ms | Allocations: 2820)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:01:42 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1578)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 59.3ms | Allocations: 7936)
+Completed 200 OK in 67ms (Views: 59.9ms | ActiveRecord: 1.7ms | Allocations: 9773)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 14:01:45 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 34ms (ActiveRecord: 1.0ms | Allocations: 1828)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:01:46 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 304)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:01:46 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.1ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 911)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 65.5ms | Allocations: 7261)
+Completed 200 OK in 70ms (Views: 66.7ms | ActiveRecord: 0.0ms | Allocations: 7978)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:01:49 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 192ms (ActiveRecord: 0.6ms | Allocations: 2338)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:01:50 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 155)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 37.4ms | Allocations: 6540)
+Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 0.7ms | Allocations: 8012)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 14:01:51 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (5.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 14.3ms | Allocations: 3065)
+  [1m[36mPlayer Load (7.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 11.0ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 76.9ms | Allocations: 10337)
+Completed 200 OK in 86ms (Views: 66.2ms | ActiveRecord: 14.2ms | Allocations: 10713)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:01:52 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (1.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (5.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (8.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 14.5ms | Allocations: 1552)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 7910)
+Completed 200 OK in 77ms (Views: 47.6ms | ActiveRecord: 15.7ms | Allocations: 9747)
+
+
+Started POST "/makeMove" for 127.0.0.1 at 2023-05-21 14:02:07 +0200
+Processing by GamesController#makeMove as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1", "movement"=>"f1b5", "commit"=>"Submit"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:70:in `makeMove'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mGame Update (1.4ms)[0m  [1m[33mUPDATE "games" SET "fen" = ?, "updated_at" = ? WHERE "games"."id" = ?[0m  [["fen", "rnbqkb1r/ppp1pppp/5n2/1B1p4/4P3/2N5/PPPP1PPP/R1BQK1NR b KQkq - 1 3"], ["updated_at", "2023-05-21 12:02:07.316839"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:79:in `makeMove'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 14ms (ActiveRecord: 3.9ms | Allocations: 4183)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:02:07 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1190)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 45.5ms | Allocations: 7549)
+Completed 200 OK in 52ms (Views: 45.9ms | ActiveRecord: 1.1ms | Allocations: 9392)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:02:08 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 150ms (ActiveRecord: 0.5ms | Allocations: 2905)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:02:08 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1231)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 7590)
+Completed 200 OK in 53ms (Views: 46.8ms | ActiveRecord: 1.2ms | Allocations: 9433)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:07:33 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (1.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 163ms (ActiveRecord: 1.0ms | Allocations: 2895)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:07:34 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 82.4ms | Allocations: 8369)
+  Rendered layouts/_navbar.html.erb (Duration: 2.1ms | Allocations: 451)
+  Rendered layout layouts/application.html.erb (Duration: 145.8ms | Allocations: 15644)
+Completed 200 OK in 161ms (Views: 150.7ms | ActiveRecord: 2.8ms | Allocations: 18336)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 14:07:37 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 13.0ms | Allocations: 3413)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.8ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 79.1ms | Allocations: 10853)
+Completed 200 OK in 87ms (Views: 77.0ms | ActiveRecord: 3.3ms | Allocations: 11301)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 14:07:39 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 1.1ms | Allocations: 1856)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:07:39 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:07:40 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 2.6ms | Allocations: 501)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 18.7ms | Allocations: 1934)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 106.9ms | Allocations: 8507)
+Completed 200 OK in 120ms (Views: 115.9ms | ActiveRecord: 0.0ms | Allocations: 9944)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:08:25 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 244ms (ActiveRecord: 1.0ms | Allocations: 2898)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:08:26 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.1ms | Allocations: 424)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 66.0ms | Allocations: 7058)
+Completed 200 OK in 79ms (Views: 71.9ms | ActiveRecord: 0.9ms | Allocations: 9158)
+
+
+Started GET "/players/2" for 127.0.0.1 at 2023-05-21 14:09:23 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlayer Load (2.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (7.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 3.4ms | Allocations: 291)
+  Rendered players/show.html.erb within layouts/application (Duration: 146.4ms | Allocations: 10016)
+  Rendered layouts/_navbar.html.erb (Duration: 5.0ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 280.0ms | Allocations: 16540)
+Completed 200 OK in 335ms (Views: 286.2ms | ActiveRecord: 9.9ms | Allocations: 18765)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-21 14:09:25 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.4ms | Allocations: 164)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 112.7ms | Allocations: 6546)
+Completed 200 OK in 124ms (Views: 114.4ms | ActiveRecord: 1.2ms | Allocations: 8205)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-21 14:09:26 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 16.1ms | Allocations: 3094)
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 5.9ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 69.5ms | Allocations: 10529)
+Completed 200 OK in 76ms (Views: 67.7ms | ActiveRecord: 4.1ms | Allocations: 10906)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:09:28 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1582)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 122.4ms | Allocations: 7951)
+Completed 200 OK in 138ms (Views: 123.1ms | ActiveRecord: 2.5ms | Allocations: 9813)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:09:30 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (2.6ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 171ms (ActiveRecord: 2.6ms | Allocations: 3003)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:09:31 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (2.0ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1574)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 88.7ms | Allocations: 7936)
+Completed 200 OK in 109ms (Views: 89.9ms | ActiveRecord: 4.7ms | Allocations: 9779)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 14:09:58 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 9ms (ActiveRecord: 0.7ms | Allocations: 1858)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:09:59 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:09:59 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 911)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 104.1ms | Allocations: 7262)
+Completed 200 OK in 111ms (Views: 105.8ms | ActiveRecord: 0.0ms | Allocations: 7956)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:10:09 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 239ms (ActiveRecord: 0.9ms | Allocations: 2360)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:10:10 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.5ms | Allocations: 149)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 75.9ms | Allocations: 6535)
+Completed 200 OK in 87ms (Views: 78.9ms | ActiveRecord: 1.3ms | Allocations: 7989)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 14:10:13 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 10.7ms | Allocations: 3064)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.7ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 65.3ms | Allocations: 10323)
+Completed 200 OK in 70ms (Views: 62.9ms | ActiveRecord: 3.4ms | Allocations: 10692)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:10:15 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (1.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1189)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 60.6ms | Allocations: 7547)
+Completed 200 OK in 73ms (Views: 60.9ms | ActiveRecord: 3.5ms | Allocations: 9390)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:10:17 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 148ms (ActiveRecord: 0.8ms | Allocations: 2885)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:10:17 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1217)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 71.5ms | Allocations: 7576)
+Completed 200 OK in 87ms (Views: 71.7ms | ActiveRecord: 2.8ms | Allocations: 9419)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 14:10:19 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 39ms (ActiveRecord: 1.4ms | Allocations: 1759)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:10:20 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:10:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 77)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 886)
+  Rendered layouts/_navbar.html.erb (Duration: 0.9ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 111.8ms | Allocations: 7235)
+Completed 200 OK in 128ms (Views: 113.0ms | ActiveRecord: 0.0ms | Allocations: 7921)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:10:26 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 246ms (ActiveRecord: 0.9ms | Allocations: 2318)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:10:27 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.2ms | Allocations: 149)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 110.4ms | Allocations: 6535)
+Completed 200 OK in 123ms (Views: 114.4ms | ActiveRecord: 1.0ms | Allocations: 8006)
+
+
+Started GET "/playerGames/2" for 127.0.0.1 at 2023-05-21 14:10:28 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (1.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 19.1ms | Allocations: 3064)
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 3.9ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 143.3ms | Allocations: 10338)
+Completed 200 OK in 159ms (Views: 140.5ms | ActiveRecord: 4.2ms | Allocations: 10707)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:10:29 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1559)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 79.5ms | Allocations: 8108)
+Completed 200 OK in 90ms (Views: 79.7ms | ActiveRecord: 2.0ms | Allocations: 9955)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:10:31 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 137ms (ActiveRecord: 0.9ms | Allocations: 2918)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:10:31 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (1.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1578)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 74.2ms | Allocations: 8125)
+Completed 200 OK in 85ms (Views: 75.1ms | ActiveRecord: 2.3ms | Allocations: 9968)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:10:46 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 271ms (ActiveRecord: 0.8ms | Allocations: 2900)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:10:46 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 59.7ms | Allocations: 8748)
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | Allocations: 452)
+  Rendered layout layouts/application.html.erb (Duration: 124.5ms | Allocations: 15826)
+Completed 200 OK in 143ms (Views: 130.2ms | ActiveRecord: 3.1ms | Allocations: 18497)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:10:54 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 151ms (ActiveRecord: 0.8ms | Allocations: 3025)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:10:55 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 31301.8ms | Allocations: 15192)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 249)
+  Rendered layout layouts/application.html.erb (Duration: 31382.6ms | Allocations: 21753)
+Completed 200 OK in 31393ms (Views: 31383.3ms | ActiveRecord: 2.1ms | Allocations: 23650)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 14:11:32 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 15ms (ActiveRecord: 1.1ms | Allocations: 2037)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:11:33 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms | Allocations: 300)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:11:33 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.8ms | Allocations: 497)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1930)
+  Rendered layouts/_navbar.html.erb (Duration: 1.2ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 137.6ms | Allocations: 8510)
+Completed 200 OK in 160ms (Views: 148.0ms | ActiveRecord: 0.0ms | Allocations: 9954)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 14:11:37 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (8.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 244ms (ActiveRecord: 8.8ms | Allocations: 2907)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 14:11:37 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 2.3ms | Allocations: 424)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 120.5ms | Allocations: 7060)
+Completed 200 OK in 138ms (Views: 127.2ms | ActiveRecord: 0.9ms | Allocations: 9165)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 14:11:38 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (2.0ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (1.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 45.0ms | Allocations: 3494)
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.4ms | Allocations: 974)
+  Rendered layout layouts/application.html.erb (Duration: 105.2ms | Allocations: 10822)
+Completed 200 OK in 110ms (Views: 98.1ms | ActiveRecord: 8.2ms | Allocations: 11288)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:11:39 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1205)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 7564)
+Completed 200 OK in 75ms (Views: 64.4ms | ActiveRecord: 2.7ms | Allocations: 9422)
+
+
+Started POST "/analyze/1" for 127.0.0.1 at 2023-05-21 14:11:41 +0200
+Processing by GamesController#analyze as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game_id"=>"1"}
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:124:in `analyze'
+Redirected to http://0.0.0.0:3000/gameDetails/1
+Completed 302 Found in 157ms (ActiveRecord: 0.9ms | Allocations: 3007)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 14:11:41 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (1.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (1.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 3898.5ms | Allocations: 14418)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered layout layouts/application.html.erb (Duration: 3973.6ms | Allocations: 20968)
+Completed 200 OK in 3997ms (Views: 3973.7ms | ActiveRecord: 3.9ms | Allocations: 22839)
+
+

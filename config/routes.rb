@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/makeMove/', to: 'games#makeMove', as: :game_make_move
   get '/newGame/', to: 'games#newGame', as: :new_game_form
   post '/addGame/', to: 'games#addGame'
+  post '/analyze/:game_id', to: 'games#analyze', as: :analyze
   # Defines the root path route ("/")
   root "players#mainPage"
 end
