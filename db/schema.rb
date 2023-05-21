@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_145957) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_21_094356) do
   create_table "games", force: :cascade do |t|
-    t.string "status", null: false
     t.date "start_date", null: false
-    t.string "who_moves", null: false
     t.string "fen", null: false
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "player_white_id", null: false
     t.integer "player_black_id", null: false
+    t.string "who_moves", null: false
+    t.string "status", null: false
   end
 
   create_table "players", force: :cascade do |t|

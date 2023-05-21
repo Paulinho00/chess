@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/playerGames/:id", to: 'games#playerGames', as: :playerGames_path
   get '/gameDetails/:id', to: 'games#gameDetails', as: :game_details
   post '/makeMove/', to: 'games#makeMove', as: :game_make_move
+  get '/newGame/', to: 'games#newGame', as: :new_game_form
+  post '/addGame/', to: 'games#addGame'
   # Defines the root path route ("/")
   root "players#mainPage"
 end

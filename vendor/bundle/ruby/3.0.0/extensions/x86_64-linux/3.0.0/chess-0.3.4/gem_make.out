@@ -1,0 +1,20 @@
+current directory: /home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/chess-0.3.4/ext/chess
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20230520-7563-8e3jnn.rb extconf.rb
+creating Makefile
+
+current directory: /home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/chess-0.3.4/ext/chess
+make DESTDIR\= clean
+
+current directory: /home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/chess-0.3.4/ext/chess
+make DESTDIR\=
+compiling bitboard.c
+compiling board.c
+compiling chess.c
+compiling common.c
+compiling game.c
+compiling special.c
+linking shared-object chess/chess.so
+
+current directory: /home/user/Desktop/chess/vendor/bundle/ruby/3.0.0/gems/chess-0.3.4/ext/chess
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 chess.so ./.gem.20230520-7563-nk6q8d/chess

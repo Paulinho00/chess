@@ -1,0 +1,12 @@
+*.gem
+.bundle
+.byebug_history
+.ruby-version
+.yardoc/
+coverage/
+ext/chess/Makefile
+ext/chess/*.bundle
+ext/chess/*.o
+lib/chess/chess.bundle
+main.rb
+pkg/*

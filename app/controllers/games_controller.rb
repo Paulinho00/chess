@@ -88,6 +88,38 @@ class GamesController < ApplicationController
 
   end
 
+  def newGame
+    players = Player.where.not(id: current_player.id)
+    @players_list = Array.new(players.count)
+    counter = 0
+    for player in players
+      @players_list[counter] = Array.new(2)
+      @players_list[counter][0] = player.username
+      @players_list[counter][1] = player.id
+      counter += 1
+    end
+  end
+
+  def addGame
+    opponent_id = params[:player_field]
+    chess_game = Chess::Game.new
+    game = Game.new
+    game.fen = chess_game.current.to_fen
+    game.start_date = Date.today.strftime("%e %b %Y")
+    game.status = chess_game.status.to_s.tr('_', ' ')
+    game.who_moves = 'white'
+    if params[:player_color] == "White"
+      game.player_white_id = current_player.id
+      game.player_black_id = opponent_id
+    else
+      game.player_white_id = opponent_id
+      game.player_black_id = current_player.id
+    end
+
+    game.save
+    redirect_to mainpage_path(current_player.id)
+  end
+
   # POST /games or /games.json
   def create
     @game = Game.new(game_params)

@@ -4,5 +4,5 @@
 <ul>
   <li><%= link_to "Games list", playerGames_path_url(:id => current_player.id) %>></li>
   <li><%= link_to "Account details", current_player %></li>
-  <li>Start a new game</li>
+  <li><%= link_to "Start a new game", new_game_form_path %></li>
 </ul>

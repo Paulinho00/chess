@@ -16760,3 +16760,842 @@ Processing by GamesController#playerGames as HTML
 Completed 200 OK in 80ms (Views: 74.2ms | ActiveRecord: 2.0ms | Allocations: 12305)
 
 
+Started GET "/" for 127.0.0.1 at 2023-05-21 11:06:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (16.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 103ms (ActiveRecord: 0.0ms | Allocations: 5780)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 11:06:05 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 2.0ms | Allocations: 739)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 84.5ms | Allocations: 4504)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 863.4ms | Allocations: 50352)
+Completed 200 OK in 1031ms (Views: 975.1ms | ActiveRecord: 2.0ms | Allocations: 73538)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 11:06:11 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"hikaru.nakamura@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (12.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "hikaru.nakamura@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 295ms (ActiveRecord: 12.8ms | Allocations: 7779)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 11:06:12 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 20.7ms | Allocations: 5434)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 5515)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.7ms | Allocations: 7917)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_game_form_path_url' for #<ActionView::Base:0x0000000000ec68>
+Did you mean?  new_game_form_path
+               new_game_form_url):
+    4: <ul>
+    5:   <li><%= link_to "Games list", playerGames_path_url(:id => current_player.id) %>></li>
+    6:   <li><%= link_to "Account details", current_player %></li>
+    7:   <li><%= link_to "Start a new game", new_game_form_path_url %></li>
+    8: </ul>
+  
+app/views/players/mainPage.html.erb:7
+Started GET "/" for 127.0.0.1 at 2023-05-21 11:06:25 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 23.6ms | Allocations: 427)
+  Rendered layouts/_navbar.html.erb (Duration: 1.6ms | Allocations: 478)
+  Rendered layout layouts/application.html.erb (Duration: 259.1ms | Allocations: 7777)
+Completed 200 OK in 306ms (Views: 295.5ms | ActiveRecord: 0.9ms | Allocations: 10305)
+
+
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:06:27 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms | Allocations: 1626)
+
+
+  
+ArgumentError (Unsupported argument type: true (TrueClass)):
+  
+app/controllers/games_controller.rb:92:in `newGame'
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:08:15 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (2.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 2.3ms | Allocations: 1349)
+
+
+  
+ArgumentError (Unsupported argument type: true (TrueClass)):
+  
+app/controllers/games_controller.rb:92:in `newGame'
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:09:21 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.8ms | Allocations: 5227)
+
+
+  
+ArgumentError (Unsupported argument type: false (FalseClass)):
+  
+app/controllers/games_controller.rb:92:in `newGame'
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:09:40 +0200
+Processing by GamesController#newGame as HTML
+Completed 500 Internal Server Error in 16ms (Allocations: 1406)
+
+
+  
+NoMethodError (undefined method `id' for :current_player:Symbol):
+  
+app/controllers/games_controller.rb:92:in `newGame'
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:10:57 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.9ms | Allocations: 5193)
+
+
+  
+ArgumentError (Unsupported argument type: false (FalseClass)):
+  
+app/controllers/games_controller.rb:92:in `newGame'
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:11:55 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 15.5ms | Allocations: 2574)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 2654)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 3.7ms | Allocations: 9467)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"addGame", :controller=>"games"}):
+    1: <h3><strong>New game creator</strong></h3>
+    2: <%= form_tag({controller: "games", action: "addGame"}, method: "post") do %>
+    3:   <%= label_tag :player_field, "Opponent: "%>
+    4:   <%= select_tag :player_field, options_for_select(@players) %>
+    5:   <%= label_tag :player_field, "Your color: "%>
+  
+app/views/games/newGame.html.erb:2
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:12:40 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (4.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2285)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2365)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 9.1ms | Allocations: 8992)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    1: <h3><strong>New game creator</strong></h3>
+    2: <%= form_tag({controller: "games", action: "addGame"}, method: "post") do %>
+    3:   <%= label_tag :player_field, "Opponent: "%>
+    4:   <%= select_tag :player_field, options_for_select(@players) %>
+    5:   <%= label_tag :player_field, "Your color: "%>
+    6:   <%= select_tag :player_color, options_for_select([%w[White White]], %w[Black Black]) %>
+    7:   <%= submit_tag "Submit" %>
+  
+app/views/games/newGame.html.erb:4
+app/views/games/newGame.html.erb:2
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:12:59 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (16.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (19.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 2]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 21.7ms | Allocations: 937)
+  Rendered layouts/_navbar.html.erb (Duration: 12.5ms | Allocations: 476)
+  Rendered layout layouts/application.html.erb (Duration: 269.0ms | Allocations: 18787)
+Completed 200 OK in 400ms (Views: 316.3ms | ActiveRecord: 36.1ms | Allocations: 22002)
+
+
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 11:13:34 +0200
+Started DELETE "/players/sign_out" for 127.0.0.1 at 2023-05-21 11:13:34 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 108ms (ActiveRecord: 1.0ms | Allocations: 3409)
+
+
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 36ms (ActiveRecord: 0.8ms | Allocations: 1942)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 11:13:35 +0200
+Processing by PlayersController#mainPage as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 11:13:35 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 1.4ms | Allocations: 501)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1954)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 8527)
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.0ms | Allocations: 10032)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 11:13:40 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 239ms (ActiveRecord: 0.9ms | Allocations: 2983)
+
+
+Started GET "/" for 127.0.0.1 at 2023-05-21 11:13:41 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 1.8ms | Allocations: 429)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 7065)
+Completed 200 OK in 67ms (Views: 54.9ms | ActiveRecord: 0.6ms | Allocations: 9174)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2023-05-21 11:13:43 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 1.2ms | Allocations: 291)
+  Rendered players/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1083)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 250)
+  Rendered layout layouts/application.html.erb (Duration: 68.3ms | Allocations: 7606)
+Completed 200 OK in 89ms (Views: 69.1ms | ActiveRecord: 1.6ms | Allocations: 10502)
+
+
+Started GET "/players/1/edit" for 127.0.0.1 at 2023-05-21 11:13:45 +0200
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  Rendering layout layouts/application.html.erb
+  Rendering players/edit.html.erb within layouts/application
+  Rendered players/_form.html.erb (Duration: 3.3ms | Allocations: 1892)
+  Rendered players/edit.html.erb within layouts/application (Duration: 8.5ms | Allocations: 2202)
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.7ms | Allocations: 1017)
+  Rendered layout layouts/application.html.erb (Duration: 63.9ms | Allocations: 9348)
+Completed 200 OK in 70ms (Views: 64.1ms | ActiveRecord: 1.4ms | Allocations: 10252)
+
+
+Started PATCH "/players/1" for 127.0.0.1 at 2023-05-21 11:13:48 +0200
+Processing by PlayersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "username"=>"magnusCarlsen", "password"=>"[FILTERED]"}, "commit"=>"Update Player", "id"=>"1"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Exists? (15.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."username" = ? AND "players"."id" != ? LIMIT ?[0m  [["username", "magnusCarlsen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mPlayer Update (3.6ms)[0m  [1m[33mUPDATE "players" SET "updated_at" = ?, "encrypted_password" = ? WHERE "players"."id" = ?[0m  [["updated_at", "2023-05-21 09:13:55.680979"], ["encrypted_password", "[FILTERED]"], ["id", 1]]
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/players_controller.rb:43:in `block in update'
+Redirected to http://0.0.0.0:3000/players/1
+Completed 302 Found in 6623ms (ActiveRecord: 32.9ms | Allocations: 11105)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2023-05-21 11:13:55 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.3ms | Allocations: 1789)
+
+
+Started GET "/players/sign_in" for 127.0.0.1 at 2023-05-21 11:13:56 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering players/sessions/new.html.erb within layouts/application
+  Rendered players/shared/_links.html.erb (Duration: 0.2ms | Allocations: 79)
+  Rendered players/sessions/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 945)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 224)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 7597)
+Completed 200 OK in 60ms (Views: 55.6ms | ActiveRecord: 0.0ms | Allocations: 8359)
+
+
+Started POST "/players/sign_in" for 127.0.0.1 at 2023-05-21 11:14:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player"=>{"email"=>"magnus.carlsen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."email" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["email", "magnus.carlsen@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/players/1
+Completed 303 See Other in 237ms (ActiveRecord: 0.6ms | Allocations: 2361)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2023-05-21 11:14:03 +0200
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/players_controller.rb:70:in `set_player'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/show.html.erb within layouts/application
+  Rendered players/_player.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered players/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 183)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 47.4ms | Allocations: 6571)
+Completed 200 OK in 67ms (Views: 49.0ms | ActiveRecord: 1.3ms | Allocations: 8467)
+
+
+Started GET "/mainpage" for 127.0.0.1 at 2023-05-21 11:14:05 +0200
+Processing by PlayersController#mainPage as HTML
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 156)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 55.8ms | Allocations: 6536)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 0.7ms | Allocations: 8005)
+
+
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:14:08 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 1.0ms | Allocations: 542)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered layout layouts/application.html.erb (Duration: 56.4ms | Allocations: 6909)
+Completed 200 OK in 76ms (Views: 60.3ms | ActiveRecord: 1.5ms | Allocations: 9085)
+
+
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:14:18 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 0.7ms | Allocations: 606)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 239)
+  Rendered layout layouts/application.html.erb (Duration: 172.0ms | Allocations: 7291)
+Completed 200 OK in 52488ms (Views: 173.0ms | ActiveRecord: 3.7ms | Allocations: 111829)
+
+
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:15:17 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (2.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (7.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (9.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1334)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 163.8ms | Allocations: 18658)
+Completed 200 OK in 1651ms (Views: 178.3ms | ActiveRecord: 22.9ms | Allocations: 30284)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveGameStatus (20230521092909)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "status" varchar NOT NULL, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "agames" ("id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","status","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521092909"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveWhoMoves (20230521093115)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "who_moves" varchar NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "agames" ("id","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","who_moves","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521093115"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/addGame" for 127.0.0.1 at 2023-05-21 11:34:21 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#addGame as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player_field"=>"2", "player_color"=>"White", "commit"=>"Submit"}
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:110:in `addGame'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mGame Create (1.5ms)[0m  [1m[32mINSERT INTO "games" ("start_date", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["start_date", "2023-05-21"], ["fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"], ["end_date", nil], ["created_at", "2023-05-21 09:34:36.364744"], ["updated_at", "2023-05-21 09:34:36.364744"], ["player_white_id", 1], ["player_black_id", 2]]
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mTRANSACTION (22.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+No template found for GamesController#addGame, rendering head :no_content
+Completed 204 No Content in 16224ms (ActiveRecord: 48.6ms | Allocations: 98699)
+
+
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:35:26 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (4.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (11.9ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 22.3ms | Allocations: 1647)
+  Rendered layouts/_navbar.html.erb (Duration: 3.4ms | Allocations: 476)
+  Rendered layout layouts/application.html.erb (Duration: 278.6ms | Allocations: 19484)
+Completed 200 OK in 2065ms (Views: 328.6ms | ActiveRecord: 19.8ms | Allocations: 31465)
+
+
+Started POST "/addGame" for 127.0.0.1 at 2023-05-21 11:35:32 +0200
+Processing by GamesController#addGame as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player_field"=>"3", "player_color"=>"Black", "commit"=>"Submit"}
+  [1m[36mPlayer Load (2.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:114:in `addGame'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mPlayer Load (9.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mPlayer Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mGame Create (5.8ms)[0m  [1m[32mINSERT INTO "games" ("start_date", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["start_date", "2023-05-21"], ["fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"], ["end_date", nil], ["created_at", "2023-05-21 09:35:35.529113"], ["updated_at", "2023-05-21 09:35:35.529113"], ["player_white_id", 3], ["player_black_id", 1]]
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:117:in `addGame'
+Redirected to http://0.0.0.0:3000/mainpage.1
+Completed 302 Found in 3010ms (ActiveRecord: 33.3ms | Allocations: 22818)
+
+
+Started GET "/mainpage.1" for 127.0.0.1 at 2023-05-21 11:35:35 +0200
+Processing by PlayersController#mainPage as */*
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 14.4ms | Allocations: 435)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 7064)
+Completed 200 OK in 92ms (Views: 60.3ms | ActiveRecord: 0.8ms | Allocations: 11763)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 11:35:37 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (1.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 17.8ms | Allocations: 5752)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 5823)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.9ms | Allocations: 6353)
+
+
+  
+ActionView::Template::Error (undefined method `status' for #<Game id: 1, start_date: "2023-05-26", fen: "123124", end_date: "2023-05-27", created_at: "2023-05-16 11:05:22.199583000 +0000", updated_at: "2023-05-16 20:30:51.185716000 +0000", player_white_id: 2, player_black_id: 1>):
+    11: 
+    12:   <p>
+    13:     <strong>Status:</strong>
+    14:     <%= game.status %>
+    15:     <strong>Who moves:</strong>
+    16:     <%= game.who_moves %>
+    17:   </p>
+  
+app/views/games/playerGames.erb:14
+app/views/games/playerGames.erb:2
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveWhoMoves (20230521093115)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RollbackRemovedColumns (20230521093747)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "agames" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RollbackRemovedColumns (20230521093747)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agames" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "games"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agames" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL, "game_status" varchar NOT NULL, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521093747"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:43:08 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1378)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 263)
+  Rendered layout layouts/application.html.erb (Duration: 166.9ms | Allocations: 18699)
+Completed 200 OK in 1901ms (Views: 169.7ms | ActiveRecord: 1.8ms | Allocations: 29630)
+
+
+Started POST "/addGame" for 127.0.0.1 at 2023-05-21 11:43:15 +0200
+Processing by GamesController#addGame as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player_field"=>"2", "player_color"=>"White", "commit"=>"Submit"}
+Completed 500 Internal Server Error in 2359ms (ActiveRecord: 0.0ms | Allocations: 12688)
+
+
+  
+NoMethodError (undefined method `status=' for #<Game id: nil, start_date: "2023-05-21", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq...", end_date: nil, created_at: nil, updated_at: nil, player_white_id: nil, player_black_id: nil>):
+  
+app/controllers/games_controller.rb:109:in `addGame'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AlterGameStatusName (20230521094356)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL, "game_status" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "agames" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves","game_status")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves","game_status" FROM "games"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agames" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agames" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves" FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer NOT NULL PRIMARY KEY, "start_date" date NOT NULL, "fen" varchar NOT NULL, "end_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "player_white_id" integer NOT NULL, "player_black_id" integer NOT NULL, "who_moves" varchar NOT NULL, "status" varchar NOT NULL, CONSTRAINT "fk_rails_f2e9cc66ec"
+FOREIGN KEY ("player_black_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_831ae41a2c"
+FOREIGN KEY ("player_white_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "games" ("id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves")
+                     SELECT "id","start_date","fen","end_date","created_at","updated_at","player_white_id","player_black_id","who_moves" FROM "agames"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "agames"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230521094356"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/addGame" for 127.0.0.1 at 2023-05-21 11:44:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#addGame as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player_field"=>"2", "player_color"=>"White", "commit"=>"Submit"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:112:in `addGame'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mPlayer Load (6.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mGame Create (2.7ms)[0m  [1m[32mINSERT INTO "games" ("start_date", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id", "who_moves", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["start_date", "2023-05-21"], ["fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"], ["end_date", nil], ["created_at", "2023-05-21 09:44:39.196265"], ["updated_at", "2023-05-21 09:44:39.196265"], ["player_white_id", 1], ["player_black_id", 2], ["who_moves", "white"], ["status", "in progress"]]
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mTRANSACTION (31.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+Redirected to http://0.0.0.0:3000/mainpage.1
+Completed 302 Found in 2015ms (ActiveRecord: 44.8ms | Allocations: 33237)
+
+
+Started GET "/mainpage.1" for 127.0.0.1 at 2023-05-21 11:44:39 +0200
+Processing by PlayersController#mainPage as */*
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.3ms | Allocations: 242)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 261)
+  Rendered layout layouts/application.html.erb (Duration: 177.7ms | Allocations: 17608)
+Completed 200 OK in 190ms (Views: 179.9ms | ActiveRecord: 0.7ms | Allocations: 22073)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 11:44:41 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 4.8ms | Allocations: 2145)
+  [1m[36mPlayer Load (8.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 18.1ms | Allocations: 1003)
+  Rendered layout layouts/application.html.erb (Duration: 79.8ms | Allocations: 9737)
+Completed 200 OK in 84ms (Views: 72.5ms | ActiveRecord: 9.1ms | Allocations: 10704)
+
+
+Started GET "/gameDetails/1" for 127.0.0.1 at 2023-05-21 11:44:43 +0200
+Processing by GamesController#gameDetails as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:24:in `gameDetails'
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:29:in `gameDetails'
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:30:in `gameDetails'
+  Rendering layout layouts/application.html.erb
+  Rendering games/gameDetails.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/gameDetails.html.erb:361
+  Rendered games/gameDetails.html.erb within layouts/application (Duration: 7.5ms | Allocations: 8665)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 232)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 15025)
+Completed 200 OK in 75ms (Views: 58.5ms | ActiveRecord: 1.8ms | Allocations: 18047)
+
+
+Started GET "/newGame" for 127.0.0.1 at 2023-05-21 11:44:48 +0200
+Processing by GamesController#newGame as HTML
+  [1m[36mPlayer Load (1.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:92:in `newGame'
+  [1m[36mPlayer Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:93:in `newGame'
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" != ?[0m  [["id", 1]]
+  ↳ app/controllers/games_controller.rb:95:in `newGame'
+  Rendering layout layouts/application.html.erb
+  Rendering games/newGame.html.erb within layouts/application
+  Rendered games/newGame.html.erb within layouts/application (Duration: 0.6ms | Allocations: 646)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | Allocations: 239)
+  Rendered layout layouts/application.html.erb (Duration: 153.9ms | Allocations: 7135)
+Completed 200 OK in 3117ms (Views: 155.2ms | ActiveRecord: 3.1ms | Allocations: 14730)
+
+
+Started POST "/addGame" for 127.0.0.1 at 2023-05-21 11:44:55 +0200
+Processing by GamesController#addGame as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "player_field"=>"3", "player_color"=>"Black", "commit"=>"Submit"}
+  [1m[36mPlayer Load (1.3ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:116:in `addGame'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mGame Create (2.9ms)[0m  [1m[32mINSERT INTO "games" ("start_date", "fen", "end_date", "created_at", "updated_at", "player_white_id", "player_black_id", "who_moves", "status") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["start_date", "2023-05-21"], ["fen", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"], ["end_date", nil], ["created_at", "2023-05-21 09:44:59.290580"], ["updated_at", "2023-05-21 09:44:59.290580"], ["player_white_id", 3], ["player_black_id", 1], ["who_moves", "white"], ["status", "in progress"]]
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/games_controller.rb:119:in `addGame'
+Redirected to http://0.0.0.0:3000/mainpage.1
+Completed 302 Found in 3566ms (ActiveRecord: 18.6ms | Allocations: 9678)
+
+
+Started GET "/mainpage.1" for 127.0.0.1 at 2023-05-21 11:44:59 +0200
+Processing by PlayersController#mainPage as */*
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering players/mainPage.html.erb within layouts/application
+  Rendered players/mainPage.html.erb within layouts/application (Duration: 0.4ms | Allocations: 179)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 237)
+  Rendered layout layouts/application.html.erb (Duration: 124.1ms | Allocations: 6692)
+Completed 200 OK in 137ms (Views: 130.2ms | ActiveRecord: 0.8ms | Allocations: 8239)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 11:45:01 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 7.5ms | Allocations: 3084)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 4.0ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 51.1ms | Allocations: 10419)
+Completed 200 OK in 55ms (Views: 50.2ms | ActiveRecord: 1.7ms | Allocations: 10797)
+
+
+Started GET "/playerGames/1" for 127.0.0.1 at 2023-05-21 11:45:01 +0200
+Processing by GamesController#playerGames as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering games/playerGames.erb within layouts/application
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/playerGames.erb:2
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (7.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  [1m[36mCACHE Player Load (0.0ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:6
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/games/playerGames.erb:9
+  Rendered games/playerGames.erb within layouts/application (Duration: 21.5ms | Allocations: 3065)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? ORDER BY "players"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navbar.html.erb:2
+  Rendered layouts/_navbar.html.erb (Duration: 2.2ms | Allocations: 941)
+  Rendered layout layouts/application.html.erb (Duration: 61.4ms | Allocations: 10303)
+Completed 200 OK in 66ms (Views: 52.2ms | ActiveRecord: 9.9ms | Allocations: 10673)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

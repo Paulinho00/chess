@@ -1,0 +1,8 @@
+<h3><strong>New game creator</strong></h3>
+<%= form_tag({controller: "games", action: "addGame"}, method: "post") do %>
+  <%= label_tag :player_field, "Opponent: "%>
+  <%= select_tag :player_field, options_for_select(@players_list) %>
+  <%= label_tag :player_field, "Your color: "%>
+  <%= select_tag :player_color, options_for_select([%w[White White], %w[Black Black]]) %>
+  <%= submit_tag "Submit" %>
+<% end %>
