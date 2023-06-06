@@ -25,10 +25,10 @@
       </ul>
     </div>
 
-    <%= button_to "Sign out", destroy_player_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0", type: "submit"%>
+    <%= button_to "Log out", destroy_player_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0", type: "submit"%>
   <% else %>
     <div class="navbar-right">
-      <%= button_to "Sign in", new_player_session_path, class: "btn btn-outline-success my-2 my-sm-0", type: "submit" %>
+      <%= button_to "Log in", new_player_session_path, class: "btn btn-outline-success my-2 my-sm-0", type: "submit" %>
     </div>
   <% end %>
 </nav>
