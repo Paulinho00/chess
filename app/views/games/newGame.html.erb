@@ -1,8 +1,16 @@
-<h3><strong>New game creator</strong></h3>
-<%= form_tag({controller: "games", action: "addGame"}, method: "post") do %>
-  <%= label_tag :player_field, "Opponent: "%>
-  <%= select_tag :player_field, options_for_select(@players_list) %>
-  <%= label_tag :player_field, "Your color: "%>
-  <%= select_tag :player_color, options_for_select([%w[White White], %w[Black Black]]) %>
-  <%= submit_tag "Submit" %>
+<%= stylesheet_link_tag "newGame", media: 'all' %>
+<h3 class="game-creator-title"><strong>New game creator</strong></h3>
+
+<%= form_tag({controller: "games", action: "addGame"}, method: "post", class: "game-creator-form") do %>
+  <div class="form-group">
+    <%= label_tag :player_field, "Opponent:" %>
+    <%= select_tag :player_field, options_for_select(@players_list), class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :player_field, "Your color:" %>
+    <%= select_tag :player_color, options_for_select([%w[White White], %w[Black Black]]), class: "form-control" %>
+  </div>
+
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
 <% end %>

@@ -1,6 +1,6 @@
-<div id="<%= dom_id player %>">
+<%= stylesheet_link_tag "player", media: 'all' %>
+<div id="<%= dom_id(player) %>" class="player-info">
   <p>
-
     <strong><%= player.player_id %></strong>
     <strong>Email:</strong>
     <%= player.email %>
@@ -10,5 +10,4 @@
     <strong>Username:</strong>
     <%= player.username %>
   </p>
-
 </div>

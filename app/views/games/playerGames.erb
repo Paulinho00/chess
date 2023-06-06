@@ -1,27 +1,28 @@
-
+<%= stylesheet_link_tag 'games', media: 'all' %>
 <% @games.each do |game| %>
+  <div class="game-details">
+    <p>
+      <strong>Black:</strong>
+      <%= game.player_black.username %>
+      <span></span>
+      <strong>White:</strong>
+      <%= game.player_white.username %>
+    </p>
 
-  <p>
-    <strong>Black:</strong>
-    <%= game.player_black.username %>
-    <span></span>
-    <strong>White:</strong>
-    <%= game.player_white.username %>
-  </p>
+    <p>
+      <strong>Status:</strong>
+      <%= game.status %>
+      <strong>Who moves:</strong>
+      <%= game.who_moves %>
+    </p>
 
-  <p>
-    <strong>Status:</strong>
-    <%= game.status %>
-    <strong>Who moves:</strong>
-    <%= game.who_moves %>
-  </p>
+    <p>
+      <strong>Start date:</strong>
+      <%= game.start_date %>
+      <strong>End date:</strong>
+      <%= game.end_date %>
+    </p>
 
-  <p>
-    <strong>Start date:</strong>
-    <%= game.start_date %>
-    <strong>End date:</strong>
-    <%= game.end_date %>
-  </p>
-
-  <%= link_to "Details", game_details_path(game.id) %>
+    <%= link_to "Details", game_details_path(game.id), class: "btn btn-primary" %>
+  </div>
 <% end %>

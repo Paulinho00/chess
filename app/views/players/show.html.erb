@@ -1,8 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
+<%= stylesheet_link_tag "player", media: 'all' %>
 <%= render @player %>
 
-<div>
-  <%= link_to "Edit", edit_player_path(@player) %> |
-  <%= link_to "Back", mainpage_path %>
+<div class="button-container">
+  <%= link_to "Edit", edit_player_path(@player), class: "btn btn-primary" %>
+  <%= link_to "Back", mainpage_path, class: "btn btn-secondary" %>
 </div>

@@ -1,6 +1,7 @@
-<%= form_with(model: player) do |form| %>
+<%= stylesheet_link_tag "player", media: 'all' %>
+<%= form_with(model: player, class: "player-form") do |form| %>
   <% if player.errors.any? %>
-    <div style="color: red">
+    <div class="error-message">
       <ul>
         <% player.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -9,22 +10,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <p>Username</p>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit%>
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
