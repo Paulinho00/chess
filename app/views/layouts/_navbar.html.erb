@@ -1,8 +1,34 @@
-<span class="navbar-text">
-    <% if player_signed_in? %>
-    <div> Welcome <%= current_player.username %> </div>
-    <%= button_to "Sign out", destroy_player_session_path, method: :delete %>
-    <% else %>
-        <%= button_to "Sign in", new_player_session_path %>
-    <% end %>
-   </span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= stylesheet_link_tag 'navbar', media: 'all' %>
+  <a class="navbar-brand" href="#">
+    <%= image_tag("chess.svg", width: 40, height: 40, alt: "") %>
+    Chess
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if player_signed_in? %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <%= link_to "Welcome #{current_player.username}", mainpage_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Account details", current_player, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Games list", playerGames_path_url(:id => current_player.id), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "New game", new_game_form_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+
+    <%= button_to "Sign out", destroy_player_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0", type: "submit"%>
+  <% else %>
+    <div class="navbar-right">
+      <%= button_to "Sign in", new_player_session_path, class: "btn btn-outline-success my-2 my-sm-0", type: "submit" %>
+    </div>
+  <% end %>
+</nav>

@@ -1,0 +1,29 @@
+.navbar {
+  border-bottom: 1px solid #ddd;
+  padding: 0;
+}
+
+.navbar-right {
+  margin-left: auto;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: flex-end;
+  font-family: "Lobster", cursive;
+  font-size: 40px;
+  padding: 0;
+  margin-left: 5px;
+}
+
+.nav-item.active {
+  font-weight: bold;
+}
+
+.btn-outline-success {
+  margin-right: 10px;
+}
+
+.navbar-brand img {
+  margin-bottom: 12px;
+}
