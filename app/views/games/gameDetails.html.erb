@@ -4,403 +4,677 @@
   <title></title>
   <meta charset="UTF-8">
   <style>
-      .chess-board { border-spacing: 0; border-collapse: collapse; }
-      .chess-board th { padding: .5em; }
-      .chess-board th + th { border-bottom: 1px solid #000; }
+      .chess-board {
+          border-spacing: 0;
+          border-collapse: collapse;
+      }
+
+      .chess-board th {
+          padding: .5em;
+      }
+
+      .chess-board th + th {
+          border-bottom: 1px solid #000;
+      }
+
       .chess-board th:first-child,
-      .chess-board td:last-child { border-right: 1px solid #000; }
-      .chess-board tr:last-child td { border-bottom: 1px solid; }
-      .chess-board th:empty { border: none; }
-      .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
-      .chess-board .light { background: #eee; }
-      .chess-board .dark { background: #aaa; }
+      .chess-board td:last-child {
+          border-right: 1px solid #000;
+      }
+
+      .chess-board tr:last-child td {
+          border-bottom: 1px solid;
+      }
+
+      .chess-board th:empty {
+          border: none;
+      }
+
+      .chess-board td {
+          width: 1.5em;
+          height: 1.5em;
+          text-align: center;
+          font-size: 32px;
+          line-height: 0;
+      }
+
+      .chess-board .light {
+          background: #eee;
+      }
+
+      .chess-board .dark {
+          background: #aaa;
+      }
   </style>
 </head>
 <body>
-<h5><strong>White: <%= @white_player.username %></strong></h5>
-<h5><strong>Black: <%= @black_player.username %></strong></h5>
-<table class="chess-board">
-  <tbody>
-  <tr>
-    <th></th>
-    <th>a</th>
-    <th>b</th>
-    <th>c</th>
-    <th>d</th>
-    <th>e</th>
-    <th>f</th>
-    <th>g</th>
-    <th>h</th>
-  </tr>
-  <tr>
-    <th>8</th>
-    <% @positions[0].each_with_index do |p, index| %>
-      <% if index % 2 == 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-          <% when 'r' %><td class="light">♜</td>
-          <% when 'n' %><td class="light">♞</td>
-          <% when 'b' %><td class="light">♝</td>
-          <% when 'q' %><td class="light">♛</td>
-          <% when 'k' %><td class="light">♚</td>
-          <% when 'p'%><td class="light">♟</td>
-          <% when 'R' %><td class="light">♖</td>
-          <% when 'N' %><td class="light">♘</td>
-          <% when 'B' %><td class="light">♗</td>
-          <% when 'Q' %><td class="light">♕</td>
-          <% when 'K' %><td class="light">♔</td>
-          <% when 'P'%><td class="light">♙</td>
+<div class="row">
+  <div class="col-md-4">
+    <table class="chess-board">
+      <tbody>
+      <tr>
+        <th></th>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+        <th>d</th>
+        <th>e</th>
+        <th>f</th>
+        <th>g</th>
+        <th>h</th>
+      </tr>
+      <tr>
+        <th>8</th>
+        <% @positions[0].each_with_index do |p, index| %>
+          <% if index % 2 == 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
-        <% end %>
-        <% else %>
-          <% case p
-             when ' ' %><td class="dark"></td>
-          <% when 'r' %><td class="dark">♜</td>
-          <% when 'n' %><td class="dark">♞</td>
-          <% when 'b' %><td class="dark">♝</td>
-          <% when 'q' %><td class="dark">♛</td>
-          <% when 'k' %><td class="dark">♚</td>
-          <% when 'p'%><td class="dark">♟</td>
-          <% when 'R' %><td class="dark">♖</td>
-          <% when 'N' %><td class="dark">♘</td>
-          <% when 'B' %><td class="dark">♗</td>
-          <% when 'Q' %><td class="dark">♕</td>
-          <% when 'K' %><td class="dark">♔</td>
-          <% when 'P'%><td class="dark">♙</td>
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
 
+            <% end %>
           <% end %>
         <% end %>
-      <%end %>
 
-  </tr>
-  <tr>
-    <th>7</th>
-    <% @positions[1].each_with_index do |p, index| %>
-      <% if index % 2 != 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
+      </tr>
+      <tr>
+        <th>7</th>
+        <% @positions[1].each_with_index do |p, index| %>
+          <% if index % 2 != 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <% @positions[2].each_with_index do |p, index| %>
+          <% if index % 2 == 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  <tr>
-    <th>6</th>
-    <% @positions[2].each_with_index do |p, index| %>
-      <% if index % 2 == 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <% @positions[3].each_with_index do |p, index| %>
+          <% if index % 2 != 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <% @positions[4].each_with_index do |p, index| %>
+          <% if index % 2 == 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  <tr>
-    <th>5</th>
-    <% @positions[3].each_with_index do |p, index| %>
-      <% if index % 2 != 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <% @positions[5].each_with_index do |p, index| %>
+          <% if index % 2 != 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <% @positions[6].each_with_index do |p, index| %>
+          <% if index % 2 == 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  <tr>
-    <th>4</th>
-    <% @positions[4].each_with_index do |p, index| %>
-      <% if index % 2 == 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <% @positions[7].each_with_index do |p, index| %>
+          <% if index % 2 != 0 %>
+            <% case p
+               when ' ' %>
+              <td class="light"></td>
+            <% when 'r' %>
+              <td class="light">♜</td>
+            <% when 'n' %>
+              <td class="light">♞</td>
+            <% when 'b' %>
+              <td class="light">♝</td>
+            <% when 'q' %>
+              <td class="light">♛</td>
+            <% when 'k' %>
+              <td class="light">♚</td>
+            <% when 'p' %>
+              <td class="light">♟</td>
+            <% when 'R' %>
+              <td class="light">♖</td>
+            <% when 'N' %>
+              <td class="light">♘</td>
+            <% when 'B' %>
+              <td class="light">♗</td>
+            <% when 'Q' %>
+              <td class="light">♕</td>
+            <% when 'K' %>
+              <td class="light">♔</td>
+            <% when 'P' %>
+              <td class="light">♙</td>
 
+            <% end %>
+          <% else %>
+            <% case p
+               when ' ' %>
+              <td class="dark"></td>
+            <% when 'r' %>
+              <td class="dark">♜</td>
+            <% when 'n' %>
+              <td class="dark">♞</td>
+            <% when 'b' %>
+              <td class="dark">♝</td>
+            <% when 'q' %>
+              <td class="dark">♛</td>
+            <% when 'k' %>
+              <td class="dark">♚</td>
+            <% when 'p' %>
+              <td class="dark">♟</td>
+            <% when 'R' %>
+              <td class="dark">♖</td>
+            <% when 'N' %>
+              <td class="dark">♘</td>
+            <% when 'B' %>
+              <td class="dark">♗</td>
+            <% when 'Q' %>
+              <td class="dark">♕</td>
+            <% when 'K' %>
+              <td class="dark">♔</td>
+            <% when 'P' %>
+              <td class="dark">♙</td>
+
+            <% end %>
+          <% end %>
         <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
-
-        <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  <tr>
-    <th>3</th>
-    <% @positions[5].each_with_index do |p, index| %>
-      <% if index % 2 != 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
-
-        <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
-
-        <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  <tr>
-    <th>2</th>
-    <% @positions[6].each_with_index do |p, index| %>
-      <% if index % 2 == 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
-
-        <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
-
-        <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  <tr>
-    <th>1</th>
-    <% @positions[7].each_with_index do |p, index| %>
-      <% if index % 2 != 0 %>
-        <% case p
-           when ' ' %><td class="light"></td>
-        <% when 'r' %><td class="light">♜</td>
-        <% when 'n' %><td class="light">♞</td>
-        <% when 'b' %><td class="light">♝</td>
-        <% when 'q' %><td class="light">♛</td>
-        <% when 'k' %><td class="light">♚</td>
-        <% when 'p'%><td class="light">♟</td>
-        <% when 'R' %><td class="light">♖</td>
-        <% when 'N' %><td class="light">♘</td>
-        <% when 'B' %><td class="light">♗</td>
-        <% when 'Q' %><td class="light">♕</td>
-        <% when 'K' %><td class="light">♔</td>
-        <% when 'P'%><td class="light">♙</td>
-
-        <% end %>
-      <% else %>
-        <% case p
-           when ' ' %><td class="dark"></td>
-        <% when 'r' %><td class="dark">♜</td>
-        <% when 'n' %><td class="dark">♞</td>
-        <% when 'b' %><td class="dark">♝</td>
-        <% when 'q' %><td class="dark">♛</td>
-        <% when 'k' %><td class="dark">♚</td>
-        <% when 'p'%><td class="dark">♟</td>
-        <% when 'R' %><td class="dark">♖</td>
-        <% when 'N' %><td class="dark">♘</td>
-        <% when 'B' %><td class="dark">♗</td>
-        <% when 'Q' %><td class="dark">♕</td>
-        <% when 'K' %><td class="dark">♔</td>
-        <% when 'P'%><td class="dark">♙</td>
-
-        <% end %>
-      <% end %>
-    <%end %>
-  </tr>
-  </tbody>
-</table>
-<p><strong>Who moves: </strong><%= @whoMoves %></p>
-<p><strong>Status: </strong><%= @game_status %></p>
-
-<% if (current_player.id == @white_player.id and @whoMoves == 'white') or (current_player.id == @black_player.id and @whoMoves = 'black')%>
-  <p>What's your next move?</p>
-  <%= form_tag({controller: "games", action: "makeMove"}, method: "post") do %>
-    <%= hidden_field_tag :game_id, @game_id %>
-    <%= text_field_tag :movement %>
-    <%= submit_tag "Submit" %>
-  <% end %>
-
-<%end %>
-
-<%= button_to analyze_path(@game_id), method: :post, class: 'btn btn-primary' do %>
-  Analyze
-<% end %>
-<%= link_to "Back to list", playerGames_path_url(:id => current_player.id)%>
-
-
-<% if flash[:variants] %>
-  <h5>Variants</h5>
-  <ul>
-  <% flash[:variants].each do |value| %>
-    <li><ul>
-      <li>Moves: <%= value[0] %></li>
-      <% if current_player.id == @black_player.id  %>
-        <li>CP: <%= -(value[1].to_i) %></li>
-      <% else %>
-        <li>CP: <%= value[1] %></li>
-      <% end %>
-    </ul></li>
-  <% end %>
-  </ul>
-<% end %>
-
-<% if flash[:error] %>
-  <div class="alert alert-danger">
-    <%= flash[:error] %>
+      </tr>
+      </tbody>
+    </table>
   </div>
-<% end %>
+  <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <div class="mt-4">
+      <div class="row">
+        <div class="col-sm-4">
+          <h5><strong>White:</strong></h5>
+        </div>
+        <div class="col-sm-8">
+          <p><%= @white_player.username %></p>
+        </div>
+      </div>
 
-<% if flash[:analysis_error] %>
-  <div class="alert alert-danger">
-    <%= flash[:analysis_error] %>
+      <div class="row">
+        <div class="col-sm-4">
+          <h5><strong>Black:</strong></h5>
+        </div>
+        <div class="col-sm-8">
+          <p><%= @black_player.username %></p>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <p><strong>Who moves:</strong> <%= @whoMoves %></p>
+      </div>
+
+      <div class="mb-4">
+        <p><strong>Status:</strong> <%= @game_status %></p>
+      </div>
+
+      <% if (current_player.id == @white_player.id && @whoMoves == 'white') || (current_player.id == @black_player.id && @whoMoves == 'black') %>
+        <div class="mb-4">
+          <p>What's your next move?</p>
+          <%= form_tag({ controller: "games", action: "makeMove" }, method: "post") do %>
+            <%= hidden_field_tag :game_id, @game_id %>
+            <%= text_field_tag :movement, nil, class: "form-control mb-2" %>
+            <%= submit_tag "Submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= button_to analyze_path(@game_id), method: :post, class: "btn btn-primary mb-2" do %>
+        Analyze
+      <% end %>
+
+      <%= link_to "Back to list", playerGames_path_url(id: current_player.id), class: "btn btn-secondary" %>
+
+      <% if flash[:variants] %>
+        <div class="mt-4">
+          <h5>Variants</h5>
+          <ul>
+            <% flash[:variants].each do |value| %>
+              <li>
+                <ul>
+                  <li>Moves: <%= value[0] %></li>
+                  <% if current_player.id == @black_player.id %>
+                    <li>CP: <%= -(value[1].to_i) %></li>
+                  <% else %>
+                    <li>CP: <%= value[1] %></li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% if flash[:error] %>
+        <div class="alert alert-danger mt-4">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+
+      <% if flash[:analysis_error] %>
+        <div class="alert alert-danger mt-4">
+          <%= flash[:analysis_error] %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
 
 </body>
 </html>
